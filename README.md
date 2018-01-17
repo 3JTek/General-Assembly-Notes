@@ -1,3 +1,20 @@
-# My Awesome Book
+# General Assembly London
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+## Web Development Immersive Text Book
+
+
+
+This gitbook will serve as a text book to accompany your WDI course. It is divided into several sections that mirror the modules of the course. You will also find extra goodies like technical code tests, labs and homework assignments.
+
+
+
+### Using this book:
+
+All of your lessons will have associated resources in this book. That may be written notes or links to online resources and documentation.
+
+
+
+Your instructor will indicate which sections are relevant to your current position in the course.
+
+
+
