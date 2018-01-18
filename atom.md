@@ -51,8 +51,8 @@
 | <kbd>CMD</kbd> + <kbd>]</kbd> / <kbd>[</kbd> | Indent/outdent current line |
 | <kbd>CMD</kbd> + <kbd>CTRL</kbd> + <kbd>UP</kbd>/<kbd>DOWN</kbd> | Move current line up/down |
 | <kbd>CMD</kbd> + <kbd>SHIFT</kbd> + <kbd>D</kbd> | Duplicate current line |
-| <kbd>ALT</kbd> + <kbd>RIGHT</kbd>/<kbd>LEFT</kbd> | Jump to beginning/end of word |
-| <kbd>CMD</kbd> + <kbd>RIGHT</kbd>/<kbd>LEFT</kbd> | Jump to beginning/end of line |
+| <kbd>ALT</kbd> + <kbd>LEFT</kbd>/<kbd>RIGHT</kbd> | Jump to beginning/end of word |
+| <kbd>CMD</kbd> + <kbd>LEFT</kbd>/<kbd>RIGHT</kbd> | Jump to beginning/end of line |
 
 ## Selection
 
