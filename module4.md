@@ -2,5 +2,5 @@
 
 * #### [Immutability](/immutability.md)
 * #### [AJAX](/react-ajax.md)
-* #### [Routing](/react-router.md)
+* #### [Routing](/react-routing.md)
 * #### [RESTful React](/restful-react.md)
