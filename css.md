@@ -94,12 +94,19 @@ You can calculate the level of specificity in the following way:
 
 ![](https://camo.githubusercontent.com/6b081a2cf093cfb2e43b92df882a8c16aaad2f7d/68747470733a2f2f6373732d747269636b732e636f6d2f77702d636f6e74656e742f637373747269636b732d75706c6f6164732f63737373706563696669636974792d63616c632d312e706e67)
 
+Specificity is calculated as **113**
+
 ![](https://camo.githubusercontent.com/e758389423bb633fc76c1853f864dd1df6073620/68747470733a2f2f6373732d747269636b732e636f6d2f77702d636f6e74656e742f637373747269636b732d75706c6f6164732f63737373706563696669636974792d63616c632d322e706e67)
+
+Specificity is calculated as **23**
 
 ![](https://camo.githubusercontent.com/5eaa9de805f20968233b8664ff56318559b41588/68747470733a2f2f6373732d747269636b732e636f6d2f77702d636f6e74656e742f637373747269636b732d75706c6f6164732f63737373706563696669636974792d63616c632d342e706e67)
 
+Specificity is calculated as **1000**
+
 ## Further reading
 
+- [CSS Selector Cheatsheet](https://gist.github.com/smutnyleszek/809a69dd05e1d5f12d01)
 - [CSS Diner](https://flukeout.github.io/)
 - [CSS-Tricks Beginners Guide](https://css-tricks.com/guides/beginner/)
 - [CodePen](https://codepen.io/)
