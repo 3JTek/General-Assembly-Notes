@@ -4,3 +4,4 @@
 * #### [AJAX](/react-ajax.md)
 * #### [Routing](/react-routing.md)
 * #### [RESTful React](/restful-react.md)
+* #### [Sorting & Filtering](/sorting-filtering.md)
