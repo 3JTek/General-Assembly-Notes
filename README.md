@@ -14,3 +14,4 @@ Your instructor will indicate which sections are relevant to your current positi
 ### Contents:
 
 1. [Module 1 - Fundamentals](module1.md)
+1. [Appendix - Dev Tools and Workflow](dev-tools.md)
