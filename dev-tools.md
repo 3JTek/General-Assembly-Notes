@@ -2,4 +2,4 @@
 
 * #### [Installfest](/installfest.md)
 * #### [Terminal](/terminal.md)
-* #### [Atom Cheatsheet](/atom-editor-cheat-sheet.pdf)
+* #### [Atom Cheatsheet](/atom.md)
