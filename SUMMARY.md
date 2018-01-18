@@ -9,3 +9,8 @@
   * [Installfest](/installfest.md)
   * [Terminal](/terminal.md)
   * [Atom Cheatsheet](/atom.md)
+* [Module 4 - React](module4.md)
+  * [Immutability](/immutability.md)
+  * [AJAX](/react-ajax.md)
+  * [Routing](/react-router.md)
+  * [RESTful React](/restful-react.md)
