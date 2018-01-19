@@ -7,7 +7,7 @@
   * [CSS](/css.md)
   * [Responsive CSS](/responsive-css.md)
   * [CSS Frameworks](/css-frameworks.md)
-  * [SASS](/sass,md)
+  * [SASS](/sass.md)
 * [Module 4 - React](module4.md)
   * [Immutability](/immutability.md)
   * [AJAX](/react-ajax.md)
