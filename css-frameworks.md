@@ -8,6 +8,10 @@ However, there are plenty of resources out there to help us develop attractive s
 
 Throughout this course we will focus on [Bulma](bulma.io), however, all CSS frameworks follow the same basic principals for installation and usage.
 
+## Why Bulma?
+
+Bulma is a modern CSS framework which uses flexbox and is highly customisable. It is lightweight, and has no JavaScript dependencies, which means it can easily be installed in to any project, including Angular and React.
+
 ## How does it work?
 
 Broadly speaking a CSS framework is a collection of styles attached to pre-defined classes. These classes can be assigned to different elements in order to style them.
