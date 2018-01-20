@@ -51,21 +51,47 @@ A file can move between these states like so:
 
 ### A practical example
 
-Let's look at that again, but with actual Git commands now:
+Let's look at that again, but with actual Git commands now. We can use `git status` to see the status of our repo at any moment.
 
 1. Create a new file:
   ```
   touch index.html
+  git status
   ```
-  The file is **untracked**
+  ```
+  On branch master
+
+  Initial commit
+
+  Untracked files:
+    (use "git add <file>..." to include in what will be committed)
+
+  	index.html
+  ```
+  The file is **untracked**. Git has no previous record of it.
+
 1. Add the file to the staging area:
   ```
   git add index.html
+  git status
   ```
-  The file is **staged**
+  ```
+  On branch master
+
+  Initial commit
+
+  Changes to be committed:
+    (use "git rm --cached <file>..." to unstage)
+
+  	new file:   index.html
+  ```
+  The file is **staged**. It is ready to be committed.
 1. Make a commit:
   ```
   git commit -m "Adding index.html"
+  [master (root-commit) 1197125] Adding index.html
+   1 file changed, 0 insertions(+), 0 deletions(-)
+   create mode 100644 index.html
   ```
   The file is now **unmodified** and a record of it at this moment has been recorded.
   The `-m` option stands for **message**. All commits must have an accompanying message.
@@ -81,5 +107,18 @@ Let's look at that again, but with actual Git commands now:
 
     </body>
   </html>
+  ```
+  ```
+  git status
+  ```
+  ```
+  On branch master
+  Changes not staged for commit:
+    (use "git add <file>..." to update what will be committed)
+    (use "git checkout -- <file>..." to discard changes in working directory)
+
+  	modified:   index.html
+
+  no changes added to commit (use "git add" and/or "git commit -a")
   ```
   The file is now **modified**. To take a snapshot of this update we need to repeat steps 2 and 3.
