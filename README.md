@@ -4,7 +4,7 @@
 
 ## Web Development Immersive Text Book
 
-This gitbook will serve as a text book to accompany your WDI course. It is divided into several sections that mirror the modules of the course. You will also find extra goodies like technical code tests, labs and homework assignments.
+This Gitbook will serve as a text book to accompany your WDI course. It is divided into several sections that mirror the modules of the course. You will also find extra goodies like technical code tests, labs and homework assignments.
 
 ### Using this book:
 
@@ -14,5 +14,5 @@ Your instructor will indicate which sections are relevant to your current positi
 
 ### Contents:
 
-1. [Module 1 - Fundamentals](module-01)
-2. [Appendix - Dev Tools and Workflow](appendix-01)
+1. [Module 1 - Fundamentals](module-01/README.md)
+2. [Appendix I - Dev Tools and Workflow](appendix-01/README.md)

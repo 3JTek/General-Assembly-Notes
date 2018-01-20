@@ -16,7 +16,7 @@
   * [Routing](module-04/react-routing.md)
   * [RESTful React](module-04/restful-react.md)
   * [Sorting & Filtering](module-04/sorting-filtering.md)
-* [Appendix - Dev Tools & Workflow](appendix-01/README.md)
+* [Appendix I - Dev Tools & Workflow](appendix-01/README.md)
   * [Installfest](appendix-01/installfest.md)
   * [Terminal](appendix-01/terminal.md)
   * [Git & Github](appendix-01/git-github.md)
