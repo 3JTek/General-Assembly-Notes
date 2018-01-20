@@ -79,7 +79,7 @@ Have a play around with the `flex-direction` property and notice that the column
 
 ## Further reading
 
-[A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-[Basic Concepts of Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox)
-[Interactive Flexbox Cheatsheet](https://yoksel.github.io/flex-cheatsheet/)
-[Flexbox Froggy](http://flexboxfroggy.com/)
+- [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+- [Basic Concepts of Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox)
+- [Interactive Flexbox Cheatsheet](https://yoksel.github.io/flex-cheatsheet/)
+- [Flexbox Froggy](http://flexboxfroggy.com/)
