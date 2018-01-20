@@ -18,11 +18,18 @@ Since phones have become increasingly larger some designers prefer these breakpo
 
 - mobile: 320px - 768px
 - tablet: 769px - 1024px
-- desktop: < 1025px
+- desktop: < 1024px
+
+There's also a [great article by David Gilbertson](https://medium.freecodecamp.org/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862) which advocates:
+
+- mobile: > 600px
+- tablet portrait: 600px - 899px
+- tablet landscape: 900px - 1199px
+- desktop: 1200px
 
 ## `@media` statement
 
-In order to respond to these breakpoints we can use the `@meadia` statement to send specific styles to specific breakpoints. The syntax looks like this:
+In order to respond to these breakpoints we can use the `@media` statement to send specific styles to specific breakpoints. The syntax looks like this:
 
 ```css
 @media [media] and [condition] {
@@ -57,7 +64,7 @@ Once the mobile design has been realised, it's normally a case of simply changin
 
 ### The viewport tag
 
-Mobile and tablet devises display web pages by zooming out, so that the desktop design is displayed. This is not what we want, as none of out media queries would be realised.
+Mobile and tablet devices display web pages by zooming out, so that the desktop design is displayed. This is not what we want, as none of out media queries would be realised.
 
 In order to prevent this default behaviour, we can use a `meta` tag in the `head` of our `html` document:
 
@@ -65,9 +72,10 @@ In order to prevent this default behaviour, we can use a `meta` tag in the `head
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 ```
 
-That says: don't try to render a zoomed out desktop width page, but instead use the width of the devise, and set the scale (or zoom level) to 1. Now our breakpoints will come into play.
+That says: don't try to render a zoomed out desktop page, but instead use the width of the device, and set the scale (or zoom level) to 1. Now our breakpoints will come into play.
 
 ## Further reading
 - [Get Started with Responsive Web Design](http://www.creativebloq.com/responsive-web-design/get-started-5132987)
 - [The Most Used Responsive Breakpoints in 2017 Of Mine](https://medium.com/@uiuxlab/the-most-used-responsive-breakpoints-in-2017-of-mine-9588e9bd3a8a)
 - [Responsive Web Design Basics](https://developers.google.com/web/fundamentals/design-and-ux/responsive/)
+- [The 100% correct way to do CSS breakpoints](https://medium.freecodecamp.org/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862)
