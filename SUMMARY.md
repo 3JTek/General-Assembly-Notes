@@ -18,4 +18,5 @@
 * [Appendix - Dev Tools & Workflow](/dev-tools.md)
   * [Installfest](/installfest.md)
   * [Terminal](/terminal.md)
+  * [Git & Github](/git-github.md)
   * [Atom Cheatsheet](/atom.md)
