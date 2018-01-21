@@ -63,8 +63,8 @@ The function itself is passed two arguments from the array: a variable containin
 
 In the example above the `initalValue` is set to 0. The function is run once per element in the array. The values update as follows:
 
-|**Iteration**|**`sum`**|**`amount`|
-|-------------|---------|----------|
+| **Iteration** | **`sum`** | **`amount`** |
+|-----|---|----|
 | 1st | 0 | 10 |
 | 2nd | 10 | 5 |
 | 3rd | 15 | 78 |
