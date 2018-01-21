@@ -51,7 +51,7 @@ add(10, 8); // => 18
 
 ```js
 const add = function(a, b) {
-  return 'Hello';
+  return a + b;
 };
 add(4, 5); // => 9
 ```
