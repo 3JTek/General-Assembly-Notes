@@ -1,6 +1,8 @@
 # Array Methods
 
-Arrays are amazingly useful and can be used to solve many challenging problems. Here are some of the more common ones:
+Arrays are amazingly useful and can be used to solve many challenging problems. Most of the time, we need to _iterate_ over the array using some logic to modify it in some way. We could use a `for` loop, but there are a number of in-build array methods that can do a lot of the heavy lifting for us.
+
+Here are a few of the more common ones:
 
 ## `.forEach`
 
