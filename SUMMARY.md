@@ -11,6 +11,7 @@
   * [SASS](module-01/sass.md)
   * [CSS Frameworks](module-01/css-frameworks.md)
   * [JavaScript](module-01/js.md)
+  * [Functions](module-01/functions.md)
   * [Arrays](module-01/arrays.md)
   * [Array Methods](module-01/array-methods.md)
 * [Module 4 - React](module-04/README.md)
