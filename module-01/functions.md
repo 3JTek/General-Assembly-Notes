@@ -2,19 +2,19 @@
 
 One of the most important parts of any programming language is the ability to separate logic into smaller chunks, and to be able to reuse those chucks.
 
-The a very important principal when writing code to not repeat yourself. In fact code can be described as **DRY** (Don't Repeat Yourself) or the opposite **WET** (We Enjoy Typing, or Write Everything Twice).
+The a very important principal when writing code to not repeat yourself. In fact code can be described as **DRY** \(Don't Repeat Yourself\) or the opposite **WET** \(We Enjoy Typing, or Write Everything Twice\).
 
 Writing the same logic in multiple places is not only a waste of time but also leads to bugs later on.
 
 Imagine you are writing some functionality to convert pounds and stone into kilograms and vice verser. You need to use it in multiple places in your code. After a few weeks you have the same logic in 18 different files, but you realise that the logic is flawed, your maths is slightly out. You now have to go back through 100s of lines of code in 18 different files to make sure you correct the flaw. Chances are you miss one or two. In a few more weeks you may have slight differences in all 18 instances of that conversion logic. Now you application is full of bugs and the code has gotten out of hand.
 
->**Note**: True story. I still have nightmares...
+> **Note**: True story. I still have nightmares...
 
 Functions are a convenient way to hold small packets of logic that can be reused throughout a codebase. If the conversion logic from the example above was in a function, if the logic needed to be changed, it could be changed within the function, and that change would be reflected instantly throughout the entire code base.
 
 Using functions makes our code simpler, easier to read and more maintainable.
 
-## Writing functions
+## Writing functions
 
 Functions first need to be declared, then called or _invoked_. The function declaration describes what the function should do, but it does not actually perform that logic until it is called. This makes functions **reusable**.
 
@@ -26,7 +26,7 @@ Functions have three main parts. The name, in this case `add`, arguments, which 
 
 ### Calling a function
 
-The function above has been declared, which means it has been loaded into memory, and is ready to be used. In order to actually use it, we need to call it, or invoke it. To do that we need state the name and parentheses to indicate we want to run the logic:
+The function above has been declared, which means it has been loaded into memory, and is ready to be used. In order to actually use it, we need to call it, or invoke it. To do that we need to state the name and parentheses to indicate we want to run the logic:
 
 ```js
 add(2, 6) // => 8
@@ -39,6 +39,7 @@ In the example above `2` and `6` are the arguments, and `8` is the return value.
 Functions can be declared in several different ways in JavaScript.
 
 ### Named function
+
 ```js
 function add(a, b) {
   return a + b;
@@ -47,6 +48,7 @@ add(10, 8); // => 18
 ```
 
 ### Anonymous function stored in a variable
+
 ```js
 const add = function(a, b) {
   return 'Hello';
@@ -55,6 +57,7 @@ add(4, 5); // => 9
 ```
 
 ### Arrow function stored in a variable
+
 ```js
 const add = (a, b) => {
   return a + b;
@@ -62,7 +65,7 @@ const add = (a, b) => {
 add(); // => "Hello"
 ```
 
-All the above function declarations are essentially the same, they will all run the same logic and can be called in the same way.
+All the above function declarations are essentially the same, they will all run the same logic and can be called in the same way.  
 The differences between them are very subtle, so for now, just think of them as different ways of writing the same thing.
 
 ## Arguments
@@ -129,6 +132,9 @@ Now if an argument is omitted a 0 is used in its place.
 
 ## Further reading
 
-- [How To Define Functions in JavaScript](https://www.digitalocean.com/community/tutorials/how-to-define-functions-in-javascript)
-- [What Are Pure Functions And Why Use Them](https://medium.com/@jamesjefferyuk/javascript-what-are-pure-functions-4d4d5392d49c)
-- [JavaScript Arrow Function Introduction](http://wesbos.com/arrow-functions/)
+* [How To Define Functions in JavaScript](https://www.digitalocean.com/community/tutorials/how-to-define-functions-in-javascript)
+* [What Are Pure Functions And Why Use Them](https://medium.com/@jamesjefferyuk/javascript-what-are-pure-functions-4d4d5392d49c)
+* [JavaScript Arrow Function Introduction](http://wesbos.com/arrow-functions/)
+
+
+
