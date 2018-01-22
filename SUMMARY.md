@@ -13,6 +13,7 @@
   * [JavaScript](module-01/js.md)
   * [Functions](module-01/functions.md)
   * [Scope](module-01/scope.md)
+  * [Objects](module-01/objects.md)
   * [Arrays](module-01/arrays.md)
   * [Array Methods](module-01/array-methods.md)
 * [Module 4 - React](module-04/README.md)
