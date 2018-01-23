@@ -148,5 +148,5 @@ For the duration of the course, we won't be following a TDD approach - because, 
 
 ## Further reading
 
-[What is Agile?](http://www.agilenutshell.com/what_is_agile)
-[Agile vs Waterall: A Side-by-side Comparison](https://www.upwork.com/hiring/development/agile-vs-waterfall/)
+- [What is Agile?](http://www.agilenutshell.com/what_is_agile)
+- [Agile vs Waterall: A Side-by-side Comparison](https://www.upwork.com/hiring/development/agile-vs-waterfall/)

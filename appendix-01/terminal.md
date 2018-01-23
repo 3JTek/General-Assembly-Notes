@@ -87,5 +87,5 @@ When using the terminal there is no undo, so **be careful!**
 For example if you typed: `rm -rf /` (the `f` means force) it would delete your entire hard drive!
 
 ## Further reading
-[Useful \*NIX Shell Commands for Web Developers](https://code.tutsplus.com/articles/useful-nix-shell-commands-for-web-developers--cms-26161)
-[Terminal Mac Cheatsheet](https://github.com/0nn0/terminal-mac-cheatsheet)
+- [Useful \*NIX Shell Commands for Web Developers](https://code.tutsplus.com/articles/useful-nix-shell-commands-for-web-developers--cms-26161)
+- [Terminal Mac Cheatsheet](https://github.com/0nn0/terminal-mac-cheatsheet)

@@ -86,14 +86,15 @@ HTML tags fall in to one of two categories, `inline` and `block` level elements.
 
 A block level element takes up the whole width of the parent element, and can be styled with padding and margin. An inline element sits in the flow of the document like a word in a sentence, and allows content to sit either side of it. We'll be looking more at this later in the CSS part of the module.
 
-## Which HTML tag should I use?
-
-Selecting the correct tag for the data you want to render can sometimes be a little tricky, since there are some tags that have nuanced meanings. However the most common ones are fairly self-explanatory.
+## Common HTML tags
 
 Here is a list of a few of the most common tags you'll be using on the course:
 
 | Tag | Meaning | Block / Inline | Info |
 |-----|---------|------|
+| `<header>` | Header | The main heading of the page. This usually contains the site's branding and navigation. |
+| `<main>` | Main Content | The content of the page. This usually immediately follows the header. |
+| `<footer>` | Footer | The footer of the page. This generally holds navigation links and copyright information. |
 | `<div>` | Division  | Block | Used to group elements for styling purposes. _Has no semantic meaning._ |
 | `<span>` | Span | Inline | Similar to `<div>` |
 | `<p>` | Paragraph | Block |  |
@@ -108,6 +109,14 @@ Here is a list of a few of the most common tags you'll be using on the course:
 | `<form>` | Denotes a form | Block |  |
 | `<input>` | User input field | Inline | Should be inside a form |
 | `<button>` | A button | Inline | Will submit a form when inside a form |
+
+## `section`, `article` & `aside`
+
+The three most nuanced HTML tags are `section`, `article` & `aside` and are worth taking a moment to understand:
+
+- **`section`**: A section defines a distinct part of a web page. Imagine a newspaper site, it may have the following different sections on the homepage: top stories, politics, sport etc.
+- **`article`**: An article defines a part of a web page that would make sense on its own. An example would be a news story. It could appear on a completely different site and still make sense.
+- **`aside`**: This is a piece of relevant information which, if omitted, would not take away from the meaning of the web page. An image or a graph could be considered an aside. Although tempting, **an aside is NOT a sidebar, or side panel**. An aside has nothing to do with positioning. (A side panel would be considered a `section`).
 
 ## Further reading
 
