@@ -16,6 +16,7 @@
   * [Objects](module-01/objects.md)
   * [Arrays](module-01/arrays.md)
   * [Array Methods](module-01/array-methods.md)
+  * [DOM Events](module-01/dom-events.md)
 * [Module 4 - React](module-04/README.md)
   * [Immutability](module-04/immutability.md)
   * [AJAX](module-04/react-ajax.md)
