@@ -73,7 +73,7 @@ The differences between them are very subtle, so for now, just think of them as 
 Arguments are variables that only exist within a function, but can be set _when the function is called_. Using the weight conversion example we can write the following function:
 
 ```js
-stonesAndPoundsToKilograms(stones, pounds) {
+function stonesAndPoundsToKilograms(stones, pounds) {
   const totalStones = stones * 14 + pounds;
   const totalKilograms = totalStones * 0.453592;
   return totalKilograms;
@@ -135,6 +135,3 @@ Now if an argument is omitted a 0 is used in its place.
 * [How To Define Functions in JavaScript](https://www.digitalocean.com/community/tutorials/how-to-define-functions-in-javascript)
 * [What Are Pure Functions And Why Use Them](https://medium.com/@jamesjefferyuk/javascript-what-are-pure-functions-4d4d5392d49c)
 * [JavaScript Arrow Function Introduction](http://wesbos.com/arrow-functions/)
-
-
-
