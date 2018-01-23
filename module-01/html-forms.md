@@ -55,7 +55,7 @@ Almost everything inside a form is an `input`. An input is a form field that can
 
 #### Input tag attributes
 
-There are a few attributes that are useful when working with input field:
+There are a few attributes that are useful when working with input fields:
 
 ```html
 <input type="text" autofocus /> <!-- field will be focused on page load -->

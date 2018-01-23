@@ -11,6 +11,7 @@
   * [SASS](module-01/sass.md)
   * [CSS Frameworks](module-01/css-frameworks.md)
   * [JavaScript](module-01/js.md)
+  * [Data Types & Variables](module-01/data-types-variables.md)
   * [Functions](module-01/functions.md)
   * [Scope](module-01/scope.md)
   * [Objects](module-01/objects.md)
