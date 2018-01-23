@@ -92,9 +92,9 @@ Here is a list of a few of the most common tags you'll be using on the course:
 
 | Tag | Meaning | Block / Inline | Info |
 |-----|---------|------|
-| `<header>` | Header | The main heading of the page. This usually contains the site's branding and navigation. |
-| `<main>` | Main Content | The content of the page. This usually immediately follows the header. |
-| `<footer>` | Footer | The footer of the page. This generally holds navigation links and copyright information. |
+| `<header>` | Header | Block | The main heading of the page. This usually contains the site's branding and navigation. |
+| `<main>` | Main Content | Block | The content of the page. This usually immediately follows the header. |
+| `<footer>` | Footer | Block | The footer of the page. This generally holds navigation links and copyright information. |
 | `<div>` | Division  | Block | Used to group elements for styling purposes. _Has no semantic meaning._ |
 | `<span>` | Span | Inline | Similar to `<div>` |
 | `<p>` | Paragraph | Block |  |
