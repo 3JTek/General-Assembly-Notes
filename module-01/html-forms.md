@@ -10,22 +10,20 @@ The `form` tag is a wrapper for the content of the form. Only elements inside th
 
 ### The `<label>` tag.
 
-A `label` is used to indicate what information the user is expected to enter in each field of the form. A label can be associated with a specific input either with a `for` attriube, containing the input's id:
+A `label` is used to indicate what information the user is expected to enter in each field of the form. A label can be associated with a specific input either with a `for` attribute, containing the input's id:
 
 ```html
 <label for="name">Name</label>
 <input type="text" id="name">
 ```
 
-Or by placing the input _inside_ the label:
+Or by placing the input _inside_ the label. This is particularly useful with radio buttons and checkboxes:
 
 ```html
 <label>
   <input type="radio"> Pick me!
 </label>
 ```
-
-This is particularly useful for radio buttons and checkboxes.
 
 ### The `<input>` tag.
 
@@ -55,6 +53,17 @@ Almost everything inside a form is an `input`. An input is a form field that can
 | `url` | a valid URL (can be modified with `pattern` and `maxlength` attributes |
 | `week` | week of the year (opens a week picker) |
 
+#### Input tag attributes
+
+There are a few attributes that are useful when working with input field:
+
+```html
+<input type="text" autofocus /> <!-- field will be focused on page load -->
+<input type="text" autocomplete="off" /> <!-- will prevent the field showing previous user entries -->
+<input type="text" disabled /> <!-- prevents the user from editing the field's contents -->
+<input type="checkbox" checked /> <!-- will be checked on page load, also works with radio buttons -->
+```
+
 ### The `<select>` & `<option>` tags
 
 A `select` tag displays a dropdown menu. A select contains `options` one of each item in the drop down menu. Each options can be `selected` (ie that option is displayed when the page is loaded) and `disabled` (ie cannot be selected by the user). Typically a select has an instructional menu option which is `selected` and `disabled`.
@@ -70,7 +79,7 @@ A `select` tag displays a dropdown menu. A select contains `options` one of each
 
 ### The `<textarea>` tag
 
-If you need to handle a lot of data from the user, a review or blog post for example, you need to use a `textarea`. This will accept multi-lines of text and will keep line-breaks. It also takes `row` and `col` attributes which we traditionally used to set the dimentions of the input, however it is more common to use CSS these days.
+If you need to handle a lot of data from the user, a review or blog post for example, you need to use a `textarea`. This will accept multi-lines of text and will keep line-breaks. It also takes `row` and `col` attributes which we traditionally used to set the dimensions of the input, however it is more common to use CSS these days.
 
 ```html
 <textarea></textarea>
