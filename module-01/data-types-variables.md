@@ -60,7 +60,7 @@ console.log(Math.sqrt(9)); // => 3
 console.log(Math.round(9.5)); // => 10
 console.log(Math.ceil(10.2)); // => 11
 console.log(Math.floor(6.9)); // => 6
-console.log(Math.P); // => 3.141592653589793;
+console.log(Math.PI); // => 3.141592653589793;
 console.log(Math.random()); // => 0.7198309201452662;
 ```
 
@@ -97,6 +97,7 @@ All strings have certain in-build properties and functions (or _methods_), which
 | `replace` | replaces a substring with a string | `'hi there'.replace('hi', 'hello')`
 | `charAt` | finds the character at the given index | `'javascript'.charAt(1)`
 | `toUpperCase` | makes all the characters uppercase | `'stop shouting'.toUpperCase()`
+| `toLowerCase` | makes all the characters lowercase | `'I CAN\'T HELP IT!'.toLowerCase()`
 
 ### Concatenation
 
@@ -126,6 +127,17 @@ console.log(parseFloat('43.5627')); // => 43.5627
 console.log(parseFloat('10')); // => 10
 ```
 
+We can also use the unary operator (+):
+
+```js
+console.log(+'42'); // => 42
+```
+
+And finally the `Number` constructor:
+
+```js
+Number('101'); // => 101
+```
 ### Concatenating strings and numbers
 
 When we add a number to a string, or a string to a number, the result is always a string:
@@ -133,6 +145,16 @@ When we add a number to a string, or a string to a number, the result is always 
 ```js
 console.log('10' + 10) // => "1010"
 console.log(4 + 9 + '3') // => "133"
+```
+
+### Converting numbers into strings
+
+There are a few different ways of converting a number into a string:
+
+```js
+console.log((56).toString()); // => "56"
+console.log('' + 56); // => "56"
+console.log(String(88)); // => "88"
 ```
 
 ## Boolean
@@ -160,9 +182,21 @@ console.log(!null); // => true
 console.log(![]); // => false
 ```
 
+### Converting a value to a boolean
+
+The most common way of converting any value to a boolean is with a double bang (`!!`). A single bang will convert the value to a boolean, _and_ flip it, the second bang flips it back:
+
+```js
+console.log(!!false); // => false
+console.log(!!10); // => true
+console.log(!!''); // => false
+console.log(!!null); // => false
+console.log(!![]); // => true
+```
+
 ## Variables
 
-A holds the data in memory for when you might need it later on. A variable can be defined in three ways in JavaScript, with the keywords `var`, `let` and `const`.
+A variable holds data in memory for when you might need it later on. A variable can be defined in three ways in JavaScript, with the keywords `var`, `let` and `const`.
 
 - **`var`**: this is now considered the weakest way of defining a variable and should generally no longer be used in JavaScript, although it is still valid.
 - **`let`**: this should be used when you will need to re-assign the variable later. This is particularly useful in loops.
