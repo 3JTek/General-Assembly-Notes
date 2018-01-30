@@ -65,3 +65,34 @@ animals.forEach = function(callback) {
 As you can see, we iterate over the animals array, (using `this` to refer to it), and call the callback function once per iteration, passing the correct arguments to it. This is where the name comes from: the function is _called back_ by the method it was passed to.
 
 Whenever you see a function passed as an argument to another function, it will be _called back_ at some point by the higher order function.
+
+## Methods as callbacks
+
+It's important to understand that when we pass a method as a callback, it is passed _without_ its object (also known as the context). What this means is that when the callback is invoked inside the higher order function, `this` will refer to the `window` object, not the context.
+
+Let's look at an example:
+
+```js
+const logger = {
+  log(element) {
+    console.log(this, element);
+  }
+}
+
+logger.log(10); // =>  Object { log: function(element) {} } 10
+
+[1,2,3].forEach(logger.log);
+// Window { ... } 1
+// Window { ... } 2
+// Window { ... } 3
+```
+
+When we call `log` from the context of `logger`, `this` points to `logger`, however, when we pass `logger.log` as a callback function, it is called with no context, therefore `this` becomes the window.
+
+This is quite confusing at first, but remember, if you are not sure what `this` is pointing to, you just need to log it.
+
+## Further reading
+
+- [What the Heck is a Callback](https://codeburst.io/javascript-what-the-heck-is-a-callback-aba4da2deced)
+- [Callback Hell](http://callbackhell.com/)
+- [Callbacks in JavaScript](https://zellwk.com/blog/callbacks/)
