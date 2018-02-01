@@ -24,6 +24,7 @@
   * [HTML5 Audio](module-01/html5-audio.md)
   * [Constructors & Prototype](module-01/constructors-prototype.md)
   * [Date & Time](module-01/date-time.md)
+  * [`this`](module-01/this.md)
 * [Module 4 - React](module-04/README.md)
   * [Immutability](module-04/immutability.md)
   * [AJAX](module-04/react-ajax.md)
