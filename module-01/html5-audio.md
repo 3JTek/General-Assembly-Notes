@@ -74,5 +74,5 @@ We can interact with the audio player with the following properties an methods:
 ## Further reading
 
 - [HTMLMediaElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement)
-- [HTML5 Audio Tutorial](https://html5tutorial.info/html5-audio.php)
+- [HTML - Audio](https://tutorialehtml.com/en/html-tutorial-embed-audio/)
 - [Create a Customized HTML5 Audio Player](https://webdesign.tutsplus.com/tutorials/create-a-customized-html5-audio-player--webdesign-7081)
