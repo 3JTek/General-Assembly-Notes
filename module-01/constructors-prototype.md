@@ -78,13 +78,13 @@ class Car {
     this.speed = 0;
   }
 
-  speedUp() {
+  speedUp(amount) {
     if((this.speed + amount) >= this.maxSpeed) this.speed = this.maxSpeed;
     else this.speed += amount;
     return this.speed;
   }
 
-  slowDown() {
+  slowDown(amount) {
     if((this.speed - amount) >= 0) this.speed = 0;
     else this.speed -= amount;
     return this.speed;
