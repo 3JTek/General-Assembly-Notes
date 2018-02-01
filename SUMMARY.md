@@ -22,6 +22,7 @@
   * [The DOM](module-01/the-dom.md)
   * [DOM Events](module-01/dom-events.md)
   * [HTML5 Audio](module-01/html5-audio.md)
+  * [Constructors & Prototype](module-01/constructors-prototype.md)
 * [Module 4 - React](module-04/README.md)
   * [Immutability](module-04/immutability.md)
   * [AJAX](module-04/react-ajax.md)
