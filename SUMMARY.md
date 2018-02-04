@@ -23,6 +23,7 @@
   * [DOM Events](module-01/dom-events.md)
   * [HTML5 Audio](module-01/html5-audio.md)
   * [Constructors & Prototype](module-01/constructors-prototype.md)
+  * [Closures](module-01/closures.md)
   * [Refactoring](module-01/refactoring.md)
   * [Date & Time](module-01/date-time.md)
   * [`this`](module-01/this.md)
