@@ -27,6 +27,7 @@
   * [Refactoring](module-01/refactoring.md)
   * [Date & Time](module-01/date-time.md)
   * [`this`](module-01/this.md)
+  * [jQuery](module-01/jquery.md)
 * [Module 4 - React](module-04/README.md)
   * [Immutability](module-04/immutability.md)
   * [AJAX](module-04/react-ajax.md)
