@@ -10,6 +10,7 @@
   * [Flexbox](module-01/flexbox.md)
   * [SASS](module-01/sass.md)
   * [CSS Frameworks](module-01/css-frameworks.md)
+  * [CSS Animation](module-01/css-animation.md)
   * [JavaScript](module-01/js.md)
   * [Data Types & Variables](module-01/data-types-variables.md)
   * [Control Flow](module-01/control-flow.md)
