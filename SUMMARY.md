@@ -42,3 +42,5 @@
   * [Chrome Dev Tools](appendix-01/chrome-dev-tools.md)
   * [Atom Cheatsheet](appendix-01/atom.md)
   * [Software Development Processes](appendix-01/software-development-process.md)
+* [Appendix II - Computer Science](appendix-02/README.md)
+  * [How The Internet Works](appendix-02/how-the-internet-works.md)
