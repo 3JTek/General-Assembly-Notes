@@ -133,7 +133,10 @@ app.get('/', (req, res) => res.render('pages/home'));
 
   app.listen(PORT, () => console.log(`Up and running on port ${PORT}`));
   ```
-- Your folder structure should now look something like this:
+
+**You should now delete the `index.html` file in your `public` folder**
+
+Your folder structure should now look something like this:
   ```sh
   .
   ├── index.js
