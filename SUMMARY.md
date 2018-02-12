@@ -29,6 +29,8 @@
   * [Date & Time](module-01/date-time.md)
   * [`this`](module-01/this.md)
   * [jQuery](module-01/jquery.md)
+* [Module 2 - Express Full Stack](module-02/README.md)
+  * [Setting Up An Express App](module-02/setting-up-an-express-app.md)
 * [Module 4 - React](module-04/README.md)
   * [Immutability](module-04/immutability.md)
   * [AJAX](module-04/react-ajax.md)
