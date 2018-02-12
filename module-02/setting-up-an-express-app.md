@@ -145,3 +145,9 @@ app.get('/', (req, res) => res.render('pages/home'));
   │       └── home.ejs
   └── yarn.lock
   ```
+
+## Further reading
+
+- [Express](https://expressjs.com/)
+- [Use EJS to Template Your Node Application](https://scotch.io/tutorials/use-ejs-to-template-your-node-application)
+- [Express EJS Layouts](https://github.com/Soarez/express-ejs-layouts)
