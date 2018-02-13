@@ -4,6 +4,8 @@ JavaScript is not a great language, as far as programming languages go. It is po
 
 JavaScript requires a host environment to run. Most commonly that is the browser, but these days it's found its way onto the server and into databases. The reason JavaScript is considered fast is because anything that takes time (like a network request, or a `setTimeout`) is passed off to the host environment (the browser for example) to take care of. When the job is done, the host environment hands the job back to JavaScript and it deals with the result.
 
+## Asynchronicity
+
 This behaviour is known as _asynchronicity_. A great example of this in real life is when you are buying drinks at a bar. A _synchronous_ bar tender would pour each drink individually, then wait patiently for your card transaction to go through before serving the next customer.
 
 An _asynchronous_ bar tender would start the beer flowing for all the drinks at the same time. While she is waiting for the drinks to pour, she would ring them up and start the card transaction. At that point she could tend to the drinks while the card receipt is printing, then pass the drinks over with the receipt before dealing with the next customer.
