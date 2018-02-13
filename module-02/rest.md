@@ -12,11 +12,11 @@ Here is an outline of seven RESTful routes for a `foods` resource:
 | NEW | `/foods/new` | GET | Display a form to create a new food item |
 | CREATE | `/foods` | POST | Create the food item, then redirect to `/foods` |
 | SHOW | `/foods/:id` | GET | Display a single food item |
-| EDIT | `/foods/:id/edit` | GET | Display pre-populated form to edit a specific food item |
+| EDIT | `/foods/:id/edit` | GET | Display a pre-populated form to edit a specific food item |
 | UPDATE | `/foods/:id` | PUT | Update the food item, then redirect to `/foods/:id` |
 | DELETE | `/foods/:id` | DELETE | Delete the food item, then redirect to `/foods` |
 
-Any resource that we need to all CRUD actions on should be RESTful in this way.
+Any resource that we need to perform all CRUD actions on should be RESTful in this way.
 
 Other routes, like `/about` or `/login` are not RESTful, since they do not require full CRUD behaviour. In that case there is no specific set of routes and verbs that we need to stick to, but it is worth attempting to stay as close as possible to the REST paradigm. This will make it easier for other developers to know what to expect when working with the code base.
 
