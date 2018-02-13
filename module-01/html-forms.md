@@ -29,29 +29,29 @@ Or by placing the input _inside_ the label. This is particularly useful with rad
 
 Almost everything inside a form is an `input`. An input is a form field that can hold data from the user. It is a self-closing element, like `img`. It has a `type` attribute which tells the browser what type of data the field should contain, and how it should behave. Here's a list of input types and what data they accept:
 
-| type     | info   |
-|:--------|:-------|
-| `button` | a simple button (no default behaviour) |
-| `checkbox` | boolean value (true or false; can be checked by default with the `checked` attribute) |
-| `color` | colour (opens a colour picker; takes the format #RRGGBB) |
-| `date` | date (opens a date picker) |
+| type | info |
+| :--- | :--- |
+| `button` | a simple button \(no default behaviour\) |
+| `checkbox` | boolean value \(true or false; can be checked by default with the `checked` attribute\) |
+| `color` | colour \(opens a colour picker; takes the format \#RRGGBB\) |
+| `date` | date \(opens a date picker\) |
 | `email` | valid email address |
 | `file` | file to be uploaded |
-| `hidden` | alpha-numeric characters (not displayed to the user) |
-| `image` | a button with an image (submits form and adds mouse co-ordinates to form data) |
-| `month` | month & year (opens a date picker) |
-| `number` | numbers only (requires `step` attribute for decimals) |
-| `password` | alpha-numeric characters (characters are hidden with a •) |
-| `radio` | select one of many options (can be checked by default with the `checked` attribute) |
-| `range` | number between two points (dislpays a slider; can be modified with `min`, `max` and `step` attributes |
+| `hidden` | alpha-numeric characters \(not displayed to the user\) |
+| `image` | a button with an image \(submits form and adds mouse co-ordinates to form data\) |
+| `month` | month & year \(opens a date picker\) |
+| `number` | numbers only \(requires `step` attribute for decimals\) |
+| `password` | alpha-numeric characters \(characters are hidden with a •\) |
+| `radio` | select one of many options \(can be checked by default with the `checked` attribute\) |
+| `range` | number between two points \(dislpays a slider; can be modified with `min`, `max` and `step` attributes |
 | `reset` | a button that resets the form |
-| `search` | alpha-numeric characters (line-breaks are removed) |
-| `submit` | submits the form (requires a `value` attribute) |
-| `tel` | telephone number (can be modified with `pattern` and `maxlength` attributes |
-| `text` | alpha-numeric characters (line-breaks are removed) |
-| `time` | time (HH:MM format) |
-| `url` | a valid URL (can be modified with `pattern` and `maxlength` attributes |
-| `week` | week of the year (opens a week picker) |
+| `search` | alpha-numeric characters \(line-breaks are removed\) |
+| `submit` | submits the form \(requires a `value` attribute\) |
+| `tel` | telephone number \(can be modified with `pattern` and `maxlength` attributes |
+| `text` | alpha-numeric characters \(line-breaks are removed\) |
+| `time` | time \(HH:MM format\) |
+| `url` | a valid URL \(can be modified with `pattern` and `maxlength` attributes |
+| `week` | week of the year \(opens a week picker\) |
 
 #### Input tag attributes
 
@@ -66,7 +66,7 @@ There are a few attributes that are useful when working with input fields:
 
 ### The `<select>` & `<option>` tags
 
-A `select` tag displays a dropdown menu. A select contains `options` one of each item in the drop down menu. Each options can be `selected` (ie that option is displayed when the page is loaded) and `disabled` (ie cannot be selected by the user). Typically a select has an instructional menu option which is `selected` and `disabled`.
+A `select` tag displays a dropdown menu. A select contains `options` one of each item in the drop down menu. Each options can be `selected` \(ie that option is displayed when the page is loaded\) and `disabled` \(ie cannot be selected by the user\). Typically a select has an instructional menu option which is `selected` and `disabled`.
 
 ```html
 <select>
@@ -112,21 +112,25 @@ Textareas do not have a value attribute. However, you can add text between the t
 
 There are several HTML elements that can submit a form. The two most common are `<input type="submit">` or `<button>`.
 
-Without any attributes, if a `<button>` tag is inside a `<form>`.
+Without any attributes, if a `<button>` tag is inside a `<form>` it will submit the form when clicked.
 
 The button tag can have the following `types`:
 
 | type | info |
-|:-----|:-----|
-| `submit` | Submits the form (default) |
+| :--- | :--- |
+| `submit` | Submits the form \(default\) |
 | `reset` | Resets the form |
 | `button` | Does nothing |
 
-**`<button type="button">`?!!**
+`<button type="button">`**?!!**
 
 Yep, weird, I know. The `button` type is used to basically stop the button from having any default behaviour. The idea being that it would be used in conjunction with some custom JavaScript.
 
 ### See also
-- [My First HTML Form](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/My_first_HTML_form)
-- [How To Structure A HTML Form](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/How_to_structure_an_HTML_form)
-- [Mozilla HTML Forms Guide](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms)
+
+* [My First HTML Form](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/My_first_HTML_form)
+* [How To Structure A HTML Form](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/How_to_structure_an_HTML_form)
+* [Mozilla HTML Forms Guide](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms)
+
+
+
