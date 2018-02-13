@@ -10,10 +10,10 @@ With CSS properties and values, it is possible to apply specific styles to each 
 
 Each box has the following properties:
 
-- **`margin`**: the space between the element and its parent and siblings
-- **`border`**: a line which surrounds the box
-- **`padding`**: the space between the edge of the box and the content
-- **`content`**: the actual content of the box, this might be some text, or an image for example
+* `margin`: the space between the element and its parent and siblings
+* `border`: a line which surrounds the box
+* `padding`: the space between the edge of the box and the content
+* `content`: the actual content of the box, this might be some text, or an image for example
 
 You can see each of these properties using Chrome's Dev Tools
 
@@ -56,17 +56,17 @@ border-top-color: #d43;
 
 ### `box-sizing` property
 
-All browsers (except legacy versions of Internet Explorer) calculate the dimensions of an element as:
+All browsers \(except legacy versions of Internet Explorer\) calculate the dimensions of an element as:
 
 ```
 content + padding + border
 ```
 
-So if you have a 200px wide `div` for example, and you add `border: 1px solid black` and `padding: 10px`, your `div` will become 222px wide (200px + 1px left border + 1px right border + 10px left padding + 10px right padding).
+So if you have a 200px wide `div` for example, and you add `border: 1px solid black` and `padding: 10px`, your `div` will become 222px wide \(200px + 1px left border + 1px right border + 10px left padding + 10px right padding\).
 
 This can be quite counter intuitive and can make layout a pain. However we can change the way that the dimensions are calculated using `box-sizing`.
 
-At the top of your CSS file we can use the global selector (\*) to set the `box-sizing` property to `border-box` like so:
+At the top of your CSS file we can use the global selector \(\*\) to set the `box-sizing` property to `border-box` like so:
 
 ```
 * { box-sizing: border-box; }
@@ -80,11 +80,11 @@ Now if we set the width of a `div` to be 200px and add `border: 1px solid black`
 
 An element's `display` property can be set to one of the following:
 
-- **`block`**: the element takes up the full width of it's parent. It will not let other elements sit next to it.
-- **`inline`**: the element sits in the flow of the document, as if it is a word in a sentence. Other inline elements are free to sit next to it. Top and bottom margin settings will be ignored, but left and right margins and any padding
-will be applied.
-- **`inline-block`**: the element will sit in the flow of the document, but all box-model properties will be applied.
-- **`none`**: the element will not be displayed at all.
+* `block`: the element takes up the full width of it's parent. It will not let other elements sit next to it.
+* `inline`: the element sits in the flow of the document, as if it is a word in a sentence. Other inline elements are free to sit next to it. Top and bottom margin settings will be ignored, but left and right margins and any padding
+  will be applied.
+* `inline-block`: the element will sit in the flow of the document, but all box-model properties will be applied.
+* `none`: the element will not be displayed at all.
 
 ### `position` property
 
@@ -92,27 +92,31 @@ It is possible to position an element on the screen with the `position` property
 
 An element's `position` property can be set to one of the following:
 
-##### `static` (default)
-  - The element is rendered in the default position based on it's size, margin and other elements around it.
+##### `static` \(default\)
+
+* The element is rendered in the default position based on it's size, margin and other elements around it.
 
 ##### `relative`
-  - The element is rendered in the default position.
-  - It's position can be set using the `left`, `right`, `top` and `bottom` properties.
-  - Positioning the element does not affect the position of other elements.
-  - The new position of the element is calculated from the current position of the element.
+
+* The element is rendered in the default position.
+* It's position can be set using the `left`, `right`, `top` and `bottom` properties.
+* Positioning the element does not affect the position of other elements.
+* The new position of the element is calculated from the current position of the element.
 
 ##### `absolute`
-  - The element is rendered in the default position.
-  - Other elements on the page behave as if that element is not there, which may cause the element to sit on top of an other.
-  - The element's position can be set with `left`, `right`, `top` and `bottom`.
-  - The new position of the element is calculated from the closest parent which is _not_ statically positioned, _or_ the edge of the screen.
+
+* The element is rendered in the default position.
+* Other elements on the page behave as if that element is not there, which may cause the element to sit on top of an other.
+* The element's position can be set with `left`, `right`, `top` and `bottom`.
+* The new position of the element is calculated from the closest parent which is _not_ statically positioned, _or_ the edge of the screen.
 
 ##### `fixed`
-  - The element is fixed in position when the page is scrolled.
-  - The element's position can be set with `left`, `right`, `top` and `bottom`.
-  - The new position of the element is calculated from the edge of the screen.
 
->**Note**: Understanding how `relative` and `absolute` position affect an element, and how they interact with each other is fundamental to grasping CSS. **It is worth playing with them in isolation to get a good understanding of how they work before moving on to the next section.**
+* The element is fixed in position when the page is scrolled.
+* The element's position can be set with `left`, `right`, `top` and `bottom`.
+* The new position of the element is calculated from the edge of the screen.
+
+> **Note**: Understanding how `relative` and `absolute` position affect an element, and how they interact with each other is fundamental to grasping CSS. **It is worth playing with them in isolation to get a good understanding of how they work before moving on to the next section.**
 
 ### Examples absolute position
 
@@ -124,7 +128,7 @@ When the parent element is relative, the absolutely positioned element's positio
 
 ![](https://camo.githubusercontent.com/1b5a6edb9d3658d214b3ba4924ae3d81b13d352e/68747470733a2f2f692e696d6775722e636f6d2f4c5264376c42792e706e67)
 
->**Note**: When positioning elements on the screen you should be wary of the `absolute` setting. Make sure you are checking your layout at different screen sizes as you work.
+> **Note**: When positioning elements on the screen you should be wary of the `absolute` setting. Make sure you are checking your layout at different screen sizes as you work.
 
 ### `float` property
 
@@ -138,14 +142,14 @@ However it was quickly appropriated for creating complex grids for layout.
 
 The `float` property can be set to one of the following:
 
-- **none** (default): the element sits in the flow of the document.
-- **left**: the floated element aligns to the left, and allows other elements to fill up the space to it's right.
-- **right**: the floated element aligns to the right, and allows other elements to fill up the space to it's left.
+* **none** \(default\): the element sits in the flow of the document.
+* **left**: the floated element aligns to the left, and allows other elements to fill up the space to it's right.
+* **right**: the floated element aligns to the right, and allows other elements to fill up the space to it's left.
 
 Floating an element has the following side-affects:
 
 1. All elements will float next to floated items, which is not always desired.
-1. The height of the element's parent will be affected. It will disregard the height of the element (as if it were no longer there). This can make layout challenging.
+2. The height of the element's parent will be affected. It will disregard the height of the element \(as if it were no longer there\). This can make layout challenging.
 
 #### Clearing a float
 
@@ -155,13 +159,16 @@ To stop an element from flowing around a floated element, you can use the `clear
 
 #### Restoring the parent's height
 
-To restore the parent element's height it was common to use the [clearfix hack](https://css-tricks.com/snippets/css/clear-fix/)
+To restore the parent element's height it was common to use the [clearfix hack](https://css-tricks.com/snippets/css/clear-fix/).
 
 However it was recently discovered that you can simply set the parent's `overflow` property to `hidden`, or `auto`.
 
 ## Further reading
 
-- [The CSS Box Model](https://css-tricks.com/the-css-box-model/)
-- [Box Sizing](https://css-tricks.com/box-sizing/)
-- [Absolute, Relative, Fixed Positioning: How Do They Differ?](https://css-tricks.com/absolute-relative-fixed-positioining-how-do-they-differ/)
-- [All About Floats](https://css-tricks.com/all-about-floats/)
+* [The CSS Box Model](https://css-tricks.com/the-css-box-model/)
+* [Box Sizing](https://css-tricks.com/box-sizing/)
+* [Absolute, Relative, Fixed Positioning: How Do They Differ?](https://css-tricks.com/absolute-relative-fixed-positioining-how-do-they-differ/)
+* [All About Floats](https://css-tricks.com/all-about-floats/)
+
+
+
