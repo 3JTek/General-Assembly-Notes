@@ -18,54 +18,55 @@ In this sense rather than using the URL of the site to line up with the file str
 
 It's important that we keep things tidy when working on an Express app, because as things get more complex, the number of files we have will increase, and it's important we know where everything is.
 
-- Make a `router.js` file in a `config` folder
+* Make a `router.js` file in a `config` folder
   ```sh
   mkdir config && touch config/router.js
   ```
-- Create an express router at the top of the file
+* Create an express router at the top of the file
   ```js
   const router = require('express').Router();
   ```
-- Add your routes
+* Add your routes
   ```js
   router.get('/', (req, res) => res.render('pages/home'));
   router.get('/about', (req, res) => res.render('pages/about'));
   router.get('/contact', (req, res) => res.render('pages/contact'));
   ```
-- Export the router at the bottom of the file
+* Export the router at the bottom of the file
   ```js
   module.exports = router;
   ```
-- Require the router in `index.js`
+* Require the router in `index.js`
   ```js
   const router = require('./config/router');
   ```
-- And tell Express to use it **making sure you place it just above the `app.listen` line**
+* And tell Express to use it **making sure you place it just above the **`app.listen`** line**
+
   ```js
   app.use(router); // MUST BE PLACED JUST BEFORE app.listen
 
   app.listen(PORT, () => console.log(`Up and running on ${PORT}`));
   ```
 
-You should now be able to navigate to `/`, `/aobut` and `/contact`.
+You should now be able to navigate to `/`, `/about` and `/contact`.
 
->**Note**: You will have to make sure you have the corresponding template files: `pages/home.ejs`, `pages/about.ejs` and `pages/contact.ejs`
+> **Note**: You will have to make sure you have the corresponding template files: `pages/home.ejs`, `pages/about.ejs` and `pages/contact.ejs`
 
-## Adding some data
+## Adding some data
 
 OK, so now we have added some routes, but they are all loading different templates. Let's now inject different data depending on the route.
 
 We'll make a route for `/fantasy` and `/action` and render them using a single template. We'll send in an array of objects to display.
 
-- Create a `data` folder
+* Create a `data` folder
   ```sh
   mkdir data
   ```
-- Add `fantasy.js` and `action.js` files
+* Add `fantasy.js` and `action.js` files
   ```sh
-  touch data/fantasy.js && data/action.js
+  touch data/fantasy.js data/action.js
   ```
-- Create some data to work with inside each file
+* Create some data to work with inside each file
   ```js
   module.exports = [{
     title: 'Lord of the Rings',
@@ -77,18 +78,18 @@ We'll make a route for `/fantasy` and `/action` and render them using a single t
     image: 'https://files.readanybook.com/786122/files/harry-potter.jpg'
   }];
   ```
-- Add the data into the `config/router.js` file
+* Add the data into the `config/router.js` file
   ```js
   const router = require('express').Router();
   const fantasy = require('../data/fantasy');
   const action = require('../data/action');
   ```
-- Inject the data into the views
+* Inject the data into the views
   ```js
   router.get('/fantasy', (req, res) => res.render('pages/category', { data: fantasy }));
   router.get('/action', (req, res) => res.render('pages/category', { data: action }));
   ```
-- Render the data in the template file (`views/pages/category`):
+* Render the data in the template file \(`views/pages/category`\):
   ```html
   <div class="columns">
     <% data.forEach(film => { %>
@@ -104,6 +105,10 @@ We'll make a route for `/fantasy` and `/action` and render them using a single t
 You should now be able to navigate to `/action` and `/fantasy` and see different films, even though you are using the same template file.
 
 ## Further reading
-- [Express Routing - The Beginners Guide](http://jilles.me/express-routing-the-beginners-guide/)
-- [Learn How To Use the New Router in Express 4](https://scotch.io/tutorials/learn-to-use-the-new-router-in-expressjs-4)
-- [Express Routing](https://expressjs.com/en/guide/routing.html)
+
+* [Express Routing - The Beginners Guide](http://jilles.me/express-routing-the-beginners-guide/)
+* [Learn How To Use the New Router in Express 4](https://scotch.io/tutorials/learn-to-use-the-new-router-in-expressjs-4)
+* [Express Routing](https://expressjs.com/en/guide/routing.html)
+
+
+
