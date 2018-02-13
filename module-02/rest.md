@@ -4,7 +4,7 @@ REST stands for **REpresentational State Transfer** which is a confusing acronym
 
 There are seven actions that a user may need to perform on a resource in order to view it, edit it, update it and delete it. We use a specific set of URLs for each action, coupled with a specific verb to maintain consistency of our application and to ensure that it behaves as expected.
 
-Here is an outline of seven RESTful routes for a `films` resource:
+Here is an outline of seven RESTful routes for a `foods` resource:
 
 | **Route** | **Path** | **Verb** | **Response** |
 |-----------|---------|----------|--------------|
