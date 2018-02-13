@@ -23,7 +23,9 @@ Let's imagine we have a `books` resource. A user navigates to `/books` on our we
 1. The controller asks the `books` model to get the book data from the database's `books` collection
 1. The model sends the data back to the controller
 1. The controller passes the data to the correct template
-1. The rendered HTML is send back to the browser
+1. The rendered template is sent back to the browser
+
+>**Note**: In a web API the View is considered the JSON payload. We often do not have a separate file for this, but instead simply render the JSON in the controller.
 
 Sticking to this design principal means that our code is easier to read, easier to understand, and easier to maintain
 
