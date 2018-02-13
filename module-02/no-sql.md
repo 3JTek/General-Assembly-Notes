@@ -1,10 +1,10 @@
 # NoSQL Databases
 
-The most common database is the grandfather of them all SQL, which stands for _Structured Query Language_. It describes the language used to add, edit and delete data from a database. SQL databases consist of a set of tables (similar to a spreadsheet).
+The most common database is the grandfather of them all SQL, which stands for _Structured Query Language_. It describes the language used to add, edit and delete data from a database. SQL databases consist of a set of tables \(similar to a spreadsheet\).
 
 NoSQL on the other hand describes a new breed of databases which are JavaScript based and are closer to a collection of arrays containing objects of data. Ultimately a database is a data store which can hold data in a specific, searchable way.
 
-Almost every website has a database attached to it which contains the site's content. This allows the content to be _dynamic_, ie it can be changed. Commonly this is done with a _Content Management System_ or CMS: a user interface which allows an end user to modify the database without having to have prior coding knowledge.
+Almost every website has a database attached to it which contains the site's content. This allows the content to be _dynamic_, i.e. it can be changed. Commonly this is done with a _Content Management System_ or CMS: a user interface which allows an end user to modify the database without having to have prior coding knowledge.
 
 Each noSQL database is made up of _collections_ of data. A collection is basically an array which contains the data. Each item in the collection can be considered an object. These items are referred to as _documents_ or _records_.
 
@@ -13,6 +13,7 @@ Each noSQL database is made up of _collections_ of data. A collection is basical
 We shall be using MongoDB as our noSQL database of choice on this course. We can interact with it directly from the terminal using the `mongo` command.
 
 A common error when trying to connect to mongo is the following:
+
 ```
 MongoDB shell version v3.6.2
 connecting to: mongodb://127.0.0.1:27017
@@ -35,6 +36,7 @@ Now you know that your database is up and running. Back on the original tab, run
 2018-02-13T11:30:21.192+0000 I CONTROL  [initandlisten] ** WARNING: soft rlimits too low. Number of files is 256, should be at least 1000
 >
 ```
+
 You are now ready to interact with your database.
 
 ## Creating a database
@@ -81,7 +83,6 @@ db.trainers.find({ color: 'navy' })
 ```
 
 This will return all the navy trainers.
-
 
 ```
 db.trainers.findOne({ color: 'navy' })
@@ -134,11 +135,11 @@ When we insert a record into a noSQL database it is given a unique ID. This is v
 It's important to note two things about the `ObjectId`:
 
 1. It is not a string, but an object with its own methods. This means we cannot compare it directly to a string of the same value
-1. It is stored in an `_id` property, not `id`, which can trip you up at first
+2. It is stored in an `_id` property, not `id`, which can trip you up at first
 
 ## Associating data
 
-There are two ways of associating (or linking) data in a noSQL database: _referencing_ or _embedding_.
+There are two ways of associating \(or linking\) data in a noSQL database: _referencing_ or _embedding_.
 
 ### Referencing
 
@@ -181,13 +182,16 @@ This is a good way to store information specific to a record since the data is o
 ### Overview
 
 | **Embedded** | **Referenced** |
-|--------------|----------------|
+| --- | --- |
 | Must be specific to a single record | Can be linked to multiple records |
 | Requires no lookup | Requires an extra lookup |
 | Simpler | More complex |
 
 ## Further reading
 
-- [SQL vs NoSQL: The Differences](https://www.sitepoint.com/sql-vs-nosql-differences/)
-- [MongoDB Cheatsheet](https://blog.codecentric.de/files/2012/12/MongoDB-CheatSheet-v1_0.pdf)
-- [The MongoDB Tutorial](https://www.hacksparrow.com/the-mongodb-tutorial.html)
+* [SQL vs NoSQL: The Differences](https://www.sitepoint.com/sql-vs-nosql-differences/)
+* [MongoDB Cheatsheet](https://blog.codecentric.de/files/2012/12/MongoDB-CheatSheet-v1_0.pdf)
+* [The MongoDB Tutorial](https://www.hacksparrow.com/the-mongodb-tutorial.html)
+
+
+
