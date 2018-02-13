@@ -77,11 +77,11 @@ npm is a great tool, but it has recently been superseded by Yarn. Yarn uses npm 
 
 | **npm syntax** | **Yarn syntax** | **Behaviour** |
 |------------------|-------------------|---------------|
-| `npm init` | `yarn init` | Initialises a node project ready to use npm/yarn |
-| `npm install --save` | `yarn add` | Installs the package into our project |
-| `npm install -g` | `yarn global add` | Installs a global package (generally a command line tool) |
-| `npm install --save-dev` | `yarn add --dev` | Installs a package to be used only for development |
-| `npm uninstall --save` | `yarn remove` | Uninstalls a package from our project |
+| `npm init` | `yarn init` | Initialises a node project<br>ready to use npm/yarn |
+| `npm install --save` | `yarn add` | Installs the package into<br>our project |
+| `npm install -g` | `yarn global add` | Installs a global package<br>(generally a command line tool) |
+| `npm install --save-dev` | `yarn add --dev` | Installs a package to be used<br>only for development |
+| `npm uninstall --save` | `yarn remove` | Uninstalls a package from<br>our project |
 
 It's important that we either use npm or yarn, _but not both_. On this course **we only use `yarn`**.
 
