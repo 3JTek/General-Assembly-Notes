@@ -49,5 +49,5 @@
   * [Software Development Processes](appendix-01/software-development-process.md)
 * [Appendix II - Computer Science](appendix-02/README.md)
   * [How The Internet Works](appendix-02/how-the-internet-works.md)
-  * [MVC](module-02/mvc.md)
-  * [REST](module-02/rest.md)
+  * [MVC](appendix-02/mvc.md)
+  * [REST](appendix-02/rest.md)
