@@ -42,15 +42,15 @@ app.get('/trainers', (req, res) => res.render({ trainers }));
 
 Now inside the template file we can access now the array `trainers`:
 
-```html
-<% trainers.forEach(trainer => { %> <!-- <% %> for control flow -->
+```js
+<% trainers.forEach(trainer => { %>
   <div class="trainer">
-    <h4><%= trainer.name %></h4> <!-- <%= %> for printing variables -->
+    <h4><%= trainer.name %></h4>
     <h5><%= trainer.brand %></h5>
     <p>£<%= trainer.price %></p>
     <p>Color: <%= trainer.color %></p>
   </div>
-%>
+<% }) %>
 ```
 
 Using a templating engine can DRY up and simplify our server-side code, and help to keep our design and layout consistent across a whole website.
