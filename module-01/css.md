@@ -19,22 +19,22 @@ selector {
 The `selector` is used to match a HTML tag, _known as an **element**_ on the web page. Some common selectors:
 
 | **Selector** | **Selected Element** |
-|--------------|----------------------|
+| --- | --- |
 | `section` | Any `section` element |
-| `#home` | The element with the `id` of home
-| `.inner` | Any element with the class of `inner`
-| `[href]` | Any element with the attribute `href`
-| `[alt=Doge]` | Any element with the `alt` attribute of `Doge`
+| `#home` | The element with the `id` of home |
+| `.inner` | Any element with the class of `inner` |
+| `[href]` | Any element with the attribute `href` |
+| `[alt=Doge]` | Any element with the `alt` attribute of `Doge` |
 
 Each element has a set of `properties`, which govern how they appear on the page. Here are some common properties:
 
-| **Property** | **Possible values** | **Effect**
-|--------------|----------------------|
-| `border` | `1px solid blue` | A 1px solid blue border
-| `color` | `red` | Text colour set to red
-| `margin-top` | `10px` | Put 10px space between this element and the element above
-| `height` | `calc(100vh - 80px)` | set the height of the element to be the height of the screen - 80px
-| `display` | `none` | hide the element
+| **Property** | **Possible values** | **Effect** |
+| :--- | :--- | :--- |
+| `border` | `1px solid blue` | A 1px solid blue border |
+| `color` | `red` | Text colour set to red |
+| `margin-top` | `10px` | Put 10px space between this element and the element above |
+| `height` | `calc(100vh - 80px)` | set the height of the element to be the height of the screen - 80px |
+| `display` | `none` | hide the element |
 
 There are literally hundreds of properties and values, check out the further reading section for more examples.
 
@@ -106,7 +106,10 @@ Specificity is calculated as **1000**
 
 ## Further reading
 
-- [CSS Selector Cheatsheet](https://gist.github.com/smutnyleszek/809a69dd05e1d5f12d01)
-- [CSS Diner](https://flukeout.github.io/)
-- [CSS-Tricks Beginners Guide](https://css-tricks.com/guides/beginner/)
-- [CodePen](https://codepen.io/)
+* [CSS Selector Cheatsheet](https://gist.github.com/smutnyleszek/809a69dd05e1d5f12d01)
+* [CSS Diner](https://flukeout.github.io/)
+* [CSS-Tricks Beginners Guide](https://css-tricks.com/guides/beginner/)
+* [CodePen](https://codepen.io/)
+
+
+
