@@ -4,3 +4,4 @@
 * #### [Templating with EJS](module-02/ejs.md)
 * #### [Routing](module-02/routing.md)
 * #### [NoSQL Databases](module-02/no-sql.md)
+* #### [MVC](module-02/mvc.md)
