@@ -42,7 +42,7 @@ You are now ready to interact with your database.
 To create a new database we just need to tell mongo to use a non-existent database:
 
 ```sh
-> use myDB
+use myDB
 ```
 
 The database doesn't actually exists at this moment in time, mongo will make it as soon as we actually try to add data.
@@ -54,8 +54,8 @@ CRUD stands for **Create, Read, Update, Delete**, and describes the main actions
 ### Create
 
 ```
-> db.trainers.insert({ name: 'Campus', brand: 'Adidas', price: 79.99, color: 'navy' });
-> db.trainers.insert([{
+db.trainers.insert({ name: 'Campus', brand: 'Adidas', price: 79.99, color: 'navy' });
+db.trainers.insert([{
     name: 'Air Force 1',
     brand: 'Nike',
     price: 129.99,
@@ -77,14 +77,14 @@ Note that we can insert a single record, or an array of records.
 We can get data from our database using `find`:
 
 ```
-> db.trainers.find({ color: 'navy' })
+db.trainers.find({ color: 'navy' })
 ```
 
 This will return all the navy trainers.
 
 
 ```
-> db.trainers.findOne({ color: 'navy' })
+db.trainers.findOne({ color: 'navy' })
 ```
 
 This will find the first navy trainer.
@@ -94,7 +94,7 @@ This will find the first navy trainer.
 In order to update a record, we first need to find it, then pass our updates:
 
 ```
-> db.trainers.update({ name: 'Campus' }, { $set: { name: 'Samba' } })
+db.trainers.update({ name: 'Campus' }, { $set: { name: 'Samba' } })
 ```
 
 Here we found a single record with a `name` property of `Campus` and `$set` it to `Samba`.
@@ -102,7 +102,7 @@ Here we found a single record with a `name` property of `Campus` and `$set` it t
 It's important that if we do not use `$set` we will replace the record:
 
 ```
-> db.trainers.update({ name: 'Campus' }, { name: 'Samba' })
+db.trainers.update({ name: 'Campus' }, { name: 'Samba' })
 ```
 
 The record is now literally `{ name: 'Samba' }`, and no longer has `price`, `brand` or `color` properties.
@@ -110,7 +110,7 @@ The record is now literally `{ name: 'Samba' }`, and no longer has `price`, `bra
 #### Updating multiple records
 
 ```
-> db.trainers.update({ color: 'navy' }, { $set: { color: 'red' } }, { multi: true })
+db.trainers.update({ color: 'navy' }, { $set: { color: 'red' } }, { multi: true })
 ```
 
 By default update will only update a single record. If we want to update more that one at a time, we need to pass a settings object as the third argument with a `multi` property of `true`.
@@ -120,7 +120,7 @@ By default update will only update a single record. If we want to update more th
 `delete` is a reserved word in JavaScript, so in order to delete a record, we use `remove`:
 
 ```
-> db.trainers.remove({ color: 'navy' })
+db.trainers.remove({ color: 'navy' })
 ```
 
 **This will remove multiple records, so be careful!**
@@ -131,9 +131,63 @@ It's worth noting that **there is no undo** with a database. When it's gone, it'
 
 When we insert a record into a noSQL database it is given a unique ID. This is vital to help manage the database and so that we can _associate_ records to each other.
 
-It's important to note two things about the ObjectId:
+It's important to note two things about the `ObjectId`:
 
 1. It is not a string, but an object with its own methods. This means we cannot compare it directly to a string of the same value
 1. It is stored in an `_id` property, not `id`, which can trip you up at first
 
 ## Associating data
+
+There are two ways of associating (or linking) data in a noSQL database: _referencing_ or _embedding_.
+
+### Referencing
+
+We want to keep the amount of data to a minimum in any database, so rather than repeating data, we can reference it. Let's look at a simple example, students in a cohort at GA.
+
+We will have two collections, one for students, and one for the cohort:
+
+```
+db.cohorts.insert([{ name: 'WDI32', campus: 'London' }, { name: 'WDI33', campus: 'London' }])
+db.students.insert([{ name: 'David Grey' }, { name: 'Caroline Quentin' }, { name: 'Jessica Ennis' }, { name: 'Jools Holland' }])
+```
+
+David Grey and Caroline Quentin will be attending WD32, whereas Jessica Ennis and Jools Holland will be attending WDI33. We can make that link with a reference to the relevant `ObjectId`. Let's give each student a `cohort` property with the relevant `ObjectId`:
+
+```
+const wdi32 = db.cohorts.findOne({ name: 'WDI32' });
+const wdi33 = db.cohorts.findOne({ name: 'WDI33' });
+
+db.students.update({ name: 'David Grey' }, { $set: { cohort: wdi32._id } })
+db.students.update({ name: 'Caroline Quentin' }, { $set: { cohort: wdi32._id } })
+db.students.update({ name: 'Jessica Ennis' }, { $set: { cohort: wdi33._id } })
+db.students.update({ name: 'Jools Holland' }, { $set: { cohort: wdi33._id } })
+```
+
+In this way we have created a _reference_ to another record in the database. The `cohort` property does not actually contain the cohort information, but instead reference of where to find the record. This means that we don't have to duplicate the cohort information across the database, which saves space.
+
+If the cohort information is modified then that change will be reflected for all associated students.
+
+### Embedding
+
+With embedding we can store data inside a record. A good example would be notes on a student. Let's say we want to add some notes to Jessica Ennis. Rather than keeping these notes in a separate collection and referencing them, we can _embed_ them directly on her record:
+
+```
+db.students.update({ name: 'Jessica Ennis' }, { $set: { notes: ['Enrolled Feb 2018'] } })
+db.students.update({ name: 'Jessica Ennis' }, { $push: { notes: 'Completed pre-work' } })
+```
+
+This is a good way to store information specific to a record since the data is on the record, so does not require a database lookup to find it. Also, if we were to delete Jessica Ennis' record, we would also delete all the associated notes.
+
+### Overview
+
+| **Embedded** | **Referenced** |
+|--------------|----------------|
+| Must be specific to a single record | Can be linked to multiple records |
+| Requires no lookup | Requires an extra lookup |
+| Simpler | More complex |
+
+## Further reading
+
+- [SQL vs NoSQL: The Differences](https://www.sitepoint.com/sql-vs-nosql-differences/)
+- [MongoDB Cheatsheet](https://blog.codecentric.de/files/2012/12/MongoDB-CheatSheet-v1_0.pdf)
+- [The MongoDB Tutorial](https://www.hacksparrow.com/the-mongodb-tutorial.html)
