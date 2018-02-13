@@ -1,5 +1,6 @@
 # Module 2: Express Full Stack
 
+* #### [NodeJS](node.md)
 * #### [Setting Up An Express App](setting-up-an-express-app.md)
 * #### [Templating with EJS](ejs.md)
 * #### [Routing](routing.md)
