@@ -16,7 +16,7 @@ The same is true for a web server. With a synchronous language like PHP or Ruby 
 
 The other benefit of using JavaScript on the server is that it means that anyone who already knows JavaScript does not have to learn a second language to work on a server-side codebase. And generally most web developers know at least a little JavaScript.
 
-## Running JS on the server
+## Server-side JavaScript
 
 In order to run JavaScript it needs a Virtual Machine (VM) and an interface to the host environment. In the browser that interface is the `window` object, which houses a number of browser APIs, including things like `setTimeout`, `alert`, `console` etc.
 
