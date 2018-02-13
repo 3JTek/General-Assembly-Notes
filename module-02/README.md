@@ -5,3 +5,4 @@
 * #### [Routing](module-02/routing.md)
 * #### [NoSQL Databases](module-02/no-sql.md)
 * #### [MVC](module-02/mvc.md)
+* #### [REST](module-02/rest.md)
