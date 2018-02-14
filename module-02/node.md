@@ -22,7 +22,7 @@ In order to run JavaScript it needs a Virtual Machine (VM) and an interface to t
 
 On the server we use NodeJS to perform the same function as the browser, but instead of the `window` object, we have the `global` object. Instead of browser APIs we have server APIs which replicate `setTimeout`, `console` and the like.
 
-When we use NodeJS, we often split our code into separate files or _modules_. The code from each module needs to _exported_ from thr file, so that it can be _imported_ into other files.
+When we use NodeJS, we often split our code into separate files or _modules_. The code from each module needs to _exported_ from the file, so that it can be _imported_ into other files.
 
 Imagine we have a `Car` class, and want to export it into another file:
 
