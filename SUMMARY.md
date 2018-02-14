@@ -30,6 +30,7 @@
   * [`this`](module-01/this.md)
   * [jQuery](module-01/jquery.md)
 * [Module 2 - Express Full Stack](module-02/README.md)
+  * [NodeJS](module-02/node.md)
   * [Setting Up An Express App](module-02/setting-up-an-express-app.md)
   * [Templating with EJS](module-02/ejs.md)
   * [Routing](module-02/routing.md)
@@ -49,3 +50,5 @@
   * [Software Development Processes](appendix-01/software-development-process.md)
 * [Appendix II - Computer Science](appendix-02/README.md)
   * [How The Internet Works](appendix-02/how-the-internet-works.md)
+  * [MVC](appendix-02/mvc.md)
+  * [REST](appendix-02/rest.md)
