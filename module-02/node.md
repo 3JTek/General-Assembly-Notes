@@ -40,7 +40,7 @@ class Car {
     return this.speed += 10;
   }
 
-  decelerate () {
+  decelerate() {
     return this.speed -= 10;
   }
 }

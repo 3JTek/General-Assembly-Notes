@@ -16,7 +16,7 @@ CSS animations can also be started and stopped in JavaScript by adding and remov
 
 ## Keyframes
 
-In order to animate an element (or selection of elements), we need to specify a series of keyframes.
+In order to animate an element \(or selection of elements\), we need to specify a series of keyframes.
 
 The most basic form of keyframe animation goes `from` one set of styles at the beginning `to` another set of styles at the end, over a certain amount of time.
 
@@ -53,7 +53,7 @@ There are a series of `animation` properties to configure your animation as need
 * `animation-duration` specified the time the animation lasts
 * `animation-delay` specifies any delay before the animation starts
 * `animation-iteration-count` specifies the number of times to repeat
-* `animation-direction` specifies the direction; animations can play forwards (normal), in reverse or alternate back and forth
+* `animation-direction` specifies the direction; animations can play forwards \(normal\), in reverse or alternate back and forth
 * `animation-play-state` allows the animation to be paused and resumed
 * `animation-timing-function` determines an acceleration curve of how the animation plays between keyframes
 * `animation-fill-mode` determines how styles are applied before and after the animation
@@ -124,9 +124,57 @@ To make it appear as though the ball bounces slowly across the screen, we can in
 
 CSS animations are not supported in IE9 or below or Opera Mini. In IE10, IE11 and Firefox, the `@keyframes` and `animation` properties are unprefixed but `-webkit` prefixes are needed everywhere else.
 
+## CSS Transitions
+
+Transitions are another way to handle animating changes from one state to another, but they don't allow for the same degree of flexibility as animations. Rather than keyframes, you can simply specify the duration of the change, the timing function \(e.g. linear, easeIn...\) and the delay.
+
+```css
+div {
+  height: 100px;
+  width: 100px;
+  background: red;
+  transition-property: background;
+  transition-duration: 3s;
+  transition-timing-function: linear;
+  transition-delay: 1s;
+}
+
+div:hover {
+  background: blue;
+}
+```
+
+Transitions are for creating a smooth transition from one state to another, and animations for more complex series of movements.
+
+It's possible to set transitions on multiple properties at once.
+
+```css
+div {  
+  height: 100px;
+  width: 100px;
+  background: red;
+  transition-property: background, height, width;
+  transition-duration: 3s, 5s, 5s;
+  transition-timing-function: linear;
+  transition-delay: 1s;
+}
+
+div:hover {
+  background: blue;
+  height: 200px;
+  width: 200px;
+}
+```
 
 ## Further reading
 
-- [Animation](https://css-tricks.com/almanac/properties/a/animation/)
-- [CSS Animation for Beginners](https://robots.thoughtbot.com/css-animation-for-beginners)
-- [15 Inspiring Examples of CSS Animation on CodePen](https://webdesign.tutsplus.com/articles/15-inspiring-examples-of-css-animation-on-codepen--cms-23937)
+* [Animation](https://css-tricks.com/almanac/properties/a/animation/)
+* [CSS Animation for Beginners](https://robots.thoughtbot.com/css-animation-for-beginners)
+* [15 Inspiring Examples of CSS Animation on CodePen](https://webdesign.tutsplus.com/articles/15-inspiring-examples-of-css-animation-on-codepen--cms-23937)
+* [Transitions Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions)
+* [Transition vs. Animation](https://cssanimation.rocks/transition-vs-animation/)
+
+
+
+
+
