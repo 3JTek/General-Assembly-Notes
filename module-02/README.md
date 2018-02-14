@@ -4,3 +4,4 @@
 * #### [Templating with EJS](module-02/ejs.md)
 * #### [Routing](module-02/routing.md)
 * #### [NoSQL Databases](module-02/no-sql.md)
+* #### [Mongoose Models](module-02/mongoose-models.md)
