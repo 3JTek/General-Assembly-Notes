@@ -37,6 +37,7 @@
   * [NoSQL Databases](module-02/no-sql.md)
   * [Mongoose Models](module-02/mongoose-models.md)
   * [Promises](module-02/promises.md)
+  * [URL and POST Parameters](module-02/url-post-params.md)
   * [Controllers](module-02/controllers.md)
 * [Module 4 - React](module-04/README.md)
   * [Immutability](module-04/immutability.md)
