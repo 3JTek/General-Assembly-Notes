@@ -37,6 +37,7 @@
   * [NoSQL Databases](module-02/no-sql.md)
   * [Mongoose Models](module-02/mongoose-models.md)
   * [Promises](module-02/promises.md)
+  * [Controllers](module-02/controllers.md)
 * [Module 4 - React](module-04/README.md)
   * [Immutability](module-04/immutability.md)
   * [AJAX](module-04/react-ajax.md)
