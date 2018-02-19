@@ -73,7 +73,7 @@ const morgan = require('morgan');
 
 Notice that when we import a module that we wrote, we must use the relative file path: `require('./car)`. However when we import a 3rd-party module, we simply use the name of the module: `require('morgan')`.
 
-npm is a great tool, but it has recently been superseded by Yarn. Yarn uses npm but is quicker and more robust. We use it in the same way as npm by the syntax is slightly different:
+npm is a great tool, but it has recently been superseded by Yarn. Yarn uses npm under the hood, but is quicker and more robust. We use it in the same way as npm but the syntax is slightly different:
 
 | **npm syntax** | **Yarn syntax** | **Behaviour** |
 |------------------|-------------------|---------------|
