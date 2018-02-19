@@ -85,7 +85,7 @@ npm is a great tool, but it has recently been superseded by Yarn. Yarn uses npm 
 
 It's important that we either use npm or yarn, _but not both_. On this course **we only use `yarn`**.
 
-## Using `yarn`
+## Using Yarn
 
 To set up your node project to use Yarn you first need to run:
 
