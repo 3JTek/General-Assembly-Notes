@@ -2,7 +2,6 @@
 
 A callback is a function which is passed to another function as an argument. A function that takes another function as an argument is known as a _higher order function_.
 
-
 ## `forEach`
 
 `forEach` is a higher order function, it takes a callback as its first argument:
@@ -62,13 +61,13 @@ animals.forEach = function(callback) {
 }
 ```
 
-As you can see, we iterate over the animals array, (using `this` to refer to it), and call the callback function once per iteration, passing the correct arguments to it. This is where the name comes from: the function is _called back_ by the method it was passed to.
+As you can see, we iterate over the animals array, \(using `this` to refer to it\), and call the callback function once per iteration, passing the correct arguments to it. This is where the name comes from: the function is _called back_ by the method it was passed to.
 
 Whenever you see a function passed as an argument to another function, it will be _called back_ at some point by the higher order function.
 
 ## Methods as callbacks
 
-It's important to understand that when we pass a method as a callback, it is passed _without_ its object (also known as the context). What this means is that when the callback is invoked inside the higher order function, `this` will refer to the `window` object, not the context.
+It's important to understand that when we pass a method as a callback, it is passed _without_ its object \(also known as the context\). What this means is that when the callback is invoked inside the higher order function, `this` will refer to the `window` object, not the context.
 
 Let's look at an example:
 
@@ -93,6 +92,9 @@ This is quite confusing at first, but remember, if you are not sure what `this` 
 
 ## Further reading
 
-- [What the Heck is a Callback](https://codeburst.io/javascript-what-the-heck-is-a-callback-aba4da2deced)
-- [Callback Hell](http://callbackhell.com/)
-- [Callbacks in JavaScript](https://zellwk.com/blog/callbacks/)
+* [What the Heck is a Callback](https://codeburst.io/javascript-what-the-heck-is-a-callback-aba4da2deced)
+* [Callback Hell](http://callbackhell.com/)
+* [Callbacks in JavaScript](https://zellwk.com/blog/callbacks/)
+
+
+

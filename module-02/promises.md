@@ -2,7 +2,6 @@
 
 JavaScript is an asynchronous language, which means that it often performs tasks in parallel. To do this it makes heavy use of callback functions, which can make our code difficult to understand and manage.
 
-
 ## Callback hell
 
 Let's look at an example where we need to make several database calls, all of which need to provide callbacks:
@@ -34,8 +33,8 @@ To help manage all these callbacks, we can use promises instead.
 A promise is a special function that creates some helper methods that allows us to manage the order in which asynchronous behaviour.
 
 | **Method** | **Purpose** |
-|------------|-------------|
-| `.then()`  | Action to be performed once the async function is completed |
+| --- | --- |
+| `.then()` | Action to be performed once the async function is completed |
 | `.catch()` | Action to be performed if the async function fails |
 | `.finally()` | Action to be performed either way |
 
@@ -156,6 +155,9 @@ When we create a promise it gives us two functions `resolve` and `reject`. Insid
 
 ## Further reading
 
-- [Callback Hell](http://callbackhell.com/)
-- [ES6 Promises](http://www.datchley.name/es6-promises/)
-- [Bluebird Cheatsheet](https://devhints.io/bluebird)
+* [Callback Hell](http://callbackhell.com/)
+* [ES6 Promises](http://www.datchley.name/es6-promises/)
+* [Bluebird Cheatsheet](https://devhints.io/bluebird)
+
+
+
