@@ -85,7 +85,7 @@ In order to allow a user access to certain features of our site we need to keep 
 
 A cookie is a small temporary file that is stored by a browser onto a user's computer. This file is used to store information as a user is navigating around a site. Information can vary depending on the site. There are several types of cookie, but the one we are interested in is a _session cookie_.
 
-A session cookie is an encrypted cookie which lasts for the duration of a user session on the browser (basically until the user closes the browser). We can store information inside a cookie, and then access it again after the page has be reloaded or the user has moved to another page on our site.
+A session cookie is an encrypted cookie which lasts for the duration of a user session on the browser \(basically until the user closes the browser\). We can store information inside a cookie, and then access it again after the page has be reloaded or the user has moved to another page on our site.
 
 When a user logs in, we can store the user's ID in the session cookie, then on page load, use that ID to retrieve the user's data. This way we know that they are authorised to use certain areas of the site that are restricted to unregistered users.
 
@@ -206,7 +206,7 @@ In the example above the request first has to pass into the `secureRoute` functi
 
 ## Hiding buttons and links
 
-Finally we might want to hide certain buttons (like the delete button, and edit link) from a logged in user. We can use the properties we added to `res.locals` to helps us with this:
+Finally we might want to hide certain buttons \(like the delete button, and edit link\) from a logged in user. We can use the properties we added to `res.locals` to helps us with this:
 
 ```js
 <% if(locals.isAuthenticated) { %>
@@ -246,6 +246,9 @@ Then finally add the link in the navbar. Notice that only a logged in user would
 
 ## Further reading
 
-- [Cookies - The Royal Family](https://www.royal.uk/cookies)
-- [Express Session](https://github.com/expressjs/session)
-- [How do Express.js Sessions Work?](https://nodewebapps.com/2017/06/18/how-do-nodejs-sessions-work/)
+* [Cookies - The Royal Family](https://www.royal.uk/cookies)
+* [Express Session](https://github.com/expressjs/session)
+* [How do Express.js Sessions Work?](https://nodewebapps.com/2017/06/18/how-do-nodejs-sessions-work/)
+
+
+
