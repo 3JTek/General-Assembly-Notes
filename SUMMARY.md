@@ -41,6 +41,8 @@
   * [Method Override](module-02/method-override.md)
   * [Controllers](module-02/controllers.md)
   * [Mongoose Validations](module-02/mongoose-validations.md)
+  * [User Registration](module-02/user-registration.md)
+  * [Session Authentication](module-02/session-authentication.md)
 * [Module 4 - React](module-04/README.md)
   * [Immutability](module-04/immutability.md)
   * [AJAX](module-04/react-ajax.md)

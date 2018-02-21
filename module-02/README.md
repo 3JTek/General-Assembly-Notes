@@ -11,3 +11,5 @@
 * #### [Method Override](method-override.md)
 * #### [Controllers](controllers.md)
 * #### [Mongoose Validations](mongoose-validations.md)
+* #### [User Registration](user-registration.md)
+* #### [Session Authentication](session-authentication.md)
