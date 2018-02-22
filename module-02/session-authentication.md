@@ -124,7 +124,7 @@ function sessionsCreate(req, res, next) {
       if(!user || !user.validatePassword(req.body.password)) {
         return res.redirect('/login');
       }
-      res.session.userId = user._id; // store the user's ID in the session cookie
+      req.session.userId = user._id; // store the user's ID in the session cookie
       res.redirect('/'); // send them to the homepage
     })
     .catch(next);
