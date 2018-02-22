@@ -43,6 +43,8 @@
   * [Mongoose Validations](module-02/mongoose-validations.md)
   * [User Registration](module-02/user-registration.md)
   * [Session Authentication](module-02/session-authentication.md)
+  * [Working With Embedded Data](module-02/working-with-embedded-data.md)
+  * [Working With Referenced Data](module-02/working-with-referenced-data.md)
 * [Module 4 - React](module-04/README.md)
   * [Immutability](module-04/immutability.md)
   * [AJAX](module-04/react-ajax.md)

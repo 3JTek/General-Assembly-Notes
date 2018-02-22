@@ -13,3 +13,5 @@
 * #### [Mongoose Validations](mongoose-validations.md)
 * #### [User Registration](user-registration.md)
 * #### [Session Authentication](session-authentication.md)
+* #### [Working With Embedded Data](working-with-embedded-data.md)
+* #### [Working With Referenced Data](working-with-referenced-data.md)
