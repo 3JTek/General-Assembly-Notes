@@ -244,6 +244,115 @@ Then finally add the link in the navbar. Notice that only a logged in user would
 <% } %>
 ```
 
+## Flash Messages
+
+Now our app is complete with user authentication and some protected routes, why don't we improve the user experience with some informative flash messages? Let's start by installing the package with yarn:
+
+```bash
+yarn add express-flash
+```
+
+Now let's add it to our `index.js` file. It must come underneath the sessions.
+
+```js
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'ssh it\'s a secret',
+  resave: false,
+  saveUninitialized: false
+}));
+
+app.use(flash());
+```
+
+Let's now add this to our `secureRoute` function. Before redirecting the user to the login page, we can let them know that this is happening because they have tried to access protected content.
+
+```js
+function secureRoute(req, res, next) {
+  if (!req.session.userId) {
+    return req.session.regenerate(() => {
+      req.flash('danger', 'You must be logged in.');
+      res.redirect('/login');
+    });
+  }
+
+  return next();
+}
+```
+
+In order to see our flash messages rendered on our app, we need to update our `layout.ejs` file like so:
+
+```
+<main class="container">
+  <% for (const type in messages) { %>
+    <p class="alert alert-<%= type %>"><%= messages[type] %></p>
+  <% } %>
+
+  <%- body %>
+</main>
+```
+
+We can also add this to our custom middleware for finding the logged in user.
+
+```js
+User
+  .findById(req.session.userId)
+  .then((user) => {
+    if(!user) {
+      return req.session.regenerate(() => {
+        req.flash('danger', 'You must be logged in.');
+        res.redirect('/');
+      });
+    }
+
+    // Re-assign the session id for good measure
+    req.session.userId = user._id;
+
+    res.locals.user = user;
+    res.locals.isLoggedIn = true;
+
+    return next();
+  });
+```
+
+We can also use flash messages to welcome users when they register and log in:
+
+```js
+function registrationsCreate(req, res) {
+  User
+    .create(req.body)
+    .then((user) => {
+      req.flash('info', `Thanks for registering, ${user.username}! Please login.`);
+      return res.redirect('/login');
+    })
+    .catch((err) => {
+      if (err.name === 'ValidationError') {
+        return res.status(400).render('registrations/new', { message: 'Passwords do not match' });
+      }
+      res.status(500).end();
+    });
+}
+```
+
+```js
+function sessionsCreate(req, res) {
+  User
+    .findOne({ email: req.body.email })
+    .then((user) => {
+      if(!user || !user.validatePassword(req.body.password)) {
+        req.flash('danger', 'Unknown email/password combination');
+        return res.redirect('/login');
+      }
+
+      req.session.userId = user.id;
+
+      req.flash('info', `Welcome back, ${user.username}!`);
+      res.redirect('/');
+    });
+}
+```
+
+You can choose whatever colors you like for your flash messages using CSS, but the default options refer to some colors defined by Bootstrap. These include 'danger' =&gt; red, 'success' =&gt; green, 'warning' =&gt; yellow. For more colors, [see the docs](https://getbootstrap.com/docs/4.0/utilities/colors/). 
+
 ## Further reading
 
 * [Cookies - The Royal Family](https://www.royal.uk/cookies)
