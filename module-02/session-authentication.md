@@ -351,7 +351,7 @@ function sessionsCreate(req, res) {
 }
 ```
 
-You can choose whatever colors you like for your flash messages using CSS, but the default options refer to some colors defined by Bootstrap. These include 'danger' =&gt; red, 'success' =&gt; green, 'warning' =&gt; yellow. For more colors, [see the docs](https://getbootstrap.com/docs/4.0/utilities/colors/). 
+You can choose whatever colors you like for your flash messages using CSS, but the default options refer to some colors defined by Bootstrap. These include 'danger' =&gt; red, 'success' =&gt; green, 'warning' =&gt; yellow. For more colors, [see the docs](https://getbootstrap.com/docs/4.0/utilities/colors/).
 
 ## Further reading
 
