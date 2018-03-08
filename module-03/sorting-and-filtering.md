@@ -70,11 +70,99 @@ However, you may notice that this is filtering by _all_ the properties of our da
 </div>
 ```
 
+## Filtering in the Controller
 
+Rather than filtering the data in the view, we can do more if we move our filtering logic to the controller.
 
+Rather than looping over `all` our restaurants, we can filter the data first, then loop over a new `filtered` array.
 
+```js
+RestaurantsIndexCtrl.$inject = ['Restaurant', 'filterFilter'];
+function RestaurantsIndexCtrl(Restaurant, filterFilter) {
+  const vm = this;
+  vm.all = [];
+  
+  Restaurant.find()
+    .then(res => vm.all = res.data)
+    .then(filterRestaurants);
 
+  function filterRestaurants() {
+    vm.filtered = filterFilter(vm.all, vm.q);
+  }
+}
+```
 
+We've injected the `filterFilter` module (as apposed to `uppercaseFilter` or `currencyFilter`) into our controller and created a `filterRestaurants` function which filters `all` based on the search term, and creates a new array called `filtered`.
+
+We must also attach the value of `this` to `vm` so that it continues to refer to the controller when used in the `filterRestaurants` function.
+
+Let's use it in the view:
+
+```html
+<div ng-repeat="restaurant in restaurantsIndex.filtered">
+  .
+  .
+  .
+</div>
+```
+
+Great, but nothing happens when we type in the search box. That's because we're only running the `filterRestaurant` function once when the page loads. We need to run it when the `q` property updates.
+
+## $scope.$watch
+
+First, we need to inject `$scope` into our controller.
+
+Now we can use `$scope.$watch` to literally watch a property, and if it changes, run a function.
+
+```js
+$scope.$watch(() => vm.q, filterRestaurants);
+```
+
+Let's try our search bar again.
+
+## Combining Filters
+
+We can add multiple form fields to further filter our data. For example, users could search for restaurants by selecting a rating, then filtering the results further by searching for a name.
+
+You could use something like this `select`:
+
+```html
+<select name="rating" ng-model="restaurantsIndex.rating">
+  <option value="">All</option>
+  <option value="1">⭐️</option>
+  <option value="2">⭐️⭐️</option>
+  <option value="3">⭐️⭐️⭐️</option>
+  <option value="4">⭐️⭐️⭐️⭐️</option>
+  <option value="5">⭐️⭐️⭐️⭐️⭐️</option>
+</select>
+```
+
+Now let's update our `filterRestaurants` function:
+
+```js
+function filterRestaurants() {
+  const params = {};
+  if(vm.q) params.name = vm.q;
+  if(vm.rating) params.rating = vm.rating;
+
+  vm.filtered = filterFilter(vm.all, params);
+```
+
+Now we are saying that we will filter by either name or rating, or both. The if statements mean that the rating and/name filter will only be applied once a value is truthy - i.e. once somebody has typed in the search bar or selected a rating.
+
+## Exact Match Filtering
+
+So far we have been using Angular's `filterFilter` to see if our data _contains_ our query, not to see if there is an exact match. However, this is possible by passing a third argument into the function:
+
+```js
+vm.filtered = filterFilter(vm.all, params, true)
+```
+
+The `true` passed in here enforces a strict match of the params when filtering. By default, this is set to `false` so we don't normally need to pass it in.
+
+## Further Reading
+
+* [Angular docs](https://docs.angularjs.org/api/ng/filter)
 
 
 
