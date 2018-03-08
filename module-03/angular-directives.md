@@ -106,7 +106,7 @@ export default MainCtrl;
 </section>
 ```
 
-## `ngSumbit`
+### `ngSumbit`
 
 `ngSubmit` should be added to a form, and should be provided a method to be called when the form is submitted. Unlike a usual submit handler, _with angular we do not have to prevent the default behaviour_.
 
