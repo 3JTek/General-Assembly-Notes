@@ -27,7 +27,7 @@
   * [Closures](module-01/closures.md)
   * [Refactoring](module-01/refactoring.md)
   * [Date & Time](module-01/date-time.md)
-  * [`this`](module-01/this.md)
+  * [this](module-01/this.md)
   * [jQuery](module-01/jquery.md)
 * [Module 2 - Express Full Stack](module-02/README.md)
   * [NodeJS](module-02/node.md)
@@ -49,6 +49,7 @@
   * [JavaScript Frameworks](module-03/js-frameworks.md)
   * [Angular Directives](module-03/angular-directives.md)
   * [UI-Router](module-03/ui-router.md)
+  * [Filtering](module-03/sorting-and-filtering.md)
 * [Module 4 - MERN](module-04/README.md)
   * [Immutability](module-04/immutability.md)
   * [AJAX](module-04/react-ajax.md)
@@ -68,3 +69,4 @@
   * [REST](appendix-02/rest.md)
   * [What is an API?](appendix-02/what-is-an-api.md)
   * [What is an AJAX?](appendix-02/what-is-ajax.md)
+
