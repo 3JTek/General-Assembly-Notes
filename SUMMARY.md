@@ -51,6 +51,7 @@
   * [UI-Router](module-03/ui-router.md)
   * [Filtering](module-03/sorting-and-filtering.md)
   * [Custom Directives](module-03/custom-directives.md)
+  * [Token Authentication - Part 1: Server Side](module-03/token-authentication-pt-1.md)
 * [Module 4 - MERN](module-04/README.md)
   * [Immutability](module-04/immutability.md)
   * [AJAX](module-04/react-ajax.md)

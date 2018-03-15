@@ -4,4 +4,4 @@
 * #### [MVC](mvc.md)
 * #### [REST](rest.md)
 * #### [What is an API?](what-is-an-api.md)
-* #### [What is an AJAX?](what-is-ajax.md)
+* #### [What is AJAX?](what-is-ajax.md)
