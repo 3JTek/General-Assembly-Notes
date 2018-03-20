@@ -5,6 +5,7 @@
 * #### [UI-Router](ui-router.md)
 * #### [Filtering](sorting-and-filtering.md)
 * #### [Custom Directives](custom-directives.md)
+* #### [Angular Models](angular-models.md)
 * #### [Token Authentication - Part 1: Server-side](token-authentication-pt-1.md)
 * #### [Token Authentication - Part 2: Client-side](token-authentication-pt-2.md)
 * #### [Handling Form Errors](handling-form-errors.md)
