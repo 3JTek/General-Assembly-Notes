@@ -54,6 +54,7 @@
   * [Token Authentication - Part 1: Server-side](module-03/token-authentication-pt-1.md)
   * [Token Authentication - Part 2: Client-side](module-03/token-authentication-pt-2.md)
   * [Handling Form Errors](module-03/handling-form-errors.md)
+  * [oAuth with Satellizer](module-03/oauth-with-satellizer.md)
 * [Module 4 - MERN](module-04/README.md)
   * [Immutability](module-04/immutability.md)
   * [AJAX](module-04/react-ajax.md)

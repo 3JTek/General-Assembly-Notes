@@ -8,3 +8,4 @@
 * #### [Token Authentication - Part 1: Server-side](token-authentication-pt-1.md)
 * #### [Token Authentication - Part 2: Client-side](token-authentication-pt-2.md)
 * #### [Handling Form Errors](handling-form-errors.md)
+* #### [oAuth with Satellizer](oauth-with-satellizer.md)
