@@ -51,6 +51,8 @@
   * [UI-Router](module-03/ui-router.md)
   * [Filtering](module-03/sorting-and-filtering.md)
   * [Custom Directives](module-03/custom-directives.md)
+  * [Token Authentication - Part 1: Server-side](module-03/token-authentication-pt-1.md)
+  * [Token Authentication - Part 2: Client-side](module-03/token-authentication-pt-2.md)
   * [Handling Form Errors](module-03/handling-form-errors.md)
 * [Module 4 - MERN](module-04/README.md)
   * [Immutability](module-04/immutability.md)
