@@ -10,3 +10,4 @@
 * #### [RESTful React](restful-react.md)
 * #### [Sorting & Filtering](sorting-filtering.md)
 * #### [Styling Components](styling-components.md)
+* #### [Authentication](authentication.md)
