@@ -68,6 +68,7 @@
   * [Sorting & Filtering](module-04/sorting-filtering.md)
   * [Styling Components](module-04/styling-components.md)
   * [Authentication](module-04/authentication.md)
+  * [Form Validation](module-04/form-validation.md)
 * [Appendix I - Dev Tools & Workflow](appendix-01/README.md)
   * [Installfest](appendix-01/installfest.md)
   * [Terminal](appendix-01/terminal.md)
