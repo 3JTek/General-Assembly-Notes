@@ -51,9 +51,9 @@ We must also create a script in our `package.json` to let us run our tests in te
 
 * Add the following script just underneath any existing `start` or `build` scripts:
 
-```
+`
 "test": "node_modules/.bin/_mocha --require ignore-styles test/helper \"test/**/*_test.js\""
-```
+`
 
 You may want to split our your test scripts into `test:server` and `test:client` if you are testing front and back.
 
