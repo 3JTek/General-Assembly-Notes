@@ -87,7 +87,7 @@ Our first test is going to check that our `<Buttons />` component is going to re
 ```js
 describe('Buttons tests', () => {
 
-it('should render buttons with correct icons', done => {
+it('should render 3 buttons', done => {
 
 const wrapper = shallow(<Buttons />);
 expect(wrapper.find('button').length).to.equal(3);
@@ -106,7 +106,7 @@ Now let's update our test to check that the 3 buttons have been rendered with th
 ```js
 describe('Buttons tests', () => {
 
-  it('should render buttons with correct icons', done => {
+  it('should render 3 buttons with correct icons', done => {
 
     const wrapper = shallow(<Buttons />);
     expect(wrapper.find({ value: 'Rock' }).childAt(0).hasClass('fa-hand-rock')).to.equal(true);
