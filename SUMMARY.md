@@ -69,6 +69,7 @@
   * [Styling Components](module-04/styling-components.md)
   * [Authentication](module-04/authentication.md)
   * [Form Validation](module-04/form-validation.md)
+  * [Testing React Components](module-04/testing-react-components.md)
 * [Appendix I - Dev Tools & Workflow](appendix-01/README.md)
   * [Installfest](appendix-01/installfest.md)
   * [Terminal](appendix-01/terminal.md)
@@ -82,3 +83,4 @@
   * [REST](appendix-02/rest.md)
   * [What is an API?](appendix-02/what-is-an-api.md)
   * [What is an AJAX?](appendix-02/what-is-ajax.md)
+
