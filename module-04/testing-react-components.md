@@ -82,6 +82,8 @@ import App from '../src/app';
 
 Now let's write some tests! 
 
+Our first test is going to check that our `<Buttons />` component is going to render 3 buttons with the correct icons in them. We render our component for test purposes with Enzyme's `shallow()` and then search the component for an element with a certain value. Then, we check that the child of the button (the icon) has the correct class. The test is repeated for each button:
+
 ```js
 describe('Buttons tests', () => {
 
@@ -91,11 +93,42 @@ describe('Buttons tests', () => {
     expect(wrapper.find({ value: 'Rock' }).childAt(0).hasClass('fa-hand-rock')).to.equal(true);
     expect(wrapper.find({ value: 'Paper' }).childAt(0).hasClass('fa-hand-paper')).to.equal(true);
     expect(wrapper.find({ value: 'Scissors' }).childAt(0).hasClass('fa-hand-scissors')).to.equal(true);
-    expect(wrapper.find({ value: 'Lizard' }).childAt(0).hasClass('fa-hand-lizard')).to.equal(true);
-    expect(wrapper.find({ value: 'Spock' }).childAt(0).hasClass('fa-hand-spock')).to.equal(true);
     done();
   });
 
 });
 ```
+
+Nice! Now run `yarn test` in terminal and watch your test pass! 
+
+It's always a good idea at this point to test for something you aren't expecting and see a test fail. You need to know that your tests are passing because they are good tests!
+
+Let's test our function that determines the winner of Rock-Paper-Scissors.
+
+This test renders our `<App />` component, the component in which our game logic lives. Once rendered, we can `setState()` on our test component just as we do normally. Now we have values for player and computer picks, we can invoke our `checkWin()` function that determines the winner of the game.
+
+Our function determines the winner and then updates the state of `<App />` to declare a winner. We can check that our function works by checking the new `winner` state is what we are expecting.
+
+```js
+describe('Winner check tests', () => {
+
+  it('should display \'You win\' if player chooses rock and computer chooses scissors', done => {
+
+    const wrapper = shallow(<App />);
+    wrapper.setState({ playerPick: 'Rock', computerPick: 'Scissors' });
+    wrapper.instance().checkWin();
+    expect(wrapper.state().winner).to.equal('You win!');
+    done();
+  });
+
+});
+```
+
+This is only the tip of the iceberg in terms of what we can test. Chances are if you have thought of something you want to test, there is a way to do it.
+
+## Further Reading
+
+* [Enzyme](https://github.com/airbnb/enzyme)
+* [Enzyme shallow rendering](https://github.com/airbnb/enzyme/blob/master/docs/api/shallow.md)
+* [Chai](http://www.chaijs.com/)
 
