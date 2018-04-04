@@ -80,5 +80,22 @@ import App from '../src/app';
 
 ## Testing
 
+Now let's write some tests! 
 
+```js
+describe('Buttons tests', () => {
+
+  it('should render buttons with correct icons', done => {
+
+    const wrapper = shallow(<Buttons />);
+    expect(wrapper.find({ value: 'Rock' }).childAt(0).hasClass('fa-hand-rock')).to.equal(true);
+    expect(wrapper.find({ value: 'Paper' }).childAt(0).hasClass('fa-hand-paper')).to.equal(true);
+    expect(wrapper.find({ value: 'Scissors' }).childAt(0).hasClass('fa-hand-scissors')).to.equal(true);
+    expect(wrapper.find({ value: 'Lizard' }).childAt(0).hasClass('fa-hand-lizard')).to.equal(true);
+    expect(wrapper.find({ value: 'Spock' }).childAt(0).hasClass('fa-hand-spock')).to.equal(true);
+    done();
+  });
+
+});
+```
 
