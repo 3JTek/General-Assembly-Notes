@@ -82,7 +82,26 @@ import App from '../src/app';
 
 Now let's write some tests! 
 
-Our first test is going to check that our `<Buttons />` component is going to render 3 buttons with the correct icons in them. We render our component for test purposes with Enzyme's `shallow()` and then search the component for an element with a certain value. Then, we check that the child of the button (the icon) has the correct class. The test is repeated for each button:
+Our first test is going to check that our `<Buttons />` component is going to render 3 buttons. We render our component for test purposes with Enzyme's `shallow()` and then search the component for all elements of type `button`. We know there should be 3 so we check the length of the returned array.
+
+```js
+describe('Buttons tests', () => {
+
+it('should render buttons with correct icons', done => {
+
+const wrapper = shallow(<Buttons />);
+expect(wrapper.find('button').length).to.equal(3);
+done();
+});
+
+});
+```
+
+Nice! Now run `yarn test` in terminal and watch your test pass! 
+
+It's always a good idea at this point to test for something you aren't expecting and see a test fail. You need to know that your tests are passing because they are good tests!
+
+Now let's update our test to check that the 3 buttons have been rendered with the correct icons in them. This time we our component for an element with a certain value, finding us our button. Then, we check that the child of the element (the icon) has the correct class. The test is repeated for each button:
 
 ```js
 describe('Buttons tests', () => {
@@ -99,11 +118,7 @@ describe('Buttons tests', () => {
 });
 ```
 
-Nice! Now run `yarn test` in terminal and watch your test pass! 
-
-It's always a good idea at this point to test for something you aren't expecting and see a test fail. You need to know that your tests are passing because they are good tests!
-
-Let's test our function that determines the winner of Rock-Paper-Scissors.
+Let's now test our function that determines the winner of Rock-Paper-Scissors.
 
 This test renders our `<App />` component, the component in which our game logic lives. Once rendered, we can `setState()` on our test component just as we do normally. Now we have values for player and computer picks, we can invoke our `checkWin()` function that determines the winner of the game.
 
