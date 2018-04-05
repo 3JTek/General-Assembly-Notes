@@ -12,3 +12,5 @@
 * #### [Styling Components](styling-components.md)
 * #### [Authentication](authentication.md)
 * #### [Form Validation](form-validation.md)
+* #### [Testing React Components](testing-react-components.md)
+
