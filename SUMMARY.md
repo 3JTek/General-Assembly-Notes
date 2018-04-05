@@ -56,6 +56,7 @@
   * [Token Authentication - Part 2: Client-side](module-03/token-authentication-pt-2.md)
   * [Handling Form Errors](module-03/handling-form-errors.md)
   * [oAuth with Satellizer](module-03/oauth-with-satellizer.md)
+  * [Proxy Requests](module-03/proxy-requests.md)
 * [Module 4 - MERN](module-04/README.md)
   * [Advanced ES6](module-04/advanced-es6.md)
   * [Intro to React](module-04/intro-to-react.md)
