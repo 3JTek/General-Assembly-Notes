@@ -60,28 +60,8 @@ There are a number of different frameworks that you could use when making an API
 1. **Sinatra** (Stripped back codebase)
 2. **Rails** (very quick to setup)
 3. **Express** (Used a lot with the MEAN stack)
-4. **Sails** (A JS Rails, still in development)
 
 There are quite a few others! PHP is still used a lot as is Python.
-
-Building an API with Express is pretty similar to building a full web application, except we don't need the following:
-
-- EJS
-- Express EJS Layouts
-- Method Override
-- View templates
-- Express Session
-- Express Flash
-
-In place of serving EJS templates, we can simply serve JSON in the controller:
-
-```js
-function indexRoute(req, res, next) {
-  Cheese.find()
-    .then(cheeses => res.json(cheeses))
-    .catch(next);
-}
-```
 
 ## Further reading
 
