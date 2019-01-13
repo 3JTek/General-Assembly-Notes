@@ -1,47 +1,57 @@
 # REST
 
-REST stands for **REpresentational State Transfer** which is a confusing acronym because it doesn't seem to describe what it actually means. Simply put REST is a way of defining our routes and HTTP request verbs to ensure that all the CRUD actions are available for a specific resource.
+REST stands for **REpresentational State Transfer** which is a confusing acronym because it doesn't seem to describe what it actually means. Simply put REST is a way of building web applications whereby the server does not need to anything about the state of the client. Because of this a RESTful application can be described as _stateless_. In practical terms this means structuring the application's URLs, known as _endpoints_, in a very specific way.
 
-There are seven actions that a user may need to perform on a resource in order to view it, edit it, update it and delete it. We use a specific set of URLs for each action, coupled with a specific verb to maintain consistency of our application and to ensure that it behaves as expected.
+A web application generally allows users to perform specific actions on some data. This might be a product on a store, or an image on Instagram. The actions can be one of the following:
+
+* CREATE
+* READ
+* UPDATE
+* DELETE
+
+With REST these are converted into 7 routes. A route is a specific URL coupled with a VERB. They follow this pattern:
+
+* The **INDEX** route displays a selection of the resource: a category of books on Amazon for example.
+* The **NEW** route displays a form which allows a user to add a resource: think adding an image on Instagram.
+* The **CREATE** route actually adds the data to the database. It handles the **NEW** form.
+* The **SHOW** route displays a single resource: an album track on Spotify for example.
+* The **EDIT** route displays a form that allows users to edit a resource: think changing your username and email address on Github for example.
+* The **UPDATE** route actually updates the data. It handles the **EDIT** form.
+* The **DELETE** route removes a resource from the database. Think deleting a photo on Facebook.
 
 ## RESTful routes
 
 Here is an outline of the RESTful routes for a `foods` resource:
 
-### Web application (with views)
-
-| **Route** | **Path** | **Verb** | **Status Code** | **Response** |
+| **Route** | **Path** | **Verb** | **Status Code** | **Expectation** |
 |-----------|----------|----------|-----------------|--------------|
 | INDEX  | `/foods` | GET | 200 | Display all of the food items |
 | NEW | `/foods/new` | GET | 200 | Display a form to create a new food item |
-| CREATE | `/foods` | POST | 302 | Create the food item, then redirect to `/foods` |
+| CREATE | `/foods` | POST | 201 | Create the food item |
 | SHOW | `/foods/:id` | GET | 200 | Display a single food item |
 | EDIT | `/foods/:id/edit` | GET | 200 | Display a pre-populated form to edit a specific food item |
-| UPDATE | `/foods/:id` | PUT | 302 | Update the food item, then redirect to `/foods/:id` |
-| DELETE | `/foods/:id` | DELETE | 302 | Delete the food item, then redirect to `/foods` |
-
-### Web API (no views)
-
-| **Route** | **Path** | **Verb** | **Status Code** | **Response** |
-|-----------|---------|-----------|-----------------|--------------|
-| INDEX  | `/foods` | GET | 200 | JSON payload containing all the food items |
-| CREATE | `/foods` | POST | 201 | JSON payload containing the newly created food item |
-| SHOW | `/foods/:id` | GET | 200 | JSON payload containing a specific food item |
-| UPDATE | `/foods/:id` | PUT | 200 | JSON payload containing the newly updated food item |
-| DELETE | `/foods/:id` | DELETE | 204 | Empty response |
-
-Any resource that we need to perform all CRUD actions on should be RESTful in this way.
-
-## Non RESTful routes
-
-Other routes, like `/about` or `/login` are not RESTful, since they do not require full CRUD behaviour. In that case there is no specific set of routes and verbs that we need to stick to, but it is worth attempting to stay as close as possible to the REST paradigm. This will make it easier for other developers to know what to expect when working with the code base.
+| UPDATE | `/foods/:id` | PUT | 200 | Update the food item |
+| DELETE | `/foods/:id` | DELETE | 204 | Delete the food item |
 
 REST is a design pattern, you don't _have_ to use it<sup>\*</sup>, but it is a great way to keep things organised.
 
-
 <small><sup>\*</sup> On WDI you absolutely have to use it!</small>
+
+## Responsibilities
+
+Not all routes are required on both the server and client. The client is responsible for _displaying_ data and the server for _storing_ and _retrieving_ data.
+
+| **Route** | **Responsibility** |
+|-----------|--------------------|
+| INDEX | Server and client |
+| NEW | Client only |
+| CREATE | Server only |
+| SHOW | Server and client |
+| EDIT | Client only |
+| UPDATE | Server only |
+| DELETE | Server only |
 
 ## Further reading
 
-- [What is REST?](https://www.codecademy.com/articles/what-is-rest)
-- [Understanding REST](https://medium.com/@sagar.mane006/understanding-rest-representational-state-transfer-85256b9424aa)
+* [What is REST? - Codecademy](https://www.codecademy.com/articles/what-is-rest)
+* [Understanding REST - Medium](https://medium.com/@sagar.mane006/understanding-rest-representational-state-transfer-85256b9424aa)

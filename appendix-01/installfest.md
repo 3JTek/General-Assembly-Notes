@@ -34,9 +34,9 @@ Eslint is a package designed to check for bugs in our code **before** we run it.
     - **Show Invisibles** - _check_
     - **Tab Type** > _soft_
 7. Copy and paste the following command into the terminal:
-	```
-	apm install auto-indent atom-ternjs file-icons language-ejs language-babel linter linter-erb linter-csslint linter-eslint linter-js-yaml linter-ruby open-in-browser ruby-block pigments sublime-style-column-selection
-	```
+  ```
+  apm install auto-indent atom-ternjs file-icons language-ejs language-babel linter linter-erb linter-csslint linter-eslint linter-js-yaml linter-ruby open-in-browser ruby-block pigments sublime-style-column-selection
+  ```
 8. Now quit Atom.
 
 
@@ -90,7 +90,7 @@ Cut and paste the following text into the file you just opened in Atom:
     "no-fallthrough": "warn",
     "prefer-const": "error",
     "quotes": [ "error", "single" ],
-    "semi": [ "error", "always" ],
+    "semi": [ "error", "never" ],
     "react/prop-types": [ 0 ]
   }
 }
@@ -161,9 +161,9 @@ Packages are bundles of source code distributed by developers of software, which
 #### Install
 
 1. Copy and paste the following command into the terminal, then hit enter
-	```
-	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-	```
+  ```
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  ```
 2. Press `enter` at the prompt, and enter your password.
 3. Once installation has finished type `brew doctor`. It should say `Your system is ready to brew.` If not inform one of your instructors.
 4. Update Homebrew: `brew update`
@@ -311,12 +311,12 @@ the next step **Generate a new SSH key**, otherwise, go to step 5 **Add your SSH
 1. In the **Title** field put something that identifies your machine, like _Mike's MacBook Air_
 1. In the **Key** field just hit <kbd>cmd</kbd> + <kbd>V</kbd> to paste the key that you created earlier - *do not add or remove and characters or whitespace to the key*
 1. Click **Add key** and check everything works in the terminal by typing:
-	`ssh -T git@github.com` <br>
+  `ssh -T git@github.com` <br>
 
-	You should see the following message:
-	```
-	Hi mickyginger! You've successfully authenticated, but GitHub does not provide shell access.
-	```
+  You should see the following message:
+  ```
+  Hi mickyginger! You've successfully authenticated, but GitHub does not provide shell access.
+  ```
 
 <br>
 

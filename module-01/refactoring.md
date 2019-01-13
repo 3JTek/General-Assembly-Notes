@@ -12,16 +12,16 @@ Refactoring is the process of improving a piece code without changing its functi
 
 We can improve code is several ways. We can make it:
 
-- easier to read
-- more concise
-- more reusable
-- more efficient
+* easier to read
+* more concise
+* more reusable
+* more efficient
 
 Let's look at some common ways of refactoring our code:
 
 ## Using variables to _cache_ data
 
-"Caching" means to store something in memory. Let's say for example that we want to use a DOM element in multiple places in a script. It's far better to store that element in a variable and access it from there, than to continually get it from the DOM with JavaScript.
+"Caching" means to store something in memory. Let's say for example that we want to use a DOM element in multiple places in a script. It's far better to store an element in a variable and access it from there, than to continually get it from the DOM with JavaScript.
 
 When declaring our variables, we need to make sure that we use meaningful names. This helps our code to be more **readable**. `player1Choice` is much easier to understand than `p1c`.
 
@@ -35,15 +35,15 @@ Splitting large blocks of functionality into smaller functions means that the so
 
 Sometimes when trying to solve a problem we can get tunnel vision, pushing on because we can sense the solution is so close we can almost taste it. When we finally reach a solution, it's important to take a step back and look at the code that we've written with a fresh pair of eyes.
 
-Would a colleague be able to understand our rambling code? Do the variable names make sense? Now that we've found the solution, is there a simpler way to get there?
+Would a colleague be able to understand our code? Do the variable names make sense? Now that we've found the solution, is there a simpler way to get there?
 
-**Remember**: the simpler the code, the easier it is to understand, and the easier it is to modify, and the less likely it is to be buggy.
+**Remember**: the simpler the code, the easier it is to understand, and the easier it is to maintain, and the less likely it is to be buggy.
 
 ## Making code more efficient
 
 Generally code efficiency should be low on the priority list when developing software. Improving efficiency can improve performance of our code, which can ultimately save money by serving smaller files to our users, and serving more users with less hardware.
 
-It's important to understand that code efficiency should only be considered once a solution has been realised, unless it is clear that the solution is unsustainable. Improving efficiency can take a huge amount of development time, so we must consider the cost implications. Generally speaking clearly written, flexible, concise code will also be reasonably efficient.
+It's important to understand that code efficiency should only be considered once a solution has been realised. Improving efficiency can take a huge amount of development time, so we must consider the cost implications. Generally speaking clearly written, flexible, concise code will also be reasonably efficient.
 
 ## Practice, practice, practice
 
@@ -53,6 +53,6 @@ Online resources like [https://www.codewars.com/](Code Wars) and [http://exercis
 
 ## Further reading
 
-- [Practical Tips for Improving Your Code](https://code.tutsplus.com/articles/practical-tips-for-improving-your-code--wp-28228)
-- [9 Effective Tips for Improving Code Quality](http://www.xmcgraw.com/9-effective-tips-for-improving-code-quality/)
-- [10 Tips for Improving the Readability of Your Code](https://dzone.com/articles/10-tips-how-to-improve-the-readability-of-your-sof)
+* [Practical Tips for Improving Your Code](https://code.tutsplus.com/articles/practical-tips-for-improving-your-code--wp-28228)
+* [9 Effective Tips for Improving Code Quality](http://www.xmcgraw.com/9-effective-tips-for-improving-code-quality/)
+* [10 Tips for Improving the Readability of Your Code](https://dzone.com/articles/10-tips-how-to-improve-the-readability-of-your-sof)

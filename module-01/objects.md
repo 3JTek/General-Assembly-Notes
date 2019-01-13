@@ -1,37 +1,37 @@
 # Objects
 
-Objects are a fundamental concept with any programming language. They are used to attempt to model the real world. Take a book for example. Each book on your book shelf has a certain set of properties: author, title, ISBN, number of pages, cover art, publishing house etc. If you were to express a book with JavaScript it might look like this:
+Objects are a fundamental concept with any programming language. They are used to attempt to describe something in the real world in a programming language. Take a book for example. Each book on your book shelf has a certain set of properties: author, title, ISBN, number of pages, cover art, publishing house etc. If you were to express a book with JavaScript it might look like this:
 
 ```js
-const title = 'A Wizard of Earthsea';
-const author = 'Ursula K. LeGuin';
-const isbn = '978-0141354910';
-const pages = 304;
-const publisher = 'Puffin';
-const cover = 'https://images-na.ssl-images-amazon.com/images/I/51iQfxB5rHL._SX323_BO1,204,203,200_.jpg';
+const title = 'A Wizard of Earthsea'
+const author = 'Ursula K. LeGuin'
+const isbn = '978-0141354910'
+const pages = 304
+const publisher = 'Puffin'
+const cover = 'https://images-na.ssl-images-amazon.com/images/I/51iQfxB5rHL._SX323_BO1,204,203,200_.jpg'
 ```
 
 Great, but what if you wanted to express another book, how would that look:
 
 ```js
-const book1Title = 'A Wizard of Earthsea';
-const book1author = 'Ursula K. LeGuin';
-const book1Isbn = '978-0141354910';
-const book1Pages = 304;
-const book1Publisher = 'Puffin';
-const book1Cover = 'https://images-na.ssl-images-amazon.com/images/I/51iQfxB5rHL._SX323_BO1,204,203,200_.jpg';
+const book1Title = 'A Wizard of Earthsea'
+const book1author = 'Ursula K. LeGuin'
+const book1Isbn = '978-0141354910'
+const book1Pages = 304
+const book1Publisher = 'Puffin'
+const book1Cover = 'https://images-na.ssl-images-amazon.com/images/I/51iQfxB5rHL._SX323_BO1,204,203,200_.jpg'
 
-const book2Title = 'The Tombs of Atuan';
-const book2author = 'Ursula K. LeGuin';
-const book2Isbn = '978-0140306323';
-const book2Pages = 106;
-const book2Publisher = 'Puffin';
-const book2Cover = 'https://images-na.ssl-images-amazon.com/images/I/41ENY8FS71L._SX281_BO1,204,203,200_.jpg';
+const book2Title = 'The Tombs of Atuan'
+const book2author = 'Ursula K. LeGuin'
+const book2Isbn = '978-0140306323'
+const book2Pages = 106
+const book2Publisher = 'Puffin'
+const book2Cover = 'https://images-na.ssl-images-amazon.com/images/I/41ENY8FS71L._SX281_BO1,204,203,200_.jpg'
 ```
 
 And what if you wanted to express a whole library of books? Hopefully you can see that the code would quickly get very unmaintainable.
 
-Enter object. You can consider an object a wrapper around a collection of variables and and functions that are all related.
+You can consider an object a wrapper around a collection of variables and and functions that are all related.
 
 ```js
 const book1 = {
@@ -41,7 +41,7 @@ const book1 = {
   pages: 304,
   publisher: 'Puffin',
   cover: 'https://images-na.ssl-images-amazon.com/images/I/51iQfxB5rHL._SX323_BO1,204,203,200_.jpg'
-};
+}
 
 const book2 = {
   title: 'The Tombs of Atuan',
@@ -53,14 +53,14 @@ const book2 = {
 }
 ```
 
-Basically we are creating variables inside our object, only now we call the `properties`.
+Basically we are creating variables inside our object, only now we call them `properties`.
 
 ## Key / value pairs
 
 When we make a variable, we have `name` and a `value`:
 
 ```js
-const title = 'A Wizard of Earthsea';
+const title = 'A Wizard of Earthsea'
 ```
 
 When we assign a property to an object, we have a `key` and a `value`:
@@ -68,7 +68,7 @@ When we assign a property to an object, we have a `key` and a `value`:
 ```js
 const book1 = {
   title: 'A Wizard of Earthsea'
-};
+}
 ```
 
 The syntax looks like this:
@@ -89,25 +89,26 @@ const book1 = {
   pages: 304,
   publisher: 'Puffin',
   cover: 'https://images-na.ssl-images-amazon.com/images/I/51iQfxB5rHL._SX323_BO1,204,203,200_.jpg'
-};
+}
 
-console.log(book1.title); // => "A Wizard of Earthsea"
-console.log(book1['title']);  // => "A Wizard of Earthsea"
+book1.title // => "A Wizard of Earthsea"
+book1['title']  // => "A Wizard of Earthsea"
 ```
 
 Here we are saying "get me the `title` of the object called `book1`".
 
 ```js
-book1.title = 'Around the World in 80 days';
-book1['title'] = 'Around the World in 80 days';
-console.log(book1) // => { title: "Around the World in 80 days", author: "Ursula K. LeGuin", isbn: "978-0141354910" ... }
+book1.title = 'Around the World in 80 days'
+book1['title'] = 'Around the World in 80 days'
+
+book1 // => { title: "Around the World in 80 days", author: "Ursula K. LeGuin", isbn: "978-0141354910" ... }
 ```
 
 Here we are saying "set the `title` of the object called `book1` to 'Around the World in 80 days'"
 
 ## Methods
 
-We can also add functions on to an object. When we do this we call the function a method. Let's take a different example, how about a bank account. The properties of the bank account will be account holder, account number, sort code, balance. We will also add methods for depositing and withdrawing funds:
+We can also add functions to an object. When we do this we call the function a _method_. Let's take a different example, a bank account. The properties of the bank account will be account holder, account number, sort code and balance. We can also add methods for depositing and withdrawing funds:
 
 ```js
 const account = {
@@ -116,43 +117,42 @@ const account = {
   sortCode: '40-50-23',
   balance: 1280,
   deposit(amount) {
-    this.balance += amount;
-    return `Thanks for your deposit, your current balance is: ${this.balance}`;
+    this.balance += amount
   },
   withdraw(amount) {
-    this.balance -= amount;
-    return amount;
+    this.balance -= amount
   }
 }
 
-console.log(account.balance); // => 1280
-account.deposit(250); // => "Thanks for your deposit, your current balance is: 1530"
-account.withdraw(20); // => 1510
+account.balance // => 1280
+account.deposit(250)
+account.withdraw(20)
+account.balance // => 1510
 ```
 
 ### `this`
 
-In JavaScript `this` refers to the object that the function is attached to _when it was called_. So when we made a deposit we called the `deposit` keyword from the `account` object, so inside the function `this` refers to the `account` object.
+In JavaScript `this` refers to the object that the function is attached to _when it was called_. So when we made a deposit we called the `deposit` method from the `account` object, so inside the function `this` refers to the `account` object.
 
 It is very useful when we have a method on an object which is designed to modify the properties of that object.
 
 ### Arrow functions
 
-We can also use arrow functions to create methods on objects, however **`this` behaves differently with an arrow function**. We will cover the reasons why in a later lesson, so for just be aware that you cannot rely on `this` when using arrow functions.
+We can also use arrow functions to create methods on objects, however **`this` behaves differently with an arrow function**. For this reason, it is best to not use arrow functions for methods.
 
 
 ## Destructuring
 
-Often when working with objects, we want to store a property from an object into a variable of the same name. You might do that like this:
+Often when working with objects, we want to store a property into a variable of the same name. You might do that like so:
 
 ```js
-const title = book.title;
+const title = book.title
 ```
 
 But you can also do it like this:
 
 ```js
-const { title } = book;
+const { title } = book
 ```
 
 It's the exact same thing, but it's just a little bit quicker to write out. It's called _destructuring_.
@@ -160,8 +160,8 @@ It's the exact same thing, but it's just a little bit quicker to write out. It's
 You can also change the name of the variable when you destructure like so:
 
 ```js
-const { title: bookTitle } = book; // same as const bookTitle = book.title;
-console.log(bookTitle) // => "A Wizard of Earthsea"
+const { title: bookTitle } = book // same as const bookTitle = book.title
+bookTitle // => "A Wizard of Earthsea"
 ```
 
 ## Deleting properties
@@ -173,10 +173,10 @@ const book = {
   title: 'A Wizard of Earthsea',
   author: 'Ursula K. LeGuin',
   isbn: '978-0141354910'
-};
+}
 
-delete book.isbn;
-console.log(book); // => { title: "A Wizard of Earthsea", author: "Ursula K. LeGuin" }
+delete book.isbn
+book // => { title: "A Wizard of Earthsea", author: "Ursula K. LeGuin" }
 ```
 
 ## Comparing objects
@@ -191,13 +191,13 @@ console.log('a' === 'a') // => false
 However the same is not true for complex data types:
 
 ```js
-const book1 = { title: 'A Wizard of Earthsea' };
-const book2 = { title: 'A Wizard of Earthsea' };
+const book1 = { title: 'A Wizard of Earthsea' }
+const book2 = { title: 'A Wizard of Earthsea' }
 
-console.log(book1 === book2); // => false
+console.log(book1 === book2) // => false
 ```
 
-This is because when JavaScript compares objects it check where they are the same object, and not whether they contain the same data. In the example above we created two objects, and as such each live in a different place in memory. When we compared them we asked JavaScript, "are they the same object?"
+This is because when JavaScript compares objects it check whether they are the same object, and not whether they contain the same data. In the example above we created two objects, and as such each live in a different place in memory. When we compared them we asked JavaScript, "are they the same object?"
 
 Imagine two identical cars, they are both black Honda Prius, same engine size, same number of doors, same amount of miles on the clock. Are they the same car? No. They have the same properties, but they are not the same car.
 

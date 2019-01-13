@@ -11,16 +11,13 @@ Before we get into `this` we need to understand exactly what variables (and argu
 With _primitive_ data types, like strings and numbers, the value is allocated to the variable, a bit like a key/value pair. So in this sense we can say that the variable is like a container. It contains the data:
 
 ```js
-let a = 10;
-let b = a;
+let a = 10
+let b = a
 
-a = 11;
+a = 11
 
-console.log(a);
-=> 11
-
-console.log(b);
-=> 10
+console.log(a) // => 11
+console.log(b) // => 10
 ```
 
 Here, because `a` refers to a primitive, when we define `b` it is also allocated the same value.
@@ -32,13 +29,13 @@ When we change `a`, it has no effect on `b`.
 Let's look at a similar example with a more complex data type:
 
 ```js
-let a = { name: 'Mike' };
-let b = a;
+let a = { name: 'Mike' }
+let b = a
 
-b.name = 'Stephanie';
+b.name = 'Stephanie'
 
-console.log(a); => { name: 'Stephanie' }
-console.log(b); => { name: 'Stephanie' }
+console.log(a) // => { name: 'Stephanie' }
+console.log(b) // => { name: 'Stephanie' }
 ```
 
 With _composite_ data types, like objects and arrays, the variable behaves like a pointer. It points to where the value is located in memory.
@@ -47,7 +44,7 @@ In the example above `a` and `b` are both pointing to the **same object**. We ca
 
 ## `this` is a pointer
 
-`this` is a variable and because `this` is **ALWAYS** an object, it will behave like a pointer.
+`this` is a variable and because `this` **ALWAYS** refers to an object, it will behave like a pointer.
 
 The thing that makes `this` confusing is that what it is pointing to depends on a few different factors.
 
@@ -60,7 +57,7 @@ this === window
 // => true
 
 function foo() {
-  return this;
+  return this
 }
 
 foo()
@@ -71,16 +68,16 @@ By default, `this` points to the `window`. The `window` object is the edge of th
 
 ### Strict mode
 
-If we add `'use strict';` at the top of our scripts, we tell the browser that we want to use a more strict set of rules when running our JavaScript files. This affects `this` very slightly when working with functions:
+If we add `'use strict'` at the top of our scripts, we tell the browser that we want to use a more strict set of rules when running our JavaScript files. The default behaviour of `this` will now change:
 
 ```js
-'use strict';
+'use strict'
 
 this === window
 // => true
 
 function foo() {
-  return this;
+  return this
 }
 
 foo()
@@ -99,7 +96,7 @@ Let's look at an example:
 
 ```js
 function foo() {
-  return this;
+  return this
 }
 
 const me = {
@@ -107,10 +104,10 @@ const me = {
   foo: foo
 }
 
-foo();
+foo()
 // => Window
 
-me.foo();
+me.foo()
 // => Object { name: 'Mike', foo: [function foo] }
 
 ```
@@ -124,9 +121,9 @@ This is known as _implicit_ binding. Where `this` points is _implied_ by the _co
 A very common example of the use of implicit binding is with JavaScript event listeners:
 
 ```js
-const btn = document.querySelector('button');
+const btn = document.querySelector('button')
 btn.onclick = function() {
-  console.log(this);
+  console.log(this)
 }
 ```
 
@@ -140,7 +137,7 @@ We can explicitly set where `this` is pointing using the methods `call` or `bind
 
 ```js
 function foo() {
-  return this;
+  return this
 }
 
 const me = {
@@ -148,10 +145,10 @@ const me = {
   foo: foo
 }
 
-me.foo();
+me.foo()
 // => Object { name: 'Mike', foo: [function foo] }
 
-me.foo.call(window);
+me.foo.call(window)
 // => Window
 ```
 
@@ -161,15 +158,16 @@ When we use `call`, we set what `this` points to **and** we call, or _invoke_ th
 
 ```js
 function foo() {
-  return this;
+  return this
 }
 
 const me = {
   name: 'Mike',
-  foo: foo.bind(window)
+  foo: foo
 }
 
-me.foo();
+const boundMe = me.foo.bind(window)
+boundMe()
 // => Window
 ```
 
@@ -181,16 +179,16 @@ When we use `this` in a constructor method it refers to the instance that will b
 
 ```js
 function Car(brand, numberOfSeats, maxSpeed) {
-  this.brand = brand;
-  this.numberOfSeats = numberOfSeats;
-  this.maxSpeed = maxSpeed;
-  this.speed = 0;
+  this.brand = brand
+  this.numberOfSeats = numberOfSeats
+  this.maxSpeed = maxSpeed
+  this.speed = 0
 }
 
-const mustang = new Car('Ford Mustang GT', 2, 164);
+const mustang = new Car('Ford Mustang GT', 2, 164)
 ```
 
-When the `Car` object is instantiated it's properties will have been set using `this`.
+When the `Car` object is instantiated its properties will have been set using `this`.
 
 ## Overview of `this`
 
@@ -202,8 +200,12 @@ When the `Car` object is instantiated it's properties will have been set using `
 - `this` can be _explicitly_ set using `call` or `bind`.
 - With constructors `this` refers to the instance that will be returned from the function.
 
+## Nobody panic!!
+
+Developing a good understanding of `this` takes time and experience. _Don't panic_. As a junior developer you will not be expected to fully understand the concept. Just remember that if you are not sure what `this` is pointing to, or if `this` behaves unexpectedly, you can always use `console.log` to find out what `this` is.
+
 ## Further reading
 
-- [this - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
-- [Understanding the `this` Keyword in JavaScript](https://toddmotto.com/understanding-the-this-keyword-in-javascript/)
-- [JavaScript `this` Keyword Explained Simply](https://medium.com/@NinjaJavaScript/javascript-this-keyword-explained-simply-e90762d4945d)
+* [this - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+* [Understanding the `this` Keyword in JavaScript](https://toddmotto.com/understanding-the-this-keyword-in-javascript/)
+* [JavaScript `this` Keyword Explained Simply](https://medium.com/@NinjaJavaScript/javascript-this-keyword-explained-simply-e90762d4945d)

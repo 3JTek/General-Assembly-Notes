@@ -4,8 +4,8 @@ In the beginning there was HTML and it was good. Except that it had no support f
 
 Then HTML5 came along with shiny new tags like:
 
-- `<audio>`
-- `<video>`
+* `<audio>`
+* `<video>`
 
 Each browser now had its own built-in audio and video player. As developers, we just need to set them up correctly, and our work is done.
 
@@ -73,6 +73,6 @@ We can interact with the audio player with the following properties an methods:
 
 ## Further reading
 
-- [HTMLMediaElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement)
-- [HTML - Audio](https://tutorialehtml.com/en/html-tutorial-embed-audio/)
-- [Create a Customized HTML5 Audio Player](https://webdesign.tutsplus.com/tutorials/create-a-customized-html5-audio-player--webdesign-7081)
+* [HTMLMediaElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement)
+* [HTML - Audio](https://tutorialehtml.com/en/html-tutorial-embed-audio/)
+* [Create a Customized HTML5 Audio Player](https://webdesign.tutsplus.com/tutorials/create-a-customized-html5-audio-player--webdesign-7081)

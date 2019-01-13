@@ -18,13 +18,15 @@ The important thing to remember is that **HTML is about semantics, not about lay
 
 HTML is a subset of XML, which stands for Extendable Markup Language. XML was designed to help computers send information to each other via a network (like the internet).
 
-If we wanted to convey a book in XML it would probably look something like this:
+If we wanted to represent a book in XML it would probably look something like this:
 
 ```xml
 <Book>
   <Title>The Lord of The Rings: The Fellowship of the Ring</Title>
   <Author>J R R Tolkein</Author>
-  <ISBN>9788373191723</ISBN>
+  <Snippet>
+    When Mr. Bilbo Baggins of Bag End announced that he would shortly be celebrating his eleventy-first birthday with a party of special magnificence, there was much talk and excitement in Hobbiton.
+  </Snippet>
 </Book>
 ```
 
@@ -45,10 +47,10 @@ HTML is very similar:
 All HTML files must conform to the following rules:
 
 1. It must start with a `<!DOCTYPE>` declaration indicating which version of HTML the file should be interpreted as.
-1. It must have a `<html>` tag.
+1. It must have an `<html>` tag.
 1. The `<html>` tag must contain a `<head>` section and a `<body>` section.
-  - The `<head>` section contains information for the browser, and is not visible to the user.
-  - The `<body>` section contains all the data that will be visible to the user.
+  * The `<head>` section contains information for the browser, and is not visible to the user.
+  * The `<body>` section contains all the data that will be visible to the user.
 1. The appropriate tag should be used for the appropriate data.
 
 ## Example
@@ -79,12 +81,6 @@ Here's an example of some tags with attributes:
 <img src="https://gph.is/28UMzPi" /> <!-- self-closing tag -->
 <input type="text" name="name" /> <!-- self-closing tag -->
 ```
-
-## Block level and inline elements
-
-HTML tags fall in to one of two categories, `inline` and `block` level elements.
-
-A block level element takes up the whole width of the parent element, and can be styled with padding and margin. An inline element sits in the flow of the document like a word in a sentence, and allows content to sit either side of it. We'll be looking more at this later in the CSS part of the module.
 
 ## Common HTML tags
 
@@ -120,6 +116,6 @@ The three most nuanced HTML tags are `section`, `article` & `aside` and are wort
 
 ## Further reading
 
-- [HTML Elements reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
-- [Why Use Semantic HTML](https://www.thoughtco.com/why-use-semantic-html-3468271)
-- [HTML5 Element Flowchart](http://html5doctor.com/downloads/h5d-sectioning-flowchart.pdf)
+* [HTML Elements reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
+* [Why Use Semantic HTML](https://www.thoughtco.com/why-use-semantic-html-3468271)
+* [HTML5 Element Flowchart](http://html5doctor.com/downloads/h5d-sectioning-flowchart.pdf)

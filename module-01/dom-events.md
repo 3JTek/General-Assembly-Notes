@@ -1,8 +1,8 @@
 # DOM Events
 
-One of the features of the World Wide Web that makes it so popular is its interactive nature. When a Web page is rendered, the client can interact with it. clicking on links and buttons to change pages or to make windows pop up, entering information in forms and view responses based on entries. In these and many other ways, Web pages are responsive to actions.
+When a Web page is rendered, the user can interact with it. Clicking on links and buttons to change pages or to make windows pop up, entering information in forms and view responses based on entries. In these and many other ways, web pages are responsive to actions.
 
-In other words, Web pages are **"event-driven"**, reacting to events that initiated by the user such as mouse clicks or keyboard entries.
+In other words, web pages are _event driven_. They react to events that are initiated by the user, such as mouse clicks or keyboard input.
 
 ## Handling events
 
@@ -19,9 +19,9 @@ Just like CSS it is generally considered bad practice to use inline JavaScript, 
 ```
 
 ```js
-const button = document.querySelector('button');
+const button = document.querySelector('button')
 button.onclick = function() {
-  console.log('hello');
+  console.log('hello')
 }
 ```
 
@@ -34,24 +34,29 @@ When an event listener is called it has access to an `event` object which we can
 The event object gets passed into the event listener as the first argument. Generally we call it `e` or `evt`:
 
 ```js
-const button = document.querySelector('button');
+const button = document.querySelector('button')
 button.onclick = function(e) {
-  console.log('hello');
-  console.log(e.target); // => <button>Click Me</button> -- the button that triggered this event
-  console.log(e.target.innerHTML); // => Click Me
+  console.log('hello')
+  console.log(e.target) // => <button>Click Me</button> -- the button that triggered this event
+  console.log(e.target.innerHTML) // => Click Me
 }
 ```
 
 ## `this`
 
-Inside and event listener, `this` points to the element that triggered the event if we use a standard function. With an arrow function, this will be `undefined`, or point to the `window` object if `'use strict'` has not been set.
+Inside and event listener, `this` points to the element that triggered the event if we use a standard function. **With an arrow function, `this` will not be the element, so in this case we can use `e.target`.**
 
 ```js
-const button = document.querySelector('button');
+const button = document.querySelector('button')
 button.onclick = function(e) {
-  console.log('hello');
-  console.log(this); // => <button>Click Me</button> -- the button that triggered this event
-  console.log(this.innerHTML); // => Click Me
+  console.log(this) // => <button>Click Me</button> -- the button that triggered this event
+  console.log(this.innerHTML) // => Click Me
+}
+
+button.onclick = (e) => {
+  console.log(this) // => Window { ... }
+  console.log(e.target) // => <button>Click Me</button> -- the button that triggered this event
+  console.log(e.target.innerHTML) // => Click Me
 }
 ```
 
@@ -62,17 +67,17 @@ If we want to listen out for a `click` event we can add an event listener to the
 If we add two event listeners to the same property, the second would overwrite the first:
 
 ```js
-const button = document.querySelector('button');
-button.onclick = () => console.log('Hey');
-button.onclick = () => console.log('Ho'); // Only this function would be called
+const button = document.querySelector('button')
+button.onclick = () => console.log('Hey')
+button.onclick = () => console.log('Ho') // Only this function would be called
 ```
 
-More commonly we would use the `addEventListener` method to add event listeners to an element. This way multiple event listeners can listen out for the same event type:
+More commonly we would use the `addEventListener` method to add event listeners to an element. This way multiple event listeners can listen out for the same event:
 
 ```js
-const button = document.querySelector('button');
-button.addEventListener('click', () => console.log('Hey'));
-button.addEventListener('click', () => console.log('Ho')); // Both functions are called
+const button = document.querySelector('button')
+button.addEventListener('click', () => console.log('Hey'))
+button.addEventListener('click', () => console.log('Ho')) // Both functions are called
 ```
 
 ## Common events
@@ -110,26 +115,26 @@ In order to prevent this we can use `e.stopPropagation()` at any point in the DO
 ```
 
 ```js
-const parent = document.querySelector('#parent');
-const child = document.querySelector('#child');
-const grandchild = document.querySelector('#grandchild');
+const parent = document.querySelector('#parent')
+const child = document.querySelector('#child')
+const grandchild = document.querySelector('#grandchild')
 
 parent.addEventListener('click', () => {
-  console.log('parent click');
-});
+  console.log('parent click')
+})
 parent.addEventListener('click', () => {
-  e.stopPropagation();
-  console.log('child click');
-});
+  e.stopPropagation()
+  console.log('child click')
+})
 parent.addEventListener('click', () => {
-  console.log('grandchild click');
-});
+  console.log('grandchild click')
+})
 ```
 
 In the example above if we click on the grandchild element, we would see `grandchild click` and `child click` in the console, but the bubbling would stop there and never reach the parent event listener.
 
 ## Further reading
 
-- [An Introduction to DOM Events](https://www.smashingmagazine.com/2013/11/an-introduction-to-dom-events/)
-- [Event Reference](https://developer.mozilla.org/en-US/docs/Web/Events)
-- [Events and the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Events)
+* [An Introduction to DOM Events](https://www.smashingmagazine.com/2013/11/an-introduction-to-dom-events/)
+* [Event Reference](https://developer.mozilla.org/en-US/docs/Web/Events)
+* [Events and the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Events)

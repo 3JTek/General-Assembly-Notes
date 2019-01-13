@@ -1,6 +1,6 @@
 # Control Flow
 
-A computer program is basically an algorithm (a sequence of instructions to complete a task). That sequence is defined by the _flow_ of the program. We can define the flow of a program using control flow constructs like conditions and loops.
+A computer program is basically an algorithm (a sequence of instructions that complete a task). That sequence is defined by the _flow_ of the program. We can define the flow of a program using control flow constructs like conditions and loops.
 
 You can express the flow of a program with a flow chart:
 
@@ -87,7 +87,7 @@ console.log(0 == false); // true - when both values are converted to booleans, t
 console.log(0 === false); // false - 0 is a number, false is a boolean.
 ```
 
-**We should avoid the use of `==` where possible, as it can lead to unexpected results.**
+**We should avoid the use of `==`, as it can lead to unexpected results.**
 
 ## Boolean logic
 
@@ -167,7 +167,7 @@ Another way of changing the flow of a program is by looping over the same piece 
 
 ### `while`
 
-A `while` loop checks for a condition at the end of each loop. If the condition is _truthy_, it will run another loop:
+A `while` loop checks for a condition at the end of each loop. If the condition is _truthy_, it will run the code block again:
 
 ```js
 let a = 10;
@@ -199,7 +199,7 @@ for(let a = 10; a > 5; a--) {
 
 The `for` loop is more self contained. The initial variables, condition and alteration is done created inside the parentheses:
 
-```js
+```
 for(initial variables; condition; logic to be performed at the end of each loop) {
   // code to be run on every loop
 }
@@ -209,9 +209,9 @@ While both `while` and `for` can be used to perform the same goal, generally spe
 
 ## Further reading
 
-- [Conditionals](https://www.javascript.com/learn/javascript/conditionals)
-- [Ternary Operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
-- [Comparison Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators)
-- [The && and || Operator in JavaScript](https://blog.mariusschulz.com/2016/05/25/the-andand-and-operator-in-javascript)
-- [How to Use the Switch Statement in JavaScript](https://www.digitalocean.com/community/tutorials/how-to-use-the-switch-statement-in-javascript)
-- [Loops and Iteration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
+* [Conditionals](https://www.javascript.com/learn/javascript/conditionals)
+* [Ternary Operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
+* [Comparison Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators)
+* [The && and || Operator in JavaScript](https://blog.mariusschulz.com/2016/05/25/the-andand-and-operator-in-javascript)
+* [How to Use the Switch Statement in JavaScript](https://www.digitalocean.com/community/tutorials/how-to-use-the-switch-statement-in-javascript)
+* [Loops and Iteration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)

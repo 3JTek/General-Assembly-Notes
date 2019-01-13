@@ -1,6 +1,6 @@
 # Date and Time
 
-Sometimes we need to access the computer's time and date settings to make an application work. For example if we wanted to display the current time on our web page; or calculate how many days the user last logged in; or when they last made a purchase, booked a train ticked etc.
+Sometimes we need to access the computer's time and date settings to make an application work. For example if we wanted to display the current time on our web page, calculate how many days the user last logged in, when they last made a purchase, booked a train ticked etc.
 
 ## JavaScript `Date`
 
@@ -18,9 +18,9 @@ const minutes = currentDate.getMinutes();
 const seconds = currentDate.getSeconds();
 ```
 
-This will return the current hour, minute and second, of the moment **when the date instance was created**, and not the time when the getter method was called (`getHours`, `getMinutes` or `getSeconds`).
+This will return the current hour, minute and second, of the moment **when the date instance was created**, and not the time when the methods are called.
 
-We can also get the current day, month and year as well!
+We can also get the current day, month and year as well:
 
 ```javascript
 const day = currentDate.getDay();
@@ -75,6 +75,6 @@ The console log above would run every second, for 5 seconds, at which point the 
 
 ## Further reading
 
-- [Date - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
-- [Understanding Date & Time in JavaScript](https://www.digitalocean.com/community/tutorials/understanding-date-and-time-in-javascript)
-- [JavaScript Date Cheatsheet](https://devhints.io/js-date)
+* [Date - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+* [Understanding Date & Time in JavaScript](https://www.digitalocean.com/community/tutorials/understanding-date-and-time-in-javascript)
+* [JavaScript Date Cheatsheet](https://devhints.io/js-date)

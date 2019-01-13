@@ -2,7 +2,7 @@
 
 One of the most important parts of any programming language is the ability to separate logic into smaller chunks, and to be able to reuse those chucks.
 
-The a very important principal when writing code to not repeat yourself. In fact code can be described as **DRY** \(Don't Repeat Yourself\) or the opposite **WET** \(We Enjoy Typing, or Write Everything Twice\).
+A very important principal when writing code is to not repeat yourself. In fact code can be described as **DRY** (Don't Repeat Yourself) or the opposite **WET** (We Enjoy Typing, or Write Everything Twice).
 
 Writing the same logic in multiple places is not only a waste of time but also leads to bugs later on.
 
@@ -22,7 +22,7 @@ Functions first need to be declared, then called or _invoked_. The function decl
 
 ![](https://user-images.githubusercontent.com/3531085/35194737-10b8670a-feb0-11e7-9ab5-25a0eb4edd01.png)
 
-Functions have three main parts. The name, in this case `add`, arguments, which allows data to be passed into the function, and a return value, which is what will be given back from the function when it is invoked.
+Functions have three main parts. The name, in this case `add`, arguments, which allow data to be passed into the function, and a return value, which is what will be given back from the function when it is invoked.
 
 ### Calling a function
 
@@ -42,31 +42,32 @@ Functions can be declared in several different ways in JavaScript.
 
 ```js
 function add(a, b) {
-  return a + b;
+  return a + b
 }
-add(10, 8); // => 18
+add(10, 8) // => 18
 ```
 
 ### Anonymous function stored in a variable
 
 ```js
 const add = function(a, b) {
-  return a + b;
-};
-add(4, 5); // => 9
+  return a + b
+}
+add(4, 5) // => 9
 ```
 
 ### Arrow function stored in a variable
 
 ```js
 const add = (a, b) => {
-  return a + b;
-};
-add(); // => "Hello"
+  return a + b
+}
+add() // => "Hello"
 ```
 
-All the above function declarations are essentially the same, they will all run the same logic and can be called in the same way.  
-The differences between them are very subtle, so for now, just think of them as different ways of writing the same thing.
+All the above function declarations are essentially the same, they will all run the same logic and can be called in the same way.
+
+Using a named function is generally preferred since any errors will also include the function name, so writing named functions make debugging easier.
 
 ## Arguments
 
@@ -74,17 +75,17 @@ Arguments are variables that only exist within a function, but can be set _when 
 
 ```js
 function stonesAndPoundsToKilograms(stones, pounds) {
-  const totalStones = stones * 14 + pounds;
-  const totalKilograms = totalStones * 0.453592;
-  return totalKilograms;
+  const totalStones = stones * 14 + pounds
+  const totalKilograms = totalStones * 0.453592
+  return totalKilograms
 }
 ```
 
 By using arguments we can convert any weight to kilograms.
 
 ```js
-stonesAndPoundsToKilograms(11, 7); // => 73.02837
-stonesAndPoundsToKilograms(15, 0); // => 95.2544
+stonesAndPoundsToKilograms(11, 7) // => 73.02837
+stonesAndPoundsToKilograms(15, 0) // => 95.2544
 ```
 
 ## Gotchas
@@ -97,9 +98,9 @@ If you don't use the `return` keyword at in the function it will return `undefin
 
 ```js
 function add(a, b) {
-  a + b;
+  a + b
 }
-add(2, 8); // => undefined
+add(2, 8) // => undefined
 ```
 
 What has happened here is that when the `add` function is called, the two numbers are added together, but the result is not returned from the function. Therefore we get `undefined` instead.
@@ -110,9 +111,9 @@ If you omit an argument when you call a function it will become `undefined`, whi
 
 ```js
 function add(a, b) {
-  return a + b;
+  return a + b
 }
-add(3); // => NaN
+add(3) // => NaN
 ```
 
 This is because `3 + undefined` is `NaN`.
@@ -123,9 +124,9 @@ We can prevent thing from happening by using default arguments:
 
 ```js
 function add(a=0, b=0) {
-  return a + b;
+  return a + b
 }
-add(10); // => 10
+add(10) // => 10
 ```
 
 Now if an argument is omitted a 0 is used in its place.

@@ -1,8 +1,6 @@
 # CSS Animations
 
-Animation used to be the realm of JavaScript.
-
-Now, in modern browsers, we can animate elements using CSS.
+Animation used to be the realm of JavaScript. However, in modern browsers, we can animate elements using CSS.
 
 The `@keyframes` block and `animation` properties allow us to specify what gets animated and when.
 
@@ -10,38 +8,38 @@ The `@keyframes` block and `animation` properties allow us to specify what gets 
 
 Animations can run 1 or more times or loop infinitely. It's also possible to add multiple animations to the same element.
 
-Animations can be triggered in CSS as soon as the page loads, after a delay or via some kind of state based change like `:hover`, `:focus`, or `:active`.
+Animations can be triggered in CSS as soon as the page loads, after a delay, or via some kind of state based change like `:hover`, `:focus`, or `:active`.
 
 CSS animations can also be started and stopped in JavaScript by adding and removing classes.
 
 ## Keyframes
 
-In order to animate an element \(or selection of elements\), we need to specify a series of keyframes.
+In order to animate an element (or selection of elements), we need to specify a series of keyframes.
 
-The most basic form of keyframe animation goes `from` one set of styles at the beginning `to` another set of styles at the end, over a certain amount of time.
+The most basic form of keyframe animation goes _from_ one set of styles _to_ another set of styles, over a certain amount of time.
 
-During the animation, the styles between keframes are automatically calculated by the browser - a process known as `tweening`.
+During the animation, the styles between keyframes are automatically calculated by the browser - a process known as _tweening_.
 
-Each keyframe is defined as a style block of CSS properties that will be applied to any element that uses that `set` of keyframes.
+Each keyframe is defined as a block of CSS properties that will be applied to any element at that stage in the animation.
 
 ```css
 @keyframes moveLeft {
-  from { left:0; }
-  to   { left:500px; }
+  from { left: 0; }
+  to   { left: 500px; }
 }
 ```
 
-Given this set of keyframes, the starting keyframe of the animation will look like this; and the ending one will look like this.
+The above animation is called `moveLeft`. When applied to an element, it will animate from 0 - 500px from the left.
+
+Additional keyframes can be specified using a percentages syntax. If the animation duration were 10 seconds, over the first 7.5 seconds, the `font-size` of the element would grow to `100px` and then over the next 2.5 seconds, it would shrink back down to `10px`. You can specify as many properties as you like for each keyframe, and as many keyframes as you like in a `@keyframes` statement.
 
 ```css
 @keyframes grow {
-  0%   { font-size:20px; }
-  75%  { font-size:100px; }
-  100% { font-size:10px; }
+  0%   { font-size: 20px; }
+  75%  { font-size: 100px; }
+  100% { font-size: 10px; }
 }
 ```
-
-Additional keyframes can be specified using a percentages syntax. If the animation duration was 10 seconds, over the first 7.5 seconds, the `font-size` of the element would grow to `100px` and then over the next 2.5 seconds, it would shrink back down to `10px`. You can specify as many properties as you like for each keyframe.
 
 ## Animation
 
@@ -49,11 +47,11 @@ When the `@keyframes` have been defined, they are ready to be used in conjunctio
 
 There are a series of `animation` properties to configure your animation as needed:
 
-* `animation-name` specifies the block of `@keyframes` to use
+* `animation-name` specifies `@keyframes` block to use
 * `animation-duration` specified the time the animation lasts
 * `animation-delay` specifies any delay before the animation starts
 * `animation-iteration-count` specifies the number of times to repeat
-* `animation-direction` specifies the direction; animations can play forwards \(normal\), in reverse or alternate back and forth
+* `animation-direction` specifies the direction; animations can play forwards (default), in reverse or alternate back and forth
 * `animation-play-state` allows the animation to be paused and resumed
 * `animation-timing-function` determines an acceleration curve of how the animation plays between keyframes
 * `animation-fill-mode` determines how styles are applied before and after the animation
@@ -72,7 +70,7 @@ The only required properties for an animation to be visible at least once are: `
 
 Let's look at a practical example.
 
-We can create a ball using an equal `width` and `height` box with `border-radius` set to `100%`. We can make the ball bounce up and down by asbolutely positioning it and animating the `top` or `bottom` values over time.
+We can create a ball using an equal `width` and `height` box with `border-radius` set to `100%`. We can make the ball bounce up and down by absolutely positioning it and animating the `top` or `bottom` values over time.
 
 We can give the ball a bit more realism by squashing it at the bottom of the animation before having it travel back up, at a slightly slower speed.
 
@@ -122,11 +120,11 @@ To make it appear as though the ball bounces slowly across the screen, we can in
 
 ## Browser support
 
-CSS animations are not supported in IE9 or below or Opera Mini. In IE10, IE11 and Firefox, the `@keyframes` and `animation` properties are unprefixed but `-webkit` prefixes are needed everywhere else.
+CSS animations are not supported in IE9 or below or Opera Mini.
 
 ## CSS Transitions
 
-Transitions are another way to handle animating changes from one state to another, but they don't allow for the same degree of flexibility as animations. Rather than keyframes, you can simply specify the duration of the change, the timing function \(e.g. linear, easeIn...\) and the delay.
+Transitions are another way to handle animating changes from one state to another, but they don't allow for the same degree of flexibility as animations. Rather than keyframes, you can simply specify the duration of the change, the timing function (e.g. linear, easeIn...) and the delay.
 
 ```css
 div {
@@ -173,8 +171,4 @@ div:hover {
 * [15 Inspiring Examples of CSS Animation on CodePen](https://webdesign.tutsplus.com/articles/15-inspiring-examples-of-css-animation-on-codepen--cms-23937)
 * [Transitions Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions)
 * [Transition vs. Animation](https://cssanimation.rocks/transition-vs-animation/)
-
-
-
-
-
+* [CSS Animation Support - caniuse.com](https://caniuse.com/#search=animation)

@@ -1,8 +1,8 @@
 # HTML Forms
 
-One of the most important features of a website is the ability to interact with it. One of the ways of doing that is through the use of a form. Almost all websites have at least one form on them: a login form, a signup form, a contact form. Some way in which the user can connect with the brand or service.
+One of the most important features of a website is the ability to interact with it. One of the ways of doing that is through the use of a form. Almost all websites have at least one form: a login form, a signup form, a contact form.
 
-In this session we are going to take a quick look at the markup of forms. We will not be handling any data in any meaningful way at this stage, however, we will be covering some important aspect of how forms work, and how they are put together.
+Since forms are a point of contact between a company and its client base, it's important that forms are easy to use and give useful feedback if the user enters incorrect data.
 
 ## Structure
 
@@ -27,7 +27,7 @@ Or by placing the input _inside_ the label. This is particularly useful with rad
 
 ### The `<input>` tag.
 
-Almost everything inside a form is an `input`. An input is a form field that can hold data from the user. It is a self-closing element, like `img`. It has a `type` attribute which tells the browser what type of data the field should contain, and how it should behave. Here's a list of input types and what data they accept:
+An input is a form field that can hold data from the user. It is a self-closing element, like `img`. It has a `type` attribute which tells the browser what type of data the field should contain, and how it should behave. Here's a list of input types and what data they accept:
 
 | type | info |
 | :--- | :--- |
@@ -66,7 +66,7 @@ There are a few attributes that are useful when working with input fields:
 
 ### The `<select>` & `<option>` tags
 
-A `select` tag displays a dropdown menu. A select contains `options` one of each item in the drop down menu. Each options can be `selected` \(ie that option is displayed when the page is loaded\) and `disabled` \(ie cannot be selected by the user\). Typically a select has an instructional menu option which is `selected` and `disabled`.
+A `select` tag displays a dropdown menu. It contains `options`, each item in the drop down menu. Each option can be `selected` (ie that option is displayed when the page is loaded) and `disabled` (ie cannot be selected by the user). Typically a select has an instructional menu option which is `selected` and `disabled`.
 
 ```html
 <select>
@@ -79,7 +79,7 @@ A `select` tag displays a dropdown menu. A select contains `options` one of each
 
 ### The `<textarea>` tag
 
-If you need to handle a lot of data from the user, a review or blog post for example, you need to use a `textarea`. This will accept multi-lines of text and will keep line-breaks. It also takes `row` and `col` attributes which we traditionally used to set the dimensions of the input, however it is more common to use CSS these days.
+If you need to handle a lot of data from the user, a review or blog post for example, you can use a `textarea`. This will accept multi-lines of text and will keep line-breaks. It also takes `row` and `col` attributes which we traditionally used to set the dimensions of the input, however it is more common to use CSS these days.
 
 ```html
 <textarea></textarea>
@@ -87,7 +87,7 @@ If you need to handle a lot of data from the user, a review or blog post for exa
 
 ### The `name` attribute
 
-If you want to actually collect the data from a form, you **must** add a name attribute, otherwise the data cannot be assigned any meaning.
+If you want to actually collect the data from a form, you **must** add a name attribute.
 
 ```html
 <input type="text" /> <!-- no data collected, the field is useless! -->
@@ -96,15 +96,13 @@ If you want to actually collect the data from a form, you **must** add a name at
 
 ### The `value` attribute
 
-You can set the value of the data for a form element using the `value` attribute.
-
-For `input` fields, this will set the initial contents of the field.
+You can set the value of the data for a form element using the `value` attribute. For `input` fields this will set the initial content of the field.
 
 For `radio` buttons and `checkboxes`, it will set the value of each item. The value of the selected item will be added to the form data.
 
 For `submit` buttons, it will set the button text, and will also be added to the form data.
 
-With dropdown menus the `value` attribute can be added to the `option` tag. The value inside the `value` attribute of the selected `option` will be added to the form data, rather than the menu text.
+With dropdown menus a `value` attribute can be added to the `option` tag. The value inside the `value` attribute of the selected `option` will be added to the form data, rather than the menu text.
 
 Textareas do not have a value attribute. However, you can add text between the tags which will behave in the same way.
 
@@ -118,7 +116,7 @@ The button tag can have the following `types`:
 
 | type | info |
 | :--- | :--- |
-| `submit` | Submits the form \(default\) |
+| `submit` | Submits the form (default) |
 | `reset` | Resets the form |
 | `button` | Does nothing |
 
@@ -131,6 +129,3 @@ Yep, weird, I know. The `button` type is used to basically stop the button from 
 * [My First HTML Form](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/My_first_HTML_form)
 * [How To Structure A HTML Form](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/How_to_structure_an_HTML_form)
 * [Mozilla HTML Forms Guide](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms)
-
-
-

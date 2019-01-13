@@ -55,18 +55,3 @@ module.exports = router;
 ### Test with Insomnia
 
 You should now be able to make a request with insomnia to your newly created endpoint. In the example above we've used `GET http://localhost:4000/api/forecast`. You should see the data coming through from Dark Sky.
-
-### Make your AJAX request to your own API
-
-Finally in your frontend app, you can change your AJAX request to point to the newly created endpoint _on your own API_. Which might look something like this:
-
-```js
-MainCtrl.$inject = ['$http'];
-MainCtrl($http) {
-
-  this.forecast = null;
-
-  $http.get('/api/forecast')
-    .then(res => this.forecast = res.data);
-}
-```

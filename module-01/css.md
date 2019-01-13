@@ -16,7 +16,7 @@ selector {
 }
 ```
 
-The `selector` is used to match a HTML tag, _known as an **element**_ on the web page. Some common selectors:
+The `selector` is used to match an HTML tag, known as an _element_ on the web page. Some common selectors:
 
 | **Selector** | **Selected Element** |
 | --- | --- |
@@ -56,7 +56,7 @@ Although it is generally considered bad practise to do so.
 
 ## Specificity
 
-CSS is designed to cascade. That means that styles will overwrite existing styles on an element. To decide which style has precedence the browser decides which is more specific.
+CSS is designed to cascade. This means that styles will overwrite existing styles on an element. To decide which style has precedence the browser decides which is more specific.
 
 For example if an ID is used as a selector, it will take precedence over a class. Since an ID is unique the ID selector is more specific than a class, which may be assigned to several elements.
 
@@ -110,6 +110,3 @@ Specificity is calculated as **1000**
 * [CSS Diner](https://flukeout.github.io/)
 * [CSS-Tricks Beginners Guide](https://css-tricks.com/guides/beginner/)
 * [CodePen](https://codepen.io/)
-
-
-

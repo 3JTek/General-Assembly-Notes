@@ -1,523 +1,290 @@
-# Authentication with React
+# Authentication
 
-We are going to look at how to implement authentication with React, an Express API and JWT tokens.
+To authenticate our app we will use the same basic methodology as we did with Express:
 
-The API has already been completed - if it receives a `POST` request to `/api/register`, a new user will be created in the database. If the API receives a `POST` request to `/api/login` with correct credentials, a JWT token is sent back as part of the response.
+1. When a user registers we will hash their password with BCrypt before storing it in the database
+1. When a user logs in we will validate the password they supply against the hashed password in the database
+1. If the password is valid we will send a _JSON web token_ (JWT)
+1. The JWT can then be used to access certain routes that would otherwise be unavailable
 
-On the front end, we are going to look at how to store that JWT token in local storage, and then send it back as part of the request when attempting to make a protected request.
+## Setting up BCrypt
 
-We will also look at hiding and showing buttons/links depending on whether or not the user is logged in, and redirecting the user if they attempt to access protected routes when not logged in.
-
-## Express API
-
-Before we begin building out the React side of this authenticated app, have a look at the Express API to remind yourself of how JWT authentication works in the back end.
-
-### Controllers
-
-The `foods` controller is a simple RESTful controller - we can **c**reate, **r**ead, **u**pdate and **d**elete foods. Have a look at the `auth` controller, and remind yourself of the `login` and `register` methods.
-
-The `login` method will return an **unauthorized** error if the user does not exist, or if the password is incorrect. If the user has been authorized, a JWT token is created and returned as part of the response.
-
-```js
-function login(req, res, next) {
-  User
-    .findOne({ email: req.body.email })
-    .then((user) => {
-      if(!user || !user.validatePassword(req.body.password)) return res.status(401).json({ message: 'Unauthorized' });
-
-      const token = jwt.sign({ userId: user.id }, secret, { expiresIn: '1hr' });
-      return res.json({ message: `Welcome back ${user.username}`, token });
-    })
-    .catch(next);
-}
-```
-
-### Lib
-
-Inside `lib` there is the `secureRoute.js` file, which is required and used inside `config/routes`. For the `foodsCreate`, `foodsUpdate` and `foodsDelete` methods a user must be logged in, so the `secureRoute` method first checks for a header called `Authorization`, and if it can't find one, will return **unauthorized**.
-
-If it can find a header called `Authorization` it will attempt to take the token from from the string (`Bearer GRAB-TOKEN-FROM-HERE`), decode it using the `jwt` package, and then retrieve the user from the database. If the user does not exist, it will return **unauthorized**, else it will call `next()` and allow us to create, update or delete a food.
-
-```js
-const Promise = require('bluebird');
-const jwt = Promise.promisifyAll(require('jsonwebtoken'));
-const { secret } = require('../config/environment');
-const User = require('../models/user');
-
-function secureRoute(req, res, next) {
-  if(!req.headers.authorization) return res.unauthorized();
-
-  const token = req.headers.authorization.replace('Bearer ', '');
-
-  jwt.verifyAsync(token, secret)
-    .then((payload) => {
-      return User.findById(payload.userId);
-    })
-    .then((user) => {
-      if(!user) return res.unauthorized();
-      req.currentUser = user;
-      return next();
-    })
-    .catch(next);
-}
-
-module.exports = secureRoute;
-```
-
-## React App
-
-### Register
-
-The register functionality has already been completed. Open the `Register` component and have a look at the `handleSubmit` method.
-
-```js
-handleSubmit = (e) => {
-  e.preventDefault();
-  Axios.post('/api/register', this.state.user)
-    .then(() => this.props.history.push('/login'))
-    .catch(err => console.log(err));
-}
-```
-
-When the register form is submitted, a `POST` request is made using `Axios`. Once it is complete, the user is redirected to the login page. Register yourself as a user, so that we can work on the login functionality.
-
-### Login
-
-Open up the `Login` component and have a look at the `handleSubmit` method.
-
-```js
-handleSubmit = (e) => {
-  e.preventDefault();
-  Axios.post('/api/login', this.state.credentials)
-    .then(res => this.props.history.push('/'))
-    .catch(err => console.log(err));
-}
-```
-
-We are using `Axios` to make an AJAX request to the API, and sending in the form data (the user's email and password). Inside the `.then()` callback we are redirecting the user to the homepage by pushing `/` into the history. Let's break this function on to two lines, and console log the response.
-
-```js
-handleSubmit = (e) => {
-  e.preventDefault();
-  Axios.post('/api/login', this.state.credentials)
-    .then((res) => {
-      console.log(res);
-      this.props.history.push('/');
-    })
-    .catch(err => console.log(err));
-}
-```
-
-When you submit the login form you should see a token come back as part of the response in the Chrome console. Instead of console logging, we want to save this token to local storage.
-
-Have a look at the `Auth` class inside `lib/Auth`. Here we have a class that has some useful methods that we will be using throughout this codealong. The first that we are going to use is `setToken`, which uses the [Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage) to set an item in local storage.
-
-Import this class into the `Login` component:
-
-```js
-import Auth from '../../lib/Auth';
-```
-
-Then use the `Auth.setToken()` method and pass in the token that has been returned from the API.
-
-```js
-handleSubmit = (e) => {
-  e.preventDefault();
-  Axios.post('/api/login', this.state.credentials)
-    .then((res) => {
-      Auth.setToken(res.data.token);
-      this.props.history.push('/');
-    })
-    .catch(err => console.log(err));
-}
-```
-
-Submit the login form with valid credentials, and check local storage in the 'Application' tab in Chrome. You should see the token stored there.
-
-Great! That wasn't too bad at all right?
-
-### Sending the token in a header
-
-The create, update and delete routes are protected in our API, so we will need to send the token as a header, with the key of `"Authorization"`, and a value of `"Bearer TOKEN-FROM-LOCAL-STORAGE-HERE"`.
-
-#### Creating a food
-
-Inside the `FoodsNew` component import the `Auth` class, and then update the `Axios` request to include a a header.
-
-This time we are going to use the `.getToken()` method, which will retrieve the token from local storage for us.
-
-**Important:** Remember to add a space after `Bearer`.
-
-```js
-import Auth from '../../lib/Auth';
-
-...
-
-handleSubmit = (e) => {
-  e.preventDefault();
-
-  Axios
-    .post('/api/foods', this.state.food, {
-      headers: { 'Authorization': 'Bearer ' + Auth.getToken() }
-    })
-    .then(() => this.props.history.push('/'))
-    .catch(err => console.log(err));
-}
-```
-
-#### Updating a food
-
-We are going to do the same thing inside the `FoodsEdit` component. First import `Auth`, and then add a header to the `Axios` request.
-
-```js
-import Auth from '../../lib/Auth';
-
-...
-
-handleSubmit = (e) => {
-  e.preventDefault();
-
-  Axios
-    .put(`/api/foods/${this.props.match.params.id}`, this.state.food, {
-      headers: { 'Authorization': 'Bearer ' + Auth.getToken() }
-    })
-    .then(res => this.props.history.push(`/foods/${res.data.id}`))
-    .catch(err => console.log(err));
-}
-```
-
-#### Deleting a food
-
-We will need to do the same again when deleting a food. Inside the `FoodsShow` component import `Auth`, and then add a header to the `Axios` request.
-
-```js
-import Auth from '../../lib/Auth';
-
-...
-
-deleteFood = () => {
-  Axios
-    .delete(`/api/foods/${this.props.match.params.id}`, {
-      headers: { 'Authorization': 'Bearer ' + Auth.getToken() }
-    })
-    .then(() => this.props.history.push('/'))
-    .catch(err => console.log(err));
-}
-```
-
-### Hiding Buttons
-
-Now that we have the ability to login, we want to be able to hide and show elements depending on whether or not the user is authenticated. The `Auth` class has an `.isAuthenticated()` method, which will return true if there is a token in local storage.
-
-#### Index
-
-In `FoodsIndex` compomnet import `Auth`, and wrap the **"Add Food"** link in `{ Auth.isAuthenticated() && ...}`.
-
-```js
-import React from 'react';
-import Axios from 'axios';
-import { Link } from 'react-router-dom';
-import Auth from '../../lib/Auth';
-
-class FoodsIndex extends React.Component {
-
-  ...
-
-  render() {
-    return (
-      <div>
-        <div className="row">
-          <div className="page-banner col-md-12">
-            {Auth.isAuthenticated() && <Link to="/foods/new" className="main-button">
-              <i className="fa fa-plus" aria-hidden="true"></i>Add Food
-            </Link>}
-          </div>
-          {this.state.foods.map(food => {
-            return(
-              <div key={food.id} className="image-tile col-md-4 col-sm-6 col-xs-12">
-                <Link to={`/foods/${food.id}`}>
-                  <img src={food.image} className="img-responsive" />
-                </Link>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    );
-  }
-}
-
-export default FoodsIndex;
-```
-
-You should still be able to see the button if you're logged in. If you delete the token out of local storage the button should disappear. Neat!
-
-#### Show
-
-Let's do the same thing inside the `FoodsShow` component. Wrap the **"Edit"** and **"Delete"** buttons in `{ Auth.isAuthenticated() && ...}`.
-
-```js
-class FoodsShow extends React.Component {
-
-  ...
-
-  render() {
-    return (
-      <div className="row">
-        <div className="image-tile col-md-6">
-          <img src={this.state.food.image} className="img-responsive" />
-        </div>
-        <div className="col-md-6">
-          <h3>{this.state.food.title}</h3>
-          <h4>{this.state.food.category}</h4>
-          <BackButton history={this.props.history} />
-          {Auth.isAuthenticated() && <Link to={`/foods/${this.state.food.id}/edit`} className="standard-button">
-            <i className="fa fa-pencil" aria-hidden="true"></i>Edit
-          </Link>}
-          {' '}
-          {Auth.isAuthenticated() && <button className="main-button" onClick={this.deleteFood}>
-            <i className="fa fa-trash" aria-hidden="true"></i>Delete
-          </button>}
-        </div>
-      </div>
-    );
-  }
-}
-```
-
-#### Navbar
-
-We only want to see the **"Logout"** button if we are logged in, and the **"Login"** and **"Register"** buttons if we are logged out.
-
-In `utility/navbar` import `Auth` and wrap the links accordingly.
-
-```js
-import Auth from '../../lib/Auth';
-
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Auth from '../../lib/Auth';
-
-const Navbar = () => {
-
-  return(
-    <nav>
-      {!Auth.isAuthenticated() && <Link to="/login" className="standard-button">Login</Link>}
-      {!Auth.isAuthenticated() && <Link to="/register" className="standard-button">Register</Link>}
-      {Auth.isAuthenticated() && <a href="#" className="standard-button">Logout</a>}
-    </nav>
-  );
-};
-
-export default Navbar;
-```
-
-Test that you can only see the logout button when logged in, and vice versa.
-
-**Important:** Remember to invoke the `.Auth.isAuthenticated()` method, else it will return the function declaration, which will always be truthy.
-
-### Logout
-
-Since we are inside the navbar component, let's add the logout functionality. The `Navbar` is a functional component, but that doesn't mean that we can't add functions to it.
-
-Add the following `logout` function, that takes the event as an argument. We are going to prevent the default behaviour of the link, to stop the page from refreshing.
-
-We can then use the `Auth.logout()` that simply removes the token from local storage.
-
-```js
-const Navbar = () => {
-
-  function logout(e) {
-    e.preventDefault();
-    Auth.logout();
-  }
-
-  return (
-    ...
-  );
-};
-```
-
-By clicking on the **"Logout"** link you should be logged out, however we want to redirect the user to the homepage. We want to say `props.history.push('/')`, however we only have access to `props.history` if the component has been rendered using the `<Route />` component.
-
-We can mimic this behaviour be wrapping any component we create with `withRouter`, which comes from the `react-router-dom` library. This allows us to acces the history in the component's props.
-
-Add `withRouter` when deconstructing the `react-router-dom`:
-
-```js
-import { Link, withRouter } from 'react-router-dom';
-```
-
-Then wrap the `Navbar` export with `withRouter`:
-
-```js
-export default withRouter(Navbar);
-```
-
-We now get `history` on props, so deconstruct props as it is passed into the component:
-
-```js
-const Navbar = ({ history }) => {
-  ...
-}
-```
-
-To redirect to the homepage we can now update the `logout` function to be:
-
-```js
-function logout(e) {
-  e.preventDefault();
-
-  Auth.logout();
-  history.push('/');
-}
-```
-
-And add an `onClick` to the **"Logout"** link:
-
-```js
-{Auth.isAuthenticated() && <a href="#" className="standard-button" onClick={logout}>Logout</a>}
-```
-
-The entire `Navbar` component should now look like this:
-
-```js
-import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import Auth from '../../lib/Auth';
-
-const Navbar = ({ history }) => {
-
-  function logout(e) {
-    console.log('clicked');
-    e.preventDefault();
-
-    Auth.logout();
-    history.push('/');
-  }
-
-  return(
-    <nav>
-      {!Auth.isAuthenticated() && <Link to="/login" className="standard-button">Login</Link>}
-      {!Auth.isAuthenticated() && <Link to="/register" className="standard-button">Register</Link>}
-      {Auth.isAuthenticated() && <a href="#" className="standard-button" onClick={logout}>Logout</a>}
-    </nav>
-  );
-};
-
-export default withRouter(Navbar);
-```
-
-### Protecting routes
-
-Even though we've hidden the **"Add food"** and **"Edit"** buttons, we can still access those routes through their URLs.
-
-We want to protect those routes, and to do that we are going to make a [higher order component](https://reactjs.org/docs/higher-order-components.html). From the docs:
-
-_A higher-order component (HOC) is an advanced technique in React for reusing component logic. HOCs are not part of the React API, per se. They are a pattern that emerges from React’s compositional nature._
-
-_Concretely, **a higher-order component is a function that takes a component and returns a new component.**_
-
-We are going to create a higher order component which takes a `<Route />` component as a prop, and if the user is logged in, will render the page, and if not will redirect them to the login page.
-
-Make a new file:
+Install with pipenv:
 
 ```sh
-touch src/components/utility/ProtectedRoute.js
+pipenv install flask-bcrypt
 ```
 
-Create the following functional component:
+And add to the `app.py` file:
 
-```js
-import React from 'react';
-import { withRouter, Route, Redirect } from 'react-router-dom';
-import Auth from '../../lib/Auth';
+```py
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from flask_marshmallow import Marshmallow
+from flask_bcrypt import Bcrypt
 
-const ProtectedRoute = ({ component: Component }) => {
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://localhost:5432/flask-bcrypt-example'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-  render() {
+db = SQLAlchemy()
+ma = Marshmallow(app)
+bcrypt = Bcrypt(app)
 
-  }
-};
+from config import routes
 ```
 
-As well as importing React, Auth, and React Router, we are creating a const called `Component` and making it equal to `this.props.component` (the component that we will pass in).
+## Creating a user model
 
-Add a spread operator `...other` into the deconstruction of props. This will pull any other props into a `const` called `other`.
+Let's start with a basic user model:
 
-```js
-const ProtectedRoute = ({ component: Component }) => {
+```py
+# models/user.py
+class User(db.Model, BaseModel):
 
-  render() {
+    __tablename__ = 'users'
 
-  }
-};
+    username = db.Column(db.String(20), nullable=False, unique=True)
+    email = db.Column(db.String(128), nullable=True, unique=True)
+    password_hash = db.Column(db.String(128), nullable=True)
+
+
+class UserSchema(ma.ModelSchema, BaseSchema):
+
+    class Meta:
+        model = User
+        exclude = ('password_hash',)
 ```
 
-In this instance it will be:
+> **Note:** We are excluding the `password_hash` property in the schema, because we should **never** send it with in our JSON response to the client
 
-```js
-const other = { path: this.props.path }
+### `hybrid_property`
+
+We need to add a `hybrid_property` which is similar to a _virtual_ in Mongoose:
+
+```py
+# models/user.py
+from sqlalchemy.ext.hybrid import hybrid_property
+
+class User(db.Model):
+
+    __tablename__ = 'users'
+
+    username = db.Column(db.String(20), nullable=False, unique=True)
+    email = db.Column(db.String(128), nullable=True, unique=True)
+    password_hash = db.Column(db.String(128), nullable=True)
+
+    @hybrid_property
+    def password(self):
+        pass
 ```
 
-**Note:** `other` is just a naming convention.
+So now we have created a `password` property on the user model. Unlike the `password_hash` that will contain the actual hashed password in the database, the `password` _hybrid property_ will be used to receive the plain text password from the user. Since the plain text password will **never** be store in the database, we can use a _hybrid property_.
 
-We need to return something from this component. Let's return a `<Route />` component, which will take the path stored inside the `other` object, and render the protected component if the user is authenticated, and redirect them if not.
+### `setter` method
 
-Take a look at the documention for React Router [here](https://reacttraining.com/react-router/web/example/auth-workflow).
+We can now create a setter method for our _hybrid property_. This allows us to control what happens when we receive a plaintext password from the user.
 
-```js
-import React from 'react';
-import { withRouter, Route, Redirect } from 'react-router-dom';
-import Auth from '../../lib/Auth';
+```py
+# models/user.py
+class User(db.Model):
 
-const ProtectedRoute = (props) => {
-  const { component: Component, ...other } = props;
-  // 1. creating a const called Component and making it equal to the component being passed in
-  // 2. using the spread operator to create an object called other
-  // 3. const object = { path: "/foods/:id/edit" } or whichever path it was passed
+    __tablename__ = 'users'
 
-  return (
-    <Route {...other} render={props => (
-      Auth.isAuthenticated() ? (
-        <Component {...props}/>
-      ) : (
-        <Redirect to="/login"/>
-      )
-    )}/>
-  );
-};
+    username = db.Column(db.String(20), nullable=False, unique=True)
+    email = db.Column(db.String(128), nullable=True, unique=True)
+    password_hash = db.Column(db.String(128), nullable=True)
+
+    @hybrid_property
+    def password(self):
+        pass
+
+    @password.setter
+    def password(self, plaintext):
+        self.password_hash = bcrypt.generate_password_hash(plaintext).decode('utf-8')
 ```
 
-Export the component at the bottom of the file, wrapped inside `withRouter`.
+When we receive the plain text password we use `bcrypt` to hash it and set that hash to the user's `password_hash` property.
 
-```js
-export default withRouter(ProtectedRoute);
+### `validate_password` method
+
+We also need a `validate_password` method that will check a plain text password against the hash stored in the database:
+
+```py
+# models/user.py
+class User(db.Model):
+
+    __tablename__ = 'users'
+
+    username = db.Column(db.String(20), nullable=False, unique=True)
+    email = db.Column(db.String(128), nullable=True, unique=True)
+    password_hash = db.Column(db.String(128), nullable=True)
+
+    @hybrid_property
+    def password(self):
+        pass
+
+    @password.setter
+    def password(self, plaintext):
+        self.password_hash = bcrypt.generate_password_hash(plaintext).decode('utf-8')
+
+    def validate_password(self, plaintext):
+        return bcrypt.check_password_hash(self.password_hash, plaintext)
 ```
 
+Luckily `bcrypt` does the heavy lifting for us here.
 
-> **Note:** A higher order component is sometimes called a _decorator_ - it takes a component and returns a component, adding extra functionality if needed.
+## Register route
 
-Inside the `Routes` component import the `ProtectedRoute` component:
+Since the hashing is being performed in the model, the register route is fairly straightforward:
 
-```js
-import ProtectedRoute from '../utility/ProtectedRoute';
+```py
+# controllers/auth.py
+from flask import Blueprint, jsonify, request
+from models.user import User, UserSchema
+
+router = Blueprint('auth', __name__)
+user_schema = UserSchema()
+
+@router.route('/register', methods=['POST'])
+def register():
+    user, errors = user_schema.load(request.get_json())
+
+    if errors:
+        return jsonify(errors), 422
+
+    user.save()
+
+    return jsonify({ 'message': 'Registration successful' }), 201
 ```
 
-Then replace the `<Route />` component with `<ProtectedRoute />` for the edit and new routes.
+## Login route
 
-```js
-const Routes = () => {
-  return (
-    <Switch>
-      <Route path="/login" component={Login} />
-      <Route path="/register" component={Register} />
-      <Route exact path="/" component={FoodsIndex} />
-      <ProtectedRoute path="/foods/new" component={FoodsNew} />
-      <ProtectedRoute path="/foods/:id/edit" component={FoodsEdit} />
-      <Route path="/foods/:id" component={FoodsShow} />
-      <Route component={NoMatch} />
-    </Switch>
-  );
-};
+The login route is a little more complex because we need to make a JWT if the user successfully authenticates. Firstly we need to install `pyjwt`:
+
+```sh
+pipenv install pyjwt
+```
+
+We can now write a function that generates a token:
+
+```py
+# controllers/auth.py
+import jwt
+from datetime import datetime, timedelta
+from config.environment import secret
+from flask import Blueprint, jsonify, request
+from models.user import User, UserSchema
+
+router = Blueprint('auth', __name__)
+user_schema = UserSchema()
+
+def generate_token(user):
+    payload = {
+        'exp': datetime.utcnow() + timedelta(days=1),
+        'iat': datetime.utcnow(),
+        'sub': user.id
+    }
+
+    token = jwt.encode(
+        payload,
+        secret,
+        'HS256'
+    ).decode('utf-8')
+
+    return token
+```
+
+The `generate_token` function receives the `user` as an argument, so that its ID can be used as the `sub` property of the payload. We then create the JWT using the `encode` method. Notice that we are importing a secret from `config/enviroment.py`. `HS256` is the encoding algorithm we are using.
+
+With that in place we can write our login route:
+
+```py
+# controllers/auth.py
+@router.route('/login', methods=['POST'])
+def login():
+    credentials = request.get_json()
+    user = User.query.filter_by(email=credentials['email']).first()
+
+    if not user or not user.validate_password(credentials['password']):
+        return jsonify({ 'message': 'Unauthorized' }), 401
+
+    token = generate_token(user)
+
+    return jsonify({ 'token': token, 'message': f'Welcome back {user.username}!' }), 200
+```
+
+## Securing routes
+
+Just like with Express we can now write a `secure_route` function that we can use to check for a valid token on specific routes. This is an ideal use case for a _decorator_:
+
+```py
+# lib/secure_route.py
+import jwt
+from functools import wraps
+from flask import request, jsonify, g
+from config.environment import secret
+from models.user import User
+
+def secure_route(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        token = request.headers.get('Authorization', '').replace('Bearer ', '')
+
+        try:
+            payload = jwt.decode(token, secret)
+            g.current_user = User.query.get(payload['sub'])
+
+        except jwt.ExpiredSignatureError:
+            # token has expired
+            return jsonify({ 'message': 'Token expired' }), 401
+
+        except Exception as e:
+            # any other error has occurred
+            return jsonify({ 'message': 'Unauthorized' }), 401
+
+        return func(*args, **kwargs)
+
+    return wrapper
+```
+
+Firstly we get the Authorization header from the request and extract the token from it. Then we attempt to decode the token. If successful, we attempt to find the user by the `sub` property in the token's payload, the user's ID. If the user is found we add it to Flask's `g` module.
+
+`g` is a global object which can be used to hold data across the whole of our application. We can use it to store the user for access in our controllers.
+
+If the token has expired an `ExpiredSignatureError` will be raised, which we can then use to inform the client of that specific issue. Any other error caused by the token, or the user lookup will be handled with a generic `Unauthorized` message.
+
+We can now decorate specific routes with our function:
+
+```py
+from lib.secure_route import secure_route
+
+@router.route('/cars', methods=['POST'])
+@secure_route
+def create():
+    car, errors = car_schema.load(request.get_json())
+
+    if errors:
+        return jsonify(errors), 422
+
+    car.save()
+
+    return car_schema.jsonify(car), 201
+```
+
+If we need to access the current user inside the route we can use the `current_user` property stored on the `g` module:
+
+```py
+@router.route('/cars', methods=['POST'])
+@secure_route
+def create():
+    car, errors = car_schema.load(request.get_json())
+
+    if errors:
+        return jsonify(errors), 422
+
+    car.user = g.current_user
+    car.save()
+
+    return car_schema.jsonify(car), 201
 ```

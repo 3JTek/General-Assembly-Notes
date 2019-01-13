@@ -1,15 +1,13 @@
 # SASS
 
-## What is SASS?
-
 SASS stands for Syntactically Awesome Stylesheets. It is a pre-processor for CSS.
 
 CSS can be a little difficult to work with mainly because of all the selectors we have to write out. SASS attempts to make CSS easier to work with by allowing us to:
 
-- nest selectors
-- create functions
-- split our styles into smaller files
-- write less CSS
+* nest selectors
+* create functions
+* split our styles into smaller files
+* write less CSS
 
 ## How does it work?
 
@@ -61,7 +59,7 @@ As you can see they are almost identical. **On this course we'll be using SCSS.*
 
 ### Nesting
 
-With SCSS we can nest selectors, which means we can write less code:
+With SASS we can nest selectors, which means we can write less code:
 
 ```scss
 footer {
@@ -129,7 +127,7 @@ a.gplus { color: red; }
 
 ## Variables
 
-Often it can be annoying when working with CSS that you have to remember HEX codes for various colors on the site. With SCSS, we can store property values in variables to reduce mistakes:
+Often it can be annoying when working with CSS that you have to remember HEX codes for various colours on a site. With SCSS, we can store property values in variables to reduce mistakes:
 
 ```scss
 $body-background-color: #f5f5f5;

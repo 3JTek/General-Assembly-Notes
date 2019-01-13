@@ -88,7 +88,7 @@ Let's look at that again, but with actual Git commands now. We can use `git stat
   Untracked files:
     (use "git add <file>..." to include in what will be committed)
 
-  	index.html
+    index.html
   ```
   The file is **untracked**. Git has no previous record of it.
 
@@ -105,7 +105,7 @@ Let's look at that again, but with actual Git commands now. We can use `git stat
   Changes to be committed:
     (use "git rm --cached <file>..." to unstage)
 
-  	new file:   index.html
+    new file:   index.html
   ```
   The file is **staged**. It is ready to be committed.
 1. Make a commit:
@@ -141,7 +141,7 @@ Let's look at that again, but with actual Git commands now. We can use `git stat
     (use "git add <file>..." to update what will be committed)
     (use "git checkout -- <file>..." to discard changes in working directory)
 
-  	modified:   index.html
+    modified:   index.html
 
   no changes added to commit (use "git add" and/or "git commit -a")
   ```
@@ -177,7 +177,7 @@ git reset 77914f2 --soft
 ```
 ```sh
 Unstaged changes after reset:
-M	index.html
+M  index.html
 
 git status
 On branch master
@@ -185,7 +185,7 @@ Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
 
-	modified:   index.html
+  modified:   index.html
 
 no changes added to commit (use "git add" and/or "git commit -a")
 ```

@@ -1,8 +1,8 @@
 # The DOM
 
-The Document Object Model, commonly referred to as the DOM, is an interactive representation of HTML as a collection of JavaScript objects.
+The _Document Object Model_, commonly referred to as the DOM, is an interactive representation of HTML as a collection of JavaScript objects.
 
-Each element in the HTML is converted into a node of the DOM \(like a branch on a tree\), with its own specific properties and methods. A `form` element will have an `onsubmit` method, and a `button` an `onclick` method, for example.
+Each element in the HTML is converted into a node of the DOM (like a branch on a tree), with its own specific properties and methods. A `form` element will have an `onsubmit` method, and a `button` an `onclick` method, for example.
 
 Each element is linked to its parent via properties and methods. If we were to draw a diagram of the DOM, it might look a little something like this:
 
@@ -10,7 +10,7 @@ Each element is linked to its parent via properties and methods. If we were to d
 
 ## Interacting with the DOM
 
-When a browser reads a HTML file, it creates the DOM, converting each HTML into an object. Once the DOM has been created we can access an element with JavaScript. We can store the element in a variable, and then modify its properties and methods, just like we can with a standard JavaScript object.
+When a browser reads an HTML file, it creates the DOM, converting each element into an object. Once the DOM has been created we can access any element with JavaScript. We can store the element in a variable, and then modify its properties and methods, just like we can with a standard JavaScript object.
 
 The DOM is represented in JavaScript with the `document` keyword. We use special methods of the `document` object to access specific nodes of the DOM.
 
@@ -26,21 +26,21 @@ We can access the `h1` in our JavaScript file in the following ways:
 
 ```js
 // The following methods ALWAYS return a single object
-const header = document.getElementById('header'); // targets an element by its id
-const header = document.querySelector('#header'); // uses CSS selector syntax
+const header = document.getElementById('header') // targets an element by its id
+const header = document.querySelector('#header') // uses CSS selector syntax
 
 // The following methods ALWAYS return an array of objects, so we use [0] to get the first one
-const header = document.getElementsByTagName('h1')[0]; // targets elements by their tag
-const header = document.getElementsByClassName('header')[0]; // targets elements by the class
-const header = document.querySelectorAll('.header')[0]; // uses CSS selector syntax
+const header = document.getElementsByTagName('h1')[0] // targets elements by their tag
+const header = document.getElementsByClassName('header')[0] // targets elements by the class
+const header = document.querySelectorAll('.header')[0] // uses CSS selector syntax
 ```
 
-Once we have an element stored in a variable we can modify it, which will instantly update the DOM, and in turn the web site.
+Once we have an element stored in a variable we can modify it, which will instantly update the DOM, and in turn the web page.
 
 If we wanted to change the `h1` content from "I am a header" to "JavaScript Rocks!" for example, we could modify the `textContent` property of the header:
 
 ```js
-const header = document.querySelector('#header');
+const header = document.querySelector('#header')
 header.textContent = 'JavaScript Rocks!'
 ```
 
@@ -52,16 +52,16 @@ We can also create our own DOM elements programatically using JavaScript, and ad
 
 ```js
 // get the element you wish to add the new element to
-const body = document.querySelector('body');
+const body = document.querySelector('body')
 
 // create the h2 element
-const h2 = document.createElement('H2');
+const h2 = document.createElement('H2')
 
 // add some content
-h2.textContent = 'I love it!';
+h2.textContent = 'I love it!'
 
 // append the element to the parent
-body.appendChild(h2);
+body.appendChild(h2)
 ```
 
 In the Chrome Dev Tools, you should see something like this:
@@ -110,6 +110,3 @@ Below is a list of the more common properties and methods you will be using on t
 * [What is the DOM?](https://css-tricks.com/dom/)
 * [Introduction to the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
 * [How To Understand and Modify the DOM in JavaScript](https://www.digitalocean.com/community/tutorials/introduction-to-the-dom)
-
-
-

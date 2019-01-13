@@ -75,7 +75,7 @@ In order to prevent this default behaviour, we can use a `meta` tag in the `head
 That says: don't try to render a zoomed out desktop page, but instead use the width of the device, and set the scale (or zoom level) to 1. Now our breakpoints will come into play.
 
 ## Further reading
-- [Get Started with Responsive Web Design](http://www.creativebloq.com/responsive-web-design/get-started-5132987)
-- [The Most Used Responsive Breakpoints in 2017 Of Mine](https://medium.com/@uiuxlab/the-most-used-responsive-breakpoints-in-2017-of-mine-9588e9bd3a8a)
-- [Responsive Web Design Basics](https://developers.google.com/web/fundamentals/design-and-ux/responsive/)
-- [The 100% correct way to do CSS breakpoints](https://medium.freecodecamp.org/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862)
+* [Get Started with Responsive Web Design](http://www.creativebloq.com/responsive-web-design/get-started-5132987)
+* [The Most Used Responsive Breakpoints in 2017 Of Mine](https://medium.com/@uiuxlab/the-most-used-responsive-breakpoints-in-2017-of-mine-9588e9bd3a8a)
+* [Responsive Web Design Basics](https://developers.google.com/web/fundamentals/design-and-ux/responsive/)
+* [The 100% correct way to do CSS breakpoints](https://medium.freecodecamp.org/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862)

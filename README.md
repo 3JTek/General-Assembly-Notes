@@ -15,6 +15,9 @@ Your instructor will indicate which sections are relevant to your current positi
 ### Contents:
 
 1. [Module 1 - Fundamentals](module-01/README.md)
-1. [Module 2 - Express Full Stack](module-02/README.md)
-2. [Appendix I - Dev Tools and Workflow](appendix-01/README.md)
-2. [Appendix II - Computer Science](appendix-01/README.md)
+1. [Module 2 - React](module-02/README.md)
+1. [Module 3 - Node & Express](module-03/README.md)
+1. [Module 4 - Python & Flask](module-04/README.md)
+1. [Appendix I - Dev Tools and Workflow](appendix-01/README.md)
+1. [Appendix II - Computer Science](appendix-02/README.md)
+1. [Appendix III - Deployment](appendix-03/README.md)
