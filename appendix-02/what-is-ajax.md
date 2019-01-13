@@ -70,45 +70,9 @@ $.ajax({
   .fail(err => console.log(err));
 ```
 
-### $http
-
-$http is Angular's build in AJAX library.
-
-$http is almost identical to jQuery, except it's got a few more helper functions:  `put`, `patch` and `delete`:
-
-```js
-$http({
-  url: '/cheeses',
-  method: 'GET' // could be any HTTP verb
-})
-  .then(res => console.log(res.data)) // data is stored on a `data` property of the response
-  .catch(err => console.log(err))
-  .finally(() => console.log('ooh much nicer'));
-
-// same as above
-$http.get('/cheeses')
-  .then(res => console.log(res.data));
-```
-
-As with jQuery we can send data with our requests, but we do not need to manually convert it to JSON, `$http` will do that for us:
-
-```js
-$http({
-  method: 'POST',
-  url: '/cheeses',
-  data: { name: 'Gouda', origin: 'Netherlands', strength: 2 }
-})
-  .then(res => console.log(res.data))
-  .catch(err => console.log(err));
-
-// same as above
-$http.post('/cheeses', { name: 'Gouda', origin: 'Netherlands', strength: 2 })
-  .then(res => console.log(res.data));
-```
-
 ## Axios
 
-Another 3rd-party AJAX library is Axios, which we use with React. The syntax is identical to $http:
+Axios is a 3rd-party, standalone AJAX library. It can be used in conjunction with other libraries like React. The syntax is similar to jQuery's `ajax` method:
 
 ```js
 axios({
