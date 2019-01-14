@@ -88,6 +88,7 @@
   * [Git & Github](appendix-01/git-github.md)
   * [Chrome Dev Tools](appendix-01/chrome-dev-tools.md)
   * [Atom Cheatsheet](appendix-01/atom.md)
+  * [Insomnia](appendix-01/insomnia.md)
   * [npm](appendix-01/npm.md)
   * [Yarn](appendix-01/yarn.md)
   * [Webpack](appendix-01/webpack.md)

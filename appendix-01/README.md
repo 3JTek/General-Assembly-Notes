@@ -5,6 +5,7 @@
 * [Git & Github](git-github.md)
 * [Chrome Dev Tools](chrome-dev-tools.md)
 * [Atom Cheatsheet](atom.md)
+* [Insomnia](insomnia.md)
 * [npm](npm.md)
 * [Yarn](yarn.md)
 * [Webpack](webpack.md)
