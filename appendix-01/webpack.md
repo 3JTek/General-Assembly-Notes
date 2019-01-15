@@ -153,13 +153,13 @@ With Webpack configured we can now use it. To do so we need to add some scripts 
 By adding commands in the `scripts` section of the `package.json` we can use them in the terminal:
 
 ```sh
-npm serve
+npm run serve
 ```
 
 Will start `webpack-dev-server`, which will open the browser and watch for file changes. It will not compile any code, but instead stores it all in memory.
 
 ```sh
-npm build
+npm run build
 ```
 
 Will actually compile our source code. It will create the `dist` folder and add the `bundle.js` file, `index.html` and any CSS files that may have been created. It will not open the browser or watch for file changes.
