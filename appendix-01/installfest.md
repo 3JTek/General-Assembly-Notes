@@ -287,8 +287,9 @@ And add the following lines:
 ```
 .DS_Store
 node_modules
-bower_components
 .sass-cache
+.env
+*.log
 ```
 
 **Save** and close the file.
@@ -320,19 +321,9 @@ the next step **Generate a new SSH key**, otherwise, go to step 5 **Add your SSH
 
 <br>
 
-## MacDown
+# Section 4: Node & Python
 
-MacDown is used to read and write [markdown](https://daringfireball.net/projects/markdown/) documents.
-
-All of your lesson notes and project readmes will be in this format.
-
-1. Go to [https://macdown.uranusjr.com/](https://macdown.uranusjr.com/)
-2. Click on the download link at the top of the screen
-3. Once the `.zip` file has downloaded, open it, and drag the MacDown app icon into your `Applications` folder and add it to your dock
-
-<br>
-
-# Section 4: Node
+## Install Node
 
 Node is a JavaScript engine that works on the server side. We can use it to create full stack web applications, command line tools and various other tools and packages.
 
@@ -395,11 +386,80 @@ Install the following eslint packages globally with yarn:
 yarn global add eslint eslint-plugin-react babel-eslint
 ```
 
+## Install Python 3
+
+Python is a server-side language that we'll be using towards the end of the course. Your MacBook comes with Python 2.7 installed already, but we need to upgrade to Python 3.
+
+We can install the latest version using Homebrew:
+
+```sh
+brew install python
+```
+
+This will install the latest version of python as `python3` and the package manager as `pip3`. We can remove the 3 from the end by making an alias in the `.zshrc` file. Open the file with atom:
+
+```sh
+atom ~/.zshrc
+```
+
+Then add the following lines at the bottom of the file:
+
+```sh
+alias python=python3
+alias pip=pip3
+```
+
 <br>
 
-# Section 6: Databases
+# Section 5: Databases
 
 We'll be using two different types of database on the course. One is a traditional SQL database called `Postgres`, the other a JavaScript based implementation known as `MongoDB`.
+
+## Install Postgres
+
+Install Postgres with Homebrew:
+
+```sh
+brew install postgresql
+```
+
+You can now start, stop and restart Postgres using the following commands:
+
+```sh
+brew services start postgresql
+brew services stop postgresql
+brew services restart postgresql
+```
+
+When you connect to Postgres for the first time, it will attempt to connect to a database that matches your MacBook username, so we will need to create that first:
+
+```sh
+createdb $(whoami)
+```
+
+Start Postgres, and connect to your newly created database using `psql`:
+
+```sh
+brew services start postgresql
+psql
+```
+
+If everything has worked correctly you should see the following:
+
+```sh
+psql (11.1)
+Type "help" for help.
+
+mickyginger=#
+```
+
+Where `mickyginger` is _your_ username.
+
+You can now exit `psql` by typing `\q` then enter, then stop Postgres running by typing:
+
+```sh
+brew services stop postgresql
+```
 
 ## Install mongoDB
 
@@ -422,9 +482,11 @@ I NETWORK [thread1] waiting for connections on port 27017
 
 Hit <kbd>ctrl</kbd> + <kbd>C</kbd> to stop the process running and quit the terminal.
 
+
 <br>
 
-# Section 7: GUI applications
+
+# Section 6: GUI applications
 
 Finally we need to install some more traditional Graphical User Interface applications to help us throughout the course.
 

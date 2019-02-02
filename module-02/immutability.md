@@ -20,13 +20,13 @@ In both instances above we have mutated an object.
 
 In the first case we extended an array with an extra element. The array has been modified **in place**. The original array has changed.
 
-In the second case we changed the values of the keys of an object. The object itself is the same. We **mutated** it by changing its contents.
+In the second case we changed the values of the keys of an object. The object itself is the same, we **mutated** it by changing its contents.
 
 ## React and mutation
 
-React doesn't like it when we mutate `state`. There is a good reason for this. When we mutate an object we don't get a new object, so it's hard for React to know what has changed or even whether anything has changed at all.
+React doesn't generally like it when we mutate data. There is a good reason for this. When we mutate an object we don't get a new object, so it's hard for React to know what has changed or even whether anything has changed at all.
 
-When the underlying data of a React app changes that normally means that React has to update the UI. The way that React knows whether do to this is by comparing the old data with the new data. If we mutate the old data, then React does not know what has changed.
+When the underlying data of a React app changes it normally means that React has to get to work to update the UI. The way that React knows whether do to this is by comparing the old data with the new data. If we mutate the old data, then React does not know what has changed.
 
 Let's take a look:
 
@@ -55,29 +55,14 @@ Let's look at some examples:
 const arr = ['Charles Xavier', 'James Logan', 'Jean Grey']
 const newArr = arr.concat('Scott Summers')
 
+// could also use the spread operator
+// const newArr = [...arr, 'Scott Summers']
+
 console.log(arr === newArr) // false
 console.log(arr.length === newArr.length) // false
-
-console.log(newArr)
-// => ['Charles Xavier', 'James Logan', 'Jean Grey', 'Scott Summers']
 ```
 
 The immutable version of `push` is `concat`. `concat` returns a new array, it takes the existing array, plus the new element and returns a brand new array, leaving the existing one in tact. This makes it very easy to see what has changed, and what part of the app needs to be updated.
-
-```js
-const beforeMutation = { name: 'Rogue', alterEgo: 'Jean Grey' }
-const afterMutation = Object.assign({}, beforeMutation, { alterEgo: 'Anne Marie' })
-
-console.log(beforeMutation === afterMutation) // false
-console.log(beforeMutation.alterEgo === afterMutation.alterEgo) // false
-
-console.log(beforeMutation, afterMutation)
-// => { name: 'Rogue', alterEgo: 'Jean Grey' } { name: 'Rogue', alterEgo: 'Anne Marie' }
-```
-
-`Object.assign` takes objects and overlays their properties from right to left. In the example above we take an empty object, and add the properties from the `beforeMutation` object. We then also add the data that we want to modify. The result is a new object with all the data that we want. The original object has not been modified, so we can easily compare the two.
-
-We can also use the ES6 _spread_ operator to do the same thing:
 
 ```js
 const beforeMutation = { name: 'Rogue', alterEgo: 'Jean Grey' }
@@ -85,10 +70,9 @@ const afterMutation = { ...beforeMutation, alterEgo: 'Anne Marie' }
 
 console.log(beforeMutation === afterMutation) // false
 console.log(beforeMutation.alterEgo === afterMutation.alterEgo) // false
-
-console.log(beforeMutation, afterMutation)
-// => { name: 'Rogue', alterEgo: 'Jean Grey' } { name: 'Rogue', alterEgo: 'Anne Marie' }
 ```
+
+`...` is called a _spread operator_, it's used to copy properties from one object to another. In the example above we have created a new object, and added the properties from the `beforeMutation` object to it with the _spread operator_. We then also overwrite the `alterEgo` property. The result is a new object with all the data that we want. The original object has not been modified, so we can easily compare the two.
 
 Let's have a look at some array methods that are mutable and immutable:
 
@@ -96,8 +80,8 @@ Let's have a look at some array methods that are mutable and immutable:
 |---------|-----------|
 | `splice()` | `slice()` |
 | `push()` | `concat()` |
-| `pop()` | `slice(-1)[0]` |
-| `shift()` | `slice(0, 1)[0]` |
+| `pop()` | `slice(-1)` |
+| `shift()` | `slice(1)` |
 | `unshift()` | `[element, ...oldArray]` |
 | `sort()` | `slice(0).sort()` |
 | `reverse()` | `slice(0).reverse()` |
