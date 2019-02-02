@@ -60,6 +60,7 @@
   * [User Registration](module-03/setting-up-an-express-app.md)
   * [Token Authentication](module-03/setting-up-an-express-app.md)
   * [Proxy Requests](module-03/setting-up-an-express-app.md)
+  * [Adding a React Frontend](module-03/adding-react.md)
 * [Module 4 - MERN](module-04/README.md)
   * [Intro to Python](module-04/intro-to-python.md)
   * [Primitive Data Types and Variables](module-04/data-types-variables.md)

@@ -15,3 +15,4 @@
 * [User Registration](setting-up-an-express-app.md)
 * [Token Authentication](setting-up-an-express-app.md)
 * [Proxy Requests](setting-up-an-express-app.md)
+* [Adding a React Frontend](adding-react.md)
