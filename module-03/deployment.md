@@ -25,7 +25,7 @@ Heroku is a web hosting platform and deployment pipeline that uses git. It is fr
 1. Ceate a Heroku app with the following command:
 
   ```sh
-  heroku create region=eu project-name
+  heroku create --region=eu project-name
   ```
 
   > **Note** replace `project-name` with the name of your project. This will become part of the website's URL.
@@ -71,7 +71,7 @@ Heroku is a web hosting platform and deployment pipeline that uses git. It is fr
 1. Commit your code
 
   ```sh
-  git add . && git commit -m "Ready for dpeloyment"
+  git add . && git commit -m "Ready for deployment"
   ```
 
 1. Deploy to Heroku
@@ -108,5 +108,5 @@ If you are using a database for your app, you will also need to create a Mongo d
 1. Update your codebase to use the new environment variable:
 
   ```js
-  mongoose.connect(proess.env.MONGODB_URI)
+  mongoose.connect(process.env.MONGODB_URI)
   ```
