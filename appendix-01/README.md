@@ -3,6 +3,7 @@
 * [Installfest](installfest.md)
 * [Terminal](terminal.md)
 * [Git & Github](git-github.md)
+* [Group Git Workflow Cheatsheet](team-git-cheatsheet.pdf)
 * [Chrome Dev Tools](chrome-dev-tools.md)
 * [Atom Cheatsheet](atom.md)
 * [Insomnia](insomnia.md)

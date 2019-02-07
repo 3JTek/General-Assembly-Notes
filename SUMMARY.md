@@ -89,6 +89,7 @@
   * [Installfest](appendix-01/installfest.md)
   * [Terminal](appendix-01/terminal.md)
   * [Git & Github](appendix-01/git-github.md)
+  * [Group Git Workflow Cheatsheet](appendix-01/team-git-cheatsheet.pdf)
   * [Chrome Dev Tools](appendix-01/chrome-dev-tools.md)
   * [Atom Cheatsheet](appendix-01/atom.md)
   * [Insomnia](appendix-01/insomnia.md)
