@@ -17,3 +17,4 @@
 * [Proxy Requests](setting-up-an-express-app.md)
 * [Adding a React Frontend](adding-react.md)
 * [Deployment](deployment.md)
+* [Testing Express](testing-express.md)

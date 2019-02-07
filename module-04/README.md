@@ -21,3 +21,4 @@
 * [Controllers with Blueprints](controllers.md)
 * [Relationships with SQLAlchemy & Marshmallow](sqlalchemy-relationships.md)
 * [Authentication](authentication.md)
+* [Testing an Express API](testing-express.md)
