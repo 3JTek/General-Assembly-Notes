@@ -33,6 +33,7 @@ app.listen(process.env.PORT, () => console.log(`Running on port ${process.env.PO
 module.exports = app
 ```
 
+
 ### Creating a helper file
 
 We need to load in a number of packages for our tests to load. Rather than adding them to the top of each test file, we'll create a helper file which will be automatically loaded into every test file.
@@ -66,6 +67,7 @@ global.api = supertest(app)
 Here we set the `NODE_ENV` variable to be `test`, so that the API will connect to our test database. We add `Promise`, `should`, `expect` and `api` to the `global` object (like `window`) in the browser, so that they are globally available.
 
 We are importing our app from `index.js` and then using Supertest to create API endpoints that are testable.
+
 
 ### Add a `test` script
 
@@ -189,6 +191,7 @@ describe('GET /cheeses', () => {
 })
 ```
 
+
 ## Testing other endpoints
 
 By following the principals outlined above you should be able to test all other endpoints for your API. Remember you are writing tests that would mimic a manual test of the endpoint.
@@ -198,4 +201,4 @@ Some tips to follow:
 * No test should rely on another test
 * No test should rely on data already in the database
 * Any data created by a test should be removed at the end of the test
-* Isolate tests as much as possible. If you need a token to test an endpoint, make the token with `jsonwebtoken` rather than using the LOGIN route, this way if the LOGIN route is broken, it won't break other tests.
+* Isolate tests as much as possible. If you need a token to test an endpoint for example, make the token with `jsonwebtoken` rather than using the LOGIN route, this way if the LOGIN route is broken, it won't break other tests.
