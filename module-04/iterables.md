@@ -31,9 +31,10 @@ names = ["Caroline", "Henry", "Priti", "Mohammed"]
 enumerate_object = enumerate(names)
 iterator = iter(enumerate_object)
 
-next(iterator) # 'Caroline'
-next(iterator) # 'Henry'
-next(iterator) # 'Priti' etc
+next(iterator) # (0, 'Caroline')
+next(iterator) # (1, 'Henry')
+next(iterator) # (2, 'Priti')
+next(iterator) # (3, 'Mohammed')
 ```
 
 ## `set`
@@ -65,7 +66,7 @@ next(iterator) # 'name'
 
 ## `list`
 
-A you would expect a `list` is iterable:
+As you would expect a `list` is iterable:
 
 ```py
 names = ["Caroline", "Henry", "Priti", "Mohammed"]
