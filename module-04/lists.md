@@ -62,10 +62,10 @@ for index, num in enumerate(nums):
 
 | Method | Description | JS equivalent | Example |
 |:-------|:------------|:--------------|:--------|
-| `append(elem)` | Add an element on the end of a list | `push(elem)` | list.append(10) |
-| `extend(list)` | Add the contents of one list to the other | `concat(array)` | list.concat(["hamster", "marmalade"]) |
-| `insert(index, elem)` | Add an element at the given index | `splice()` | list.insert(2, 'avocado') |
-| `remove(elem)` | Removes the given element from the list | N/A | list.remove('hamster') |
+| `append(elem)` | Add an element on the end of a list | `push(elem)` | `list.append(10)` |
+| `extend(list)` | Add the contents of one list to the other | `concat(array)` | `list.concat(["hamster", "marmalade"])` |
+| `insert(index, elem)` | Add an element at the given index | `splice()` | `list.insert(2, 'avocado')` |
+| `remove(elem)` | Removes the given element from the list | N/A | `list.remove('hamster')` |
 | `pop(index)` | Removes an element at the given index, or the end if no index is given | `pop()` | `list.pop()` |
 | `clear()` | Removes all elements from the list | N/A | `list.clear()` |
 | `count()` | Return the number of elements in the array | `length` | `list.count()` |
