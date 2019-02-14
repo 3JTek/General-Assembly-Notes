@@ -59,6 +59,7 @@ for index, num in enumerate(nums):
 
 ## `list` methods
 
+
 | Method | Description | JS equivalent | Example |
 |--------|---------------|---------|
 | `append(elem)` | Add an element on the end of a list | `push(elem)` | list.append(10) |
