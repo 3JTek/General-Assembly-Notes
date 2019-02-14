@@ -73,7 +73,7 @@ for index, num in enumerate(nums):
 | `reverse()` | Reverses the order of the elements in an array | `reverse()` | `list.reverse()` |
 | `copy()` | Returns a copy (clone) of the array | `slice()` | `list.copy()` |
 
-## `built in` functions
+## Built in functions
 
 There are some very useful array methods in JavaScript like `forEach`, `map`, `reduce`, `filter` etc., which are not list methods in Python. Instead the methods are global functions. Python does this because these functions can be used with data types other than `lists`.
 
@@ -116,7 +116,7 @@ nums = [10, 20, 30]
 map(doubler, nums) # [20, 40, 60]
 ```
 
-### Example `built-in` functions
+### Example built in functions
 
 | Function | Description | JS equivalent | Example |
 |----------|-------------|---------------|---------|
