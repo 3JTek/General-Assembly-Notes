@@ -4,9 +4,7 @@ Creating relationships between models is vital for any application. Let's look a
 
 Let's remind ourselves of that:
 
-<figure>
 ![erd](https://media.git.generalassemb.ly/user/15120/files/9357bb80-0796-11e9-82a0-737dbcf72168)
-</figure>
 
 
 ## One-to-many relationship
