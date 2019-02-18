@@ -21,8 +21,8 @@ Python has a few dictionary methods which are similar to JavaScript:
 | Method | Description | JS equivalent | Example |
 |--------|-------------|---------------|---------|
 | `keys()` | Returns a list of the dictionary's keys | `Object.keys()` | `dict.keys()` |
-| `values()` | Returns a list of the dictionary's values | `Object.values()` | `dict.values()` |
-| `items()` | Returns a list of tuples containing key/value pairs | `Object.items()` | `dict.items()` |
+| `values()` | Returns the dictionary's values | `Object.values()` | `dict.values()` |
+| `items()` | Returns tuples containing key/value pairs | `Object.items()` | `dict.items()` |
 | <code>get(key,&nbsp;default)</code> | Returns the value of the key or a default value if none is found | <code>obj[key]&nbsp;&#124;&#124;&nbsp;default</code> | <code>car.get('mph',&nbsp;0)</code> |
 | `pop(key)` | Removes the key specified and returns the value | N/A | `car.pop('mph')` |
 | `clear()` | Empties the dictionary | N/A | `dict.clear()` |
