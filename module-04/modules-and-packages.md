@@ -32,7 +32,7 @@ def convert(amount, unit):
 # main.py
 import converter # converter module loaded into memory
 
-unit = raw_input('What do you want to conver? lbs / stone / fl oz / pint ')
+unit = input('What do you want to conver? lbs / stone / fl oz / pint ')
 amount = input('How many %ss to convert? ' % unit)
 result = converter.convert(amount, unit)
 metric = 'kg' if unit in ['lbs', 'stone'] else 'ml'

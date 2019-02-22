@@ -104,6 +104,8 @@ class User(db.Model):
         self.password_hash = bcrypt.generate_password_hash(plaintext).decode('utf-8')
 ```
 
+> **Note:** The `@password.setter` function **must** be named `password` to match the name of the `hybrid_property`
+
 When we receive the plain text password we use `bcrypt` to hash it and set that hash to the user's `password_hash` property.
 
 ### `validate_password` method
@@ -134,6 +136,33 @@ class User(db.Model):
 
 Luckily `bcrypt` does the heavy lifting for us here.
 
+## Checking `password` matches `password_confirmation`
+
+When the user registers they will send a `password` _and_ `password_confirmation` to the API. We need to check these match _before_ hashing the password.
+
+Somewhat counterintuitively we'll do this check in the _schema_:
+
+```py
+class UserSchema(ma.ModelSchema, BaseSchema):
+
+    @validates_schema
+    def check_passwords_match(self, data):
+        if data.get('password') != data.get('password_confirmation'):
+            raise ValidationError(
+                'Passwords do not match',
+                'password_confirmation'
+            )
+
+    password = fields.String(required=True)
+    password_confirmation = fields.String(required=True)
+
+    class Meta:
+        model = User
+        exclude = ('password_hash',)
+```
+
+We also need to add the `password` and `password_confirmation`, since we need to use the schema to validate the user data in the register controller in the next step.
+
 ## Register route
 
 Since the hashing is being performed in the model, the register route is fairly straightforward:
@@ -158,6 +187,12 @@ def register():
     return jsonify({ 'message': 'Registration successful' }), 201
 ```
 
+We are using the `user_schema` to _load_ the data from sent from the client. This returns a tuple, containing a `user` object if successful, or an `errors` dict containing the validation errors.
+
+We check for errors, and if present send them back to the client as JSON with a 422 status code.
+
+If there are no errors, we can save the user and send our 201 respone.
+
 ## Login route
 
 The login route is a little more complex because we need to make a JWT if the user successfully authenticates. Firstly we need to install `pyjwt`:
@@ -166,24 +201,15 @@ The login route is a little more complex because we need to make a JWT if the us
 pipenv install pyjwt
 ```
 
-We can now write a function that generates a token:
+We can now write a function that generates a token. We could do this in the controller, but we want to keep our controllers skinny, so we'll add it to the `User` model, not forgetting to import `datetime`, `timedelta` build in Python modules:
 
 ```py
-# controllers/auth.py
-import jwt
-from datetime import datetime, timedelta
-from config.environment import secret
-from flask import Blueprint, jsonify, request
-from models.user import User, UserSchema
-
-router = Blueprint('auth', __name__)
-user_schema = UserSchema()
-
-def generate_token(user):
+# models/user.py
+def generate_token(self):
     payload = {
         'exp': datetime.utcnow() + timedelta(days=1),
         'iat': datetime.utcnow(),
-        'sub': user.id
+        'sub': self.id
     }
 
     token = jwt.encode(
@@ -195,7 +221,7 @@ def generate_token(user):
     return token
 ```
 
-The `generate_token` function receives the `user` as an argument, so that its ID can be used as the `sub` property of the payload. We then create the JWT using the `encode` method. Notice that we are importing a secret from `config/enviroment.py`. `HS256` is the encoding algorithm we are using.
+The `generate_token` has been added to the `user` as a method, so `self` refers to the user that is logging in. We create a JWT using the `encode` method. Notice that we are importing a secret from `config/enviroment.py`. `HS256` is the encoding algorithm we are using.
 
 With that in place we can write our login route:
 
@@ -209,9 +235,7 @@ def login():
     if not user or not user.validate_password(credentials['password']):
         return jsonify({ 'message': 'Unauthorized' }), 401
 
-    token = generate_token(user)
-
-    return jsonify({ 'token': token, 'message': f'Welcome back {user.username}!' }), 200
+    return jsonify({ 'token': user.generate_token(), 'message': f'Welcome back {user.username}!' }), 200
 ```
 
 ## Securing routes
